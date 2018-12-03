@@ -16,7 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+template1.jpg
 /node_modules
 /yarn-error.log
 
