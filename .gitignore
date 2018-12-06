@@ -19,5 +19,5 @@
 template1.jpg
 /node_modules
 /yarn-error.log
-
+/tests
 .byebug_history
