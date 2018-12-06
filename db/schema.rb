@@ -8,12 +8,67 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20181206001015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.string "answer_text"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "question_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "answers_id"
+    t.index ["answers_id"], name: "index_questions_on_answers_id"
+  end
+
+  create_table "technologies", force: :cascade do |t|
+    t.string "title"
+    t.text "discription"
+    t.float "progress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "technologies_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "technology_id", null: false
+    t.index ["technology_id"], name: "index_technologies_users_on_technology_id"
+    t.index ["user_id"], name: "index_technologies_users_on_user_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "title"
+    t.text "discription"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_tests_on_users_id"
+  end
+
+  create_table "tests_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
+    t.index ["test_id"], name: "index_tests_users_on_test_id"
+    t.index ["user_id"], name: "index_tests_users_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "lang", default: "ru"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "questions", "answers", column: "answers_id"
 end
