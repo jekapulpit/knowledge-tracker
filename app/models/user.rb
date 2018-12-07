@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          :confirmable,
-         :omniauth_providers => [:vk]
+         :omniauth_providers => [:vkontakte]
 
   has_and_belongs_to_many :technologies
   has_many :tests, through: :test_results
