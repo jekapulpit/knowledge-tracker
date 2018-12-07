@@ -7,10 +7,19 @@ class User < ApplicationRecord
          :rememberable,
          :validatable,
          :omniauthable,
-         :confirmable
+         :confirmable,
+         :omniauth_providers => [:vk]
 
-  has_many :technologies
   has_and_belongs_to_many :technologies
   has_many :tests, through: :test_results
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
 
 end
