@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   devise :database_authenticatable,
          :registerable,
@@ -11,6 +9,7 @@ class User < ApplicationRecord
          :confirmable,
          :omniauth_providers => [:vkontakte]
 
+  has_one_attached :avatar
   has_and_belongs_to_many :technologies
   has_many :tests, through: :test_results
 
