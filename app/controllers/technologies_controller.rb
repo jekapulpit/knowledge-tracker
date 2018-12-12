@@ -1,25 +1,15 @@
 class TechnologiesController < ApplicationController
+  def show; end
 
-  def show
+  def create; end
 
-  end
+  def update; end
 
-  def create
-
-  end
-
-  def update
-
-  end
-
-  def delete
-
-  end
+  def delete; end
 
   private
 
   def technology_params
     params.require(:technology).permit(:title, :discription, :icon)
   end
-
 end

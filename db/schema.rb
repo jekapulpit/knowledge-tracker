@@ -10,55 +10,42 @@
 # (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-<<<<<<< HEAD
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_125954) do
-=======
 # It's strongly recommended that you check this file into your version
 # control system.
->>>>>>> 993bdb0... rubocop changes
 
 ActiveRecord::Schema.define(version: 20_181_207_193_156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
-<<<<<<< HEAD
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  create_table 'active_storage_attachments', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.bigint 'record_id', null: false
+    t.bigint 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness', unique: true
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table 'active_storage_blobs', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.bigint 'byte_size', null: false
+    t.string 'checksum', null: false
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "answers", force: :cascade do |t|
-    t.string "answer_text"
-    t.bigint "question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-=======
   create_table 'answers', force: :cascade do |t|
     t.string 'answer_text'
     t.bigint 'question_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['question_id'], name: 'index_answers_on_question_id'
->>>>>>> 993bdb0... rubocop changes
   end
 
   create_table 'questions', force: :cascade do |t|
@@ -126,10 +113,6 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
             unique: true
   end
 
-<<<<<<< HEAD
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "questions", "answers", column: "answers_id"
-=======
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'questions', 'answers', column: 'answers_id'
->>>>>>> 993bdb0... rubocop changes
 end
