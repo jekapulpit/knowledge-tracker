@@ -3,6 +3,7 @@ class Technology < ApplicationRecord
   has_and_belongs_to_many :users
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   has_one_attached :icon
 
@@ -13,4 +14,7 @@ class Technology < ApplicationRecord
 =======
 >>>>>>> 993bdb0... rubocop changes
 >>>>>>> commit from master
+=======
+  has_one_attached :icon
+>>>>>>> rubocop changes 2.0
 end
