@@ -3,7 +3,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> commit from master
 
   def create
 
@@ -23,5 +26,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :email, :lang, :avatar)
   end
 
+<<<<<<< HEAD
 >>>>>>> setting avatar for user and icon for tech
+=======
+=======
+>>>>>>> 993bdb0... rubocop changes
+>>>>>>> commit from master
 end

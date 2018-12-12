@@ -11,6 +11,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 <<<<<<< HEAD
+<<<<<<< HEAD
 # It's strongly recommended that you check this file into your version
 # control system.
 =======
@@ -18,11 +19,21 @@
 
 ActiveRecord::Schema.define(version: 2018_12_12_125954) do
 >>>>>>> installing simple-form and activeStorage
+=======
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2018_12_12_125954) do
+=======
+# It's strongly recommended that you check this file into your version
+# control system.
+>>>>>>> 993bdb0... rubocop changes
+>>>>>>> commit from master
 
 ActiveRecord::Schema.define(version: 20_181_207_193_156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   create_table 'answers', force: :cascade do |t|
     t.string 'answer_text'
@@ -31,6 +42,8 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
     t.datetime 'updated_at', null: false
     t.index ['question_id'], name: 'index_answers_on_question_id'
 =======
+=======
+>>>>>>> commit from master
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,7 +71,18 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+<<<<<<< HEAD
 >>>>>>> installing simple-form and activeStorage
+=======
+=======
+  create_table 'answers', force: :cascade do |t|
+    t.string 'answer_text'
+    t.bigint 'question_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['question_id'], name: 'index_answers_on_question_id'
+>>>>>>> 993bdb0... rubocop changes
+>>>>>>> commit from master
   end
 
   create_table 'questions', force: :cascade do |t|
@@ -127,9 +151,17 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key 'questions', 'answers', column: 'answers_id'
 =======
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "questions", "answers", column: "answers_id"
 >>>>>>> installing simple-form and activeStorage
+=======
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "questions", "answers", column: "answers_id"
+=======
+  add_foreign_key 'questions', 'answers', column: 'answers_id'
+>>>>>>> 993bdb0... rubocop changes
+>>>>>>> commit from master
 end
