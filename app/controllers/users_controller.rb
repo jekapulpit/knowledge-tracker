@@ -5,6 +5,18 @@ class UsersController < ApplicationController
 <<<<<<< HEAD
 =======
 
+  def create
+
+  end
+
+  def update
+
+  end
+
+  def delete
+
+  end
+
   private
 
   def user_params
