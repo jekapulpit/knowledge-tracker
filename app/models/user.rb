@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          :confirmable,
-         :omniauth_providers => [:vkontakte]
+         omniauth_providers: [:vkontakte]
 
   has_and_belongs_to_many :technologies
   has_many :tests, through: :test_results
@@ -19,8 +19,7 @@ class User < ApplicationRecord
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
     end
   end
-
 end
