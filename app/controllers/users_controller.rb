@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-
   def profile
     @user = current_user
   end
+<<<<<<< HEAD
 
   def create
 
@@ -22,4 +22,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :email, :lang, :avatar)
   end
 
+=======
+>>>>>>> 993bdb0... rubocop changes
 end
