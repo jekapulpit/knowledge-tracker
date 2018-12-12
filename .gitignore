@@ -21,3 +21,4 @@ template1.jpg
 /yarn-error.log
 /tests
 .byebug_history
+/config/initializers/omniauth.rb
