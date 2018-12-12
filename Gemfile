@@ -31,6 +31,11 @@ gem 'devise'
 
 gem 'omniauth-vkontakte'
 
+gem 'faker'
+
+gem 'simple_form'
+
+gem 'rspec'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
