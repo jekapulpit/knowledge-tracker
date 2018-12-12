@@ -4,6 +4,18 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def create
+
+  end
+
+  def update
+
+  end
+
+  def delete
+
+  end
+
   private
 
   def user_params
