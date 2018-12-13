@@ -9,7 +9,7 @@ class User < ApplicationRecord
          omniauth_providers: [:vkontakte]
 
   has_one_attached :avatar
-  has_and_belongs_to_many :technologies
+  has_many :technologies, through: :technologies_users
   has_many :tests, through: :test_results
 
   def self.from_omniauth(auth)
