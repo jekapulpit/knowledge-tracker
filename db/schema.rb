@@ -109,4 +109,5 @@ ActiveRecord::Schema.define(version: 20_181_212_125_954) do
 
   add_foreign_key 'questions', 'answers', column: 'answers_id'
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+
 end
