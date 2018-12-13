@@ -9,55 +9,18 @@
 # from scratch. The latter is a flawed and unsustainable approach
 # (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-# It's strongly recommended that you check this file into your version
-# control system.
-=======
-# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_125954) do
->>>>>>> installing simple-form and activeStorage
-=======
-=======
->>>>>>> rubocop changes 2.0
-# It's strongly recommended that you check this file into your version control system.
-
-# It's strongly recommended that you check this file into your version
-# control system.
-<<<<<<< HEAD
->>>>>>> 993bdb0... rubocop changes
->>>>>>> commit from master
-=======
->>>>>>> rubocop changes 2.0
-
-ActiveRecord::Schema.define(version: 20_181_207_193_156) do
-  # These are extensions that must be enabled in order to support this database
+ActiveRecord::Schema.define(version: 20_181_212_125_954) do
   enable_extension 'plpgsql'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   create_table 'answers', force: :cascade do |t|
     t.string 'answer_text'
     t.bigint 'question_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['question_id'], name: 'index_answers_on_question_id'
-=======
-=======
->>>>>>> commit from master
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-=======
+  end
+
   create_table 'active_storage_attachments', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -66,7 +29,6 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
     t.datetime 'created_at', null: false
     t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
     t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness', unique: true
->>>>>>> rubocop changes 2.0
   end
 
   create_table 'active_storage_blobs', force: :cascade do |t|
@@ -78,32 +40,6 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
     t.string 'checksum', null: false
     t.datetime 'created_at', null: false
     t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
-  end
-
-<<<<<<< HEAD
-  create_table "answers", force: :cascade do |t|
-    t.string "answer_text"
-    t.bigint "question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-<<<<<<< HEAD
->>>>>>> installing simple-form and activeStorage
-=======
-=======
-=======
->>>>>>> rubocop changes 2.0
-  create_table 'answers', force: :cascade do |t|
-    t.string 'answer_text'
-    t.bigint 'question_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['question_id'], name: 'index_answers_on_question_id'
-<<<<<<< HEAD
->>>>>>> 993bdb0... rubocop changes
->>>>>>> commit from master
-=======
->>>>>>> rubocop changes 2.0
   end
 
   create_table 'questions', force: :cascade do |t|
@@ -171,23 +107,6 @@ ActiveRecord::Schema.define(version: 20_181_207_193_156) do
             unique: true
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   add_foreign_key 'questions', 'answers', column: 'answers_id'
-=======
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "questions", "answers", column: "answers_id"
->>>>>>> installing simple-form and activeStorage
-=======
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "questions", "answers", column: "answers_id"
-=======
-  add_foreign_key 'questions', 'answers', column: 'answers_id'
->>>>>>> 993bdb0... rubocop changes
->>>>>>> commit from master
-=======
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'questions', 'answers', column: 'answers_id'
->>>>>>> rubocop changes 2.0
 end

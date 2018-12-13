@@ -6,24 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-gem 'rails', '~> 5.1.3'
 
-=======
-gem 'rails', '~> 5.2.2'
->>>>>>> installing simple-form and activeStorage
-=======
-=======
->>>>>>> rubocop changes 2.0
 gem 'rails', '~> 5.2.2'
 
-<<<<<<< HEAD
->>>>>>> 993bdb0... rubocop changes
->>>>>>> commit from master
-=======
->>>>>>> rubocop changes 2.0
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
