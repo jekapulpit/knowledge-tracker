@@ -1,4 +1,8 @@
 class TechnologiesController < ApplicationController
+  def index
+    @technologies = Technology.all
+  end
+
   def show; end
 
   def create; end
