@@ -3,11 +3,25 @@ class TechnologiesController < ApplicationController
     @technologies = Technology.all
   end
 
-  def show; end
+  def edit
+    @technology = Technology.find(params[:id])
+  end
+
+  def show
+    @technology = Technology.find(params[:id])
+  end
 
   def create; end
 
-  def update; end
+  def update
+    @technology = Technology.find(params[:id])
+    if @technology.update(technology_params)
+      render 'show'
+    else
+      flash[:update_error] = 'cannot update the technology'
+      render 'new'
+    end
+  end
 
   def delete; end
 
