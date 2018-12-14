@@ -5,6 +5,8 @@
   display: flex;
   width: 400px;
   height: 100px;
+  position: relative;
+
   .tech-icon {
     width: 100px;
     height: 100%;
@@ -12,5 +14,10 @@
   .tech-info {
     height: 100%;
     width: 300px;
+  }
+  .contr-links {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
