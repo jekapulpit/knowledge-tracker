@@ -1,23 +1,52 @@
 // Place all the styles related to the technologies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.tech-panel {
-  display: flex;
-  width: 400px;
-  height: 100px;
-  position: relative;
 
-  .tech-icon {
-    width: 100px;
-    height: 100%;
-  }
-  .tech-info {
-    height: 100%;
-    width: 300px;
-  }
-  .contr-links {
-    position: absolute;
-    top: 0;
-    right: 0;
+.header {
+  height: 200px;
+}
+
+.container {
+  width: 1100px;
+  margin: auto;
+
+  .tech-container {
+    width: 950px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .tech-panel {
+      display: flex;
+      width: 400px;
+      height: 100px;
+      position: relative;
+      margin-left: 30px;
+      margin-top: 30px;
+      border: 3px solid #81F79F;
+      border-radius: 75px;
+      padding: 10px;
+      background-color: #2EFE9A;
+      font-family: Proxima-reg;
+
+      .tech-icon {
+        width: 100px;
+        height: 100%;
+        display: block;
+        border-radius: 50%;
+        border: 1px solid black;
+      }
+      .tech-info {
+        height: 100%;
+        width: 300px;
+        margin-left: 10px;
+      }
+      .contr-links {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
   }
 }

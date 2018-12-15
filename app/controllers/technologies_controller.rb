@@ -23,7 +23,11 @@ class TechnologiesController < ApplicationController
     end
   end
 
-  def delete; end
+  def delete
+    @technology = Technology.find(params[:id])
+    @technology.delete
+    redirect_to root_path
+  end
 
   private
 
