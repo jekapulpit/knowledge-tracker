@@ -1,12 +1,18 @@
 <div class="tech-panel">
-  <%= image_tag technology.icon, class: 'tech-icon' if technology.icon.attached? %>
-  <div class="tech-info">
+  <% if technology.icon.attached? %>
+  <%= image_tag technology.icon, class: 'tech-icon' %>
+  <% else %>
+  <%= image_tag 'no-photo.jpg', class: 'tech-icon' %>
+  <% end %>
+    <div class="tech-info">
     <h2 class="tech-name"><%=technology.title %></h2>
     <p class="tech-description"><%=technology.discription %></p>
   </div>
   <div class="contr-links">
     <%=link_to 'edit', edit_technology_path(technology) %>
     <%=link_to 'show', technology_path(technology) %>
-    <%=link_to 'delete', method: 'destroy', id: @technology %>
+    <%=link_to 'delete',  technology_path(technology),
+               method: :delete
+    %>
   </div>
 </div>

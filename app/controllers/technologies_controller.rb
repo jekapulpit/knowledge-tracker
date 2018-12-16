@@ -23,9 +23,10 @@ class TechnologiesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @technology = Technology.find(params[:id])
-    @technology.delete
+    @technology.destroy
+
     redirect_to root_path
   end
 

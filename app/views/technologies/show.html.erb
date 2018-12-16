@@ -6,6 +6,8 @@
   </div>
   <div class="contr-links">
     <%=link_to 'edit', edit_technology_path(@technology) %>
-    <%=link_to 'delete', method: 'destroy', id: @technology %>
+    <%=link_to 'delete',  technology_path(@technology),
+               method: :delete
+    %>
   </div>
 </div>
