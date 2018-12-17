@@ -11,7 +11,17 @@ class TechnologiesController < ApplicationController
     @technology = Technology.find(params[:id])
   end
 
-  def create; end
+  def new
+    @technology = Technology.new
+  end
+
+  def create
+    if Technology.create(technology_params)
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
 
   def update
     @technology = Technology.find(params[:id])
