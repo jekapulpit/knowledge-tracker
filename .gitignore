@@ -22,3 +22,5 @@ template1.jpg
 /tests
 .byebug_history
 /config/initializers/omniauth.rb
+/storage
+/storage/*

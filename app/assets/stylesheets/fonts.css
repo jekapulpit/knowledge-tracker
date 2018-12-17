@@ -1,0 +1,21 @@
+    @font-face {
+        font-family: Proxima-reg; /* Имя шрифта */
+        url(/assets/proxima_nova/ProximaNova-Regular.ttf) format("truetype"),
+    /*src: url('fonts/proxima_nova/ProximaNova-Regular.ttf'); /* Путь к файлу со шрифтом */
+    }
+    @font-face {
+        font-family: Proxima-semibold; /* Имя шрифта */
+        src: url('/assets/fonts/proxima_nova/ProximaNova-Semibold.ttf'); /* Путь к файлу со шрифтом */
+    }
+    @font-face {
+        font-family: Lora; /* Имя шрифта */
+        src: url('/assets/fonts/Lora/Lora-Regular.ttf'); /* Путь к файлу со шрифтом */
+    }
+    @font-face {
+        font-family: Lora-bold; /* Имя шрифта */
+        src: url(/assets/Lora/Lora-Bold.ttf); /* Путь к файлу со шрифтом */
+    }
+    @font-face {
+        font-family: Lora-italic; /* Имя шрифта */
+        src: url(/assets/Lora/Lora-Italic.ttf); /* Путь к файлу со шрифтом */
+    }

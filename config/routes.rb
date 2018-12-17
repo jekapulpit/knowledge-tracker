@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
-  resource :technology
+  resources :technologies
   root 'technologies#index'
 end
