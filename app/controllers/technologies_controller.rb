@@ -1,15 +1,13 @@
 class TechnologiesController < ApplicationController
+  before_action :set_technology, only: %i[edit show update destroy]
+
   def index
     @technologies = Technology.all
   end
 
-  def edit
-    @technology = Technology.find(params[:id])
-  end
+  def edit;  end
 
-  def show
-    @technology = Technology.find(params[:id])
-  end
+  def show;  end
 
   def new
     @technology = Technology.new
@@ -24,7 +22,6 @@ class TechnologiesController < ApplicationController
   end
 
   def update
-    @technology = Technology.find(params[:id])
     if @technology.update(technology_params)
       render 'show'
     else
@@ -34,13 +31,16 @@ class TechnologiesController < ApplicationController
   end
 
   def destroy
-    @technology = Technology.find(params[:id])
     @technology.destroy
 
     redirect_to root_path
   end
 
   private
+
+  def set_technology
+    @technology = Technology.find(params[:id])
+  end
 
   def technology_params
     params.require(:technology).permit(:title, :discription, :icon)
