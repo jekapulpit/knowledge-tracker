@@ -3,6 +3,6 @@
 </div>
 <div class="container">
   <div class="tech-container">
-    <%= render @technologies || 'empty_list' %>
+    <%= render @technologies if @technologies %>
   </div>
 </div>
