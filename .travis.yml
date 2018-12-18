@@ -5,9 +5,11 @@ rvm:
 
 script:
 - bundle install
-- rvm gemset use global
+- gem list | grep fileutils
 - gem uninstall fileutils
-- gem update fileutils --default
+- gem update --default
+- rvm gemset use global
+- gem list | grep fileutils
 - rake db:create
 - rake db:migrale
 
