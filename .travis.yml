@@ -1,9 +1,10 @@
 language: ruby
+
 rvm:
 - 2.3.3
 
-before-script:
-bundle install
-rake db:create
-rake db:migrale
+script:
+- bundle install
+- rake db:create
+- rake db:migrale
 
