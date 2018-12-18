@@ -5,6 +5,9 @@ rvm:
 
 script:
 - bundle install
+- rvm gemset use global
+- gem uninstall fileutils
+- gem update fileutils --default
 - rake db:create
 - rake db:migrale
 
