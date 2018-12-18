@@ -9,6 +9,6 @@ script:
 - gem uninstall fileutils
 - gem install fileutils
 - gem update fileutils
-- rake db:create
-- rake db:migrale
+- rails db:create
+- rails db:migrale
 
