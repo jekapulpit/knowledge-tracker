@@ -8,6 +8,28 @@
   </head>
 
   <body>
+  <div class="header">
+    <div class="header-container">
+      <div class="user-controls">
+        <div class="user-avatar-preview">
+          <% if current_user.avatar.attached? %>
+          <%= image_tag current_user
+                            .avatar
+                            .preview(resize_to_limit: [50, 50]) %>
+          <% else %>
+          <%= image_tag 'no-photo.jpg' %>
+          <% end %>
+        </div>
+        <div class="user-control">
+          <div class="user-name"><%= current_user.username %></div>
+          <div class="user-menu">
+            <%= link_to 'profile', '/profile' %>
+            <%= link_to 'sing out', destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <%= yield %>
   </body>
 </html>
