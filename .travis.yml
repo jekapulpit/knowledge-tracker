@@ -4,11 +4,7 @@ rvm:
 - 2.3.3
 
 script:
-- rvm gemset use global
 - bundle install
-- gem uninstall fileutils
-- gem install fileutils
-- gem update fileutils
-- rails db:create
-- rails db:migrale
+- bundle exec rake db:create
+- bundle exec rake db:migrale
 
