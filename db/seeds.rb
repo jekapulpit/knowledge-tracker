@@ -8,7 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' },
 # { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+#
+#
 Users = User.create([{ username: 'fcbb99', password: '123456', email: 'fcbb99@mail.ru', confirmed_at: '2018-12-31 15:32:10' },
                      { username: 'fcbb98', password: '123456', email: 'fcbb98@mail.ru', confirmed_at: '2018-12-31 15:32:10' },
                      { username: 'fcbb97', password: '123456', email: 'fcbb97@mail.ru' },
@@ -21,8 +22,26 @@ Techs = Technology.create([{ title: 'c++', discription: 'high-level programming 
                            { title: 'css', discription: 'to make your web-page not ugly' },
                            { title: 'coffee-script', discription: 'i dont know actually what it is' }])
 
-@tests = Techs[3].tests.create([{title: 'theme 1', discription: 'discription of theme 1'},
+Tests = Techs[3].tests.create([{title: 'theme 1', discription: 'discription of theme 1'},
                                 {title: 'theme 2', discription: 'discription of theme 2'},
                                 {title: 'theme 3', discription: 'discription of theme 3'},
                                 {title: 'theme 4', discription: 'discription of theme 4'},
-                                {title: 'theme 5', discription: 'discription of theme 5'},])
+                                {title: 'theme 5', discription: 'discription of theme 5'}])
+
+Answers1 = Answer.create([{answer_text: 'ans1'},
+                          {answer_text: 'ans2'},
+                          {answer_text: 'ans3'},
+                          {answer_text: 'ans4'}])
+
+Answers2 = Answer.create([{answer_text: 'ans1'},
+                          {answer_text: 'ans2'},
+                          {answer_text: 'ans3'},
+                          {answer_text: 'ans4'}])
+
+Questions = Tests[0].questions.create([{question_text: 'task1'},
+                                       {question_text: 'task2'}])
+
+Questions[0].answers = Answers1
+
+Questions[1].answers = Answers2
+

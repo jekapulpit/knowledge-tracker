@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_25_190032) do
+ActiveRecord::Schema.define(version: 2018_12_25_203528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,9 @@ ActiveRecord::Schema.define(version: 2018_12_25_190032) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "answers_id"
+    t.bigint "test_id"
     t.index ["answers_id"], name: "index_questions_on_answers_id"
+    t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -113,5 +115,6 @@ ActiveRecord::Schema.define(version: 2018_12_25_190032) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "questions", "answers", column: "answers_id"
+  add_foreign_key "questions", "tests"
   add_foreign_key "tests", "technologies"
 end
