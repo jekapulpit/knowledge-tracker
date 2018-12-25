@@ -12,5 +12,5 @@ script:
 - psql -c "CREATE DATABASE myapp_test;" -U postgres
 - psql -c "GRANT ALL PRIVILEGES ON DATABASE myapp_test to alex;" -U postgres
 - psql -c "ALTER DATABASE myapp_test OWNER TO alex;" -U postgres
-- bundle exec rake db:migrale
+- bundle exec rake db:migrate
 
