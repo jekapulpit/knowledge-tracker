@@ -1,0 +1,6 @@
+<h1><%= question.question_text %></h1>
+<% if question.answers %>
+  <% question.answers.each do |ans| %>
+    <p><%= ans.answer_text %></p>
+  <% end %>
+<% end %>
