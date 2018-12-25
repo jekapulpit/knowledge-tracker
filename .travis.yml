@@ -6,13 +6,11 @@ rvm:
 services:
 - postgresql
 
-before-script:
+script:
+- bundle install
 - psql -c 'create database myapp_test;' -U postgres
 - psql -c 'create user alex with encrypted password qwerty123;' -U postgres
 - psql -c 'grant all privileges on database myapp_test to alex;' -U postgres
-
-script:
-- bundle install
 - bundle exec rake db:create
 - bundle exec rake db:migrale
 
