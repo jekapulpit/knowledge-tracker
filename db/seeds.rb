@@ -20,3 +20,9 @@ Techs = Technology.create([{ title: 'c++', discription: 'high-level programming 
                            { title: 'java-script', discription: 'mostly using for web-apps interactivity' },
                            { title: 'css', discription: 'to make your web-page not ugly' },
                            { title: 'coffee-script', discription: 'i dont know actually what it is' }])
+
+@tests = Techs[3].tests.create([{title: 'theme 1', discription: 'discription of theme 1'},
+                                {title: 'theme 2', discription: 'discription of theme 2'},
+                                {title: 'theme 3', discription: 'discription of theme 3'},
+                                {title: 'theme 4', discription: 'discription of theme 4'},
+                                {title: 'theme 5', discription: 'discription of theme 5'},])

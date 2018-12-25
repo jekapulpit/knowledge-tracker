@@ -1,13 +1,19 @@
-<div class="tech-panel">
-  <%= image_tag @technology.icon, class: 'tech-icon' if @technology.icon.attached? %>
-  <div class="tech-info">
+<div class="container">
+  <div class="tech-title">
+    <% if @technology.icon.attached? %>
+      <%= image_tag @technology
+                        .icon
+                        .preview(resize_to_limit: [50, 50]),
+                    class: 'tech-icon' %>
+    <% else %>
+      <%= image_tag 'no-photo.jpg', class: 'tech-icon' %>
+    <% end %>
     <h2 class="tech-name"><%= @technology.title %></h2>
-    <p class="tech-description"><%= @technology.discription %></p>
   </div>
-  <div class="contr-links">
-    <%= link_to 'edit', edit_technology_path(@technology) %>
-    <%= link_to 'delete',  technology_path(@technology),
-               method: :delete
-    %>
+  <p class="tech-description"><%= @technology.discription %></p>
+  <div class="tech-themes">
+    <% @technology.tests.each do |test| %>
+      <h1><%= test.title %></h1>
+    <% end %>
   </div>
 </div>
