@@ -1,4 +1,4 @@
-<% if @question.id == params[:ans].to_i %>
+<% if @question.right_answer == params[:ans].to_i %>
 alert('yea!!!')
 <% else %>
 alert('nope')
