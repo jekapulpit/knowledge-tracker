@@ -1,6 +1,11 @@
 <h1><%= question.question_text %></h1>
 <% if question.answers %>
-  <% question.answers.each do |ans| %>
-    <p><%= ans.answer_text %></p>
+  <%= form_with url: '/answer' do %>
+    <% question.answers.each do |ans| %>
+      <%= hidden_field_tag :question, :id => question.id %>
+      <%= radio_button_tag 'ans', ans.id %>
+      <%= label_tag('ans', ans.answer_text) %>
+    <% end %>
+    <%= submit_tag 'answer' %>
   <% end %>
 <% end %>

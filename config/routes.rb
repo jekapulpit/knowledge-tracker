@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :technologies do
     resources :tests
   end
+  post '/answer', to: 'tests#answer'
   get '/profile', to: 'users#profile'
   root 'technologies#index'
 end
