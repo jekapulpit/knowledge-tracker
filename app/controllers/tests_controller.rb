@@ -6,6 +6,7 @@ class TestsController < ApplicationController
   end
 
   def answer
+    @question = Question.find(params[:question])
     respond_to do |format|
       format.js
     end
