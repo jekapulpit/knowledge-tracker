@@ -10,9 +10,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :technologies_users
-  has_many :technologies, :through => :technologies_users
+  has_many :technologies, through: :technologies_users
   has_many :test_results
-  has_many :tests, :through => :test_results
+  has_many :tests, through: :test_results
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -23,35 +23,35 @@ Techs = Technology.create([{ title: 'c++', discription: 'high-level programming 
                            { title: 'css', discription: 'to make your web-page not ugly' },
                            { title: 'coffee-script', discription: 'i dont know actually what it is' }])
 
-Tests = Techs[3].tests.create([{title: 'theme 1', discription: 'discription of theme 1'},
-                                {title: 'theme 2', discription: 'discription of theme 2'},
-                                {title: 'theme 3', discription: 'discription of theme 3'},
-                                {title: 'theme 4', discription: 'discription of theme 4'},
-                                {title: 'theme 5', discription: 'discription of theme 5'}])
+Tests = Techs[3].tests.create([{ title: 'theme 1', discription: 'discription of theme 1' },
+                               { title: 'theme 2', discription: 'discription of theme 2' },
+                               { title: 'theme 3', discription: 'discription of theme 3' },
+                               { title: 'theme 4', discription: 'discription of theme 4' },
+                               { title: 'theme 5', discription: 'discription of theme 5' }])
 
-Answers1 = Answer.create([{answer_text: 'ans1'},
-                          {answer_text: 'ans2'},
-                          {answer_text: 'ans3'},
-                          {answer_text: 'ans4'}])
-Answers2 = Answer.create([{answer_text: 'ans1'},
-                          {answer_text: 'ans2'},
-                          {answer_text: 'ans3'},
-                          {answer_text: 'ans4'}])
+Answers1 = Answer.create([{ answer_text: 'ans1' },
+                          { answer_text: 'ans2' },
+                          { answer_text: 'ans3' },
+                          { answer_text: 'ans4' }])
+Answers2 = Answer.create([{ answer_text: 'ans1' },
+                          { answer_text: 'ans2' },
+                          { answer_text: 'ans3' },
+                          { answer_text: 'ans4' }])
 
-Answers3 = Answer.create([{answer_text: 'ans1'},
-                          {answer_text: 'ans2'},
-                          {answer_text: 'ans3'},
-                          {answer_text: 'ans4'}])
+Answers3 = Answer.create([{ answer_text: 'ans1' },
+                          { answer_text: 'ans2' },
+                          { answer_text: 'ans3' },
+                          { answer_text: 'ans4' }])
 
-Answers4 = Answer.create([{answer_text: 'ans1'},
-                          {answer_text: 'ans2'},
-                          {answer_text: 'ans3'},
-                          {answer_text: 'ans4'}])
+Answers4 = Answer.create([{ answer_text: 'ans1' },
+                          { answer_text: 'ans2' },
+                          { answer_text: 'ans3' },
+                          { answer_text: 'ans4' }])
 
-Questions = Tests[0].questions.create([{question_text: 'task1'},
-                                       {question_text: 'task2'},
-                                       {question_text: 'task3'},
-                                       {question_text: 'task4'}])
+Questions = Tests[0].questions.create([{ question_text: 'task1' },
+                                       { question_text: 'task2' },
+                                       { question_text: 'task3' },
+                                       { question_text: 'task4' }])
 
 Questions[0].answers = Answers1
 Questions[0].right_answer = Answers1[1].id
@@ -65,5 +65,3 @@ Questions[2].save
 Questions[3].answers = Answers4
 Questions[3].right_answer = Answers4[3].id
 Questions[3].save
-
-
