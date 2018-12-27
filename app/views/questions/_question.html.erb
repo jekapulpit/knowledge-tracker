@@ -3,6 +3,7 @@
   <%= form_with url: '/answer' do %>
     <% question.answers.each do |ans| %>
       <%= hidden_field_tag :question, question.id %>
+      <%= hidden_field_tag :test, @test.id %>
       <%= radio_button_tag 'ans', ans.id %>
       <%= label_tag('ans', ans.answer_text) %>
     <% end %>
