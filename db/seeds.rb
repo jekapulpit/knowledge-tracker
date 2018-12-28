@@ -20,34 +20,34 @@ Technology.destroy_all
 User.destroy_all
 
 users = [
-    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10']
+  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10']
 ]
 
 technologies = [
-    ['c++', Faker::Company.bs],
-    ['tech2', Faker::Company.bs],
-    ['tech3', Faker::Company.bs],
-    ['tech4', Faker::Company.bs],
-    ['tech5', Faker::Company.bs]
+  ['c++', Faker::Company.bs],
+  ['tech2', Faker::Company.bs],
+  ['tech3', Faker::Company.bs],
+  ['tech4', Faker::Company.bs],
+  ['tech5', Faker::Company.bs]
 ]
 
 users.each do |uname, passw, email, crat|
-  User.create( username: uname, password: passw, email: email, confirmed_at: crat )
+  User.create(username: uname, password: passw, email: email, confirmed_at: crat)
 end
 
 technologies.each do |title, discr|
-  tech = Technology.create( title: title, discription: discr )
+  tech = Technology.create(title: title, discription: discr)
   num_of_tests = Faker::Number.between(5, 15)
-  num_of_tests.times do |test_index|
-    test = Test.create( title: Faker::Company.bs, discription: Faker::Company.bs)
-    10.times do |question_index|
-      question = Question.new( question_text: Faker::Lorem.sentence(3) )
-      4.times do |ans_index|
-        answer = Answer.create( answer_text: Faker::Company.bs )
+  num_of_tests.times do |_test_index|
+    test = Test.create(title: Faker::Company.bs, discription: Faker::Company.bs)
+    10.times do |_question_index|
+      question = Question.new(question_text: Faker::Lorem.sentence(3))
+      4.times do |_ans_index|
+        answer = Answer.create(answer_text: Faker::Company.bs)
         question.answers << answer
       end
       test.questions << question

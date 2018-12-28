@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
       @test_result.save
     end
     respond_to do |format|
-      format.json {render json: { success: @is_right }}
+      format.json { render json: { success: @is_right } }
     end
   end
 end
