@@ -13,5 +13,4 @@ script:
 - psql -c "GRANT ALL PRIVILEGES ON DATABASE myapp_test to alex;" -U postgres
 - psql -c "ALTER DATABASE myapp_test OWNER TO alex;" -U postgres
 - bundle exec rake db:migrate
-- gem install rubocop
 - bundle exec rubocop

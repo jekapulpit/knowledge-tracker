@@ -1,5 +1,5 @@
 <h1><%= question.question_text %></h1>
-<% if question.answers %>
+<% if question.answers.any? %>
   <%= form_with url: '/answer' do %>
     <% question.answers.each do |ans| %>
       <%= hidden_field_tag :question, question.id %>
