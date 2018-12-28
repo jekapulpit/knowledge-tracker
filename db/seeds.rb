@@ -11,57 +11,55 @@
 #
 #
 #
-Users = User.create([{ username: 'fcbb99', password: '123456', email: 'fcbb99@mail.ru', confirmed_at: '2018-12-31 15:32:10' },
-                     { username: 'fcbb98', password: '123456', email: 'fcbb98@mail.ru', confirmed_at: '2018-12-31 15:32:10' },
-                     { username: 'fcbb97', password: '123456', email: 'fcbb97@mail.ru' },
-                     { username: 'fcbb96', password: '123456', email: 'fcbb96@mail.ru' },
-                     { username: 'fcbb95', password: '123456', email: 'fcbb95@mail.ru' }])
+require 'faker'
 
-Techs = Technology.create([{ title: 'c++', discription: 'high-level programming language' },
-                           { title: 'c#', discription: 'high-level programming language' },
-                           { title: 'java-script', discription: 'mostly using for web-apps interactivity' },
-                           { title: 'css', discription: 'to make your web-page not ugly' },
-                           { title: 'coffee-script', discription: 'i dont know actually what it is' }])
+Answer.destroy_all
+Question.destroy_all
+Test.destroy_all
+Technology.destroy_all
+User.destroy_all
 
-Tests = Techs[3].tests.create([{ title: 'theme 1', discription: 'discription of theme 1' },
-                               { title: 'theme 2', discription: 'discription of theme 2' },
-                               { title: 'theme 3', discription: 'discription of theme 3' },
-                               { title: 'theme 4', discription: 'discription of theme 4' },
-                               { title: 'theme 5', discription: 'discription of theme 5' }])
+users = [
+    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
+    ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10']
+]
 
-Answers1 = Answer.create([{ answer_text: 'ans1' },
-                          { answer_text: 'ans2' },
-                          { answer_text: 'ans3' },
-                          { answer_text: 'ans4' }])
-Answers2 = Answer.create([{ answer_text: 'ans1' },
-                          { answer_text: 'ans2' },
-                          { answer_text: 'ans3' },
-                          { answer_text: 'ans4' }])
+technologies = [
+    ['c++', Faker::Company.bs],
+    ['tech2', Faker::Company.bs],
+    ['tech3', Faker::Company.bs],
+    ['tech4', Faker::Company.bs],
+    ['tech5', Faker::Company.bs]
+]
 
-Answers3 = Answer.create([{ answer_text: 'ans1' },
-                          { answer_text: 'ans2' },
-                          { answer_text: 'ans3' },
-                          { answer_text: 'ans4' }])
+users.each do |uname, passw, email, crat|
+  User.create( username: uname, password: passw, email: email, confirmed_at: crat )
+end
 
-Answers4 = Answer.create([{ answer_text: 'ans1' },
-                          { answer_text: 'ans2' },
-                          { answer_text: 'ans3' },
-                          { answer_text: 'ans4' }])
+technologies.each do |title, discr|
+  tech = Technology.create( title: title, discription: discr )
+  num_of_tests = Faker::Number.between(5, 15)
+  num_of_tests.times do |test_index|
+    test = Test.create( title: Faker::Company.bs, discription: Faker::Company.bs)
+    10.times do |question_index|
+      question = Question.new( question_text: Faker::Lorem.sentence(3) )
+      4.times do |ans_index|
+        answer = Answer.create( answer_text: Faker::Company.bs )
+        question.answers << answer
+      end
+      test.questions << question
+    end
+    tech.tests << test
+  end
+end
 
-Questions = Tests[0].questions.create([{ question_text: 'task1' },
-                                       { question_text: 'task2' },
-                                       { question_text: 'task3' },
-                                       { question_text: 'task4' }])
-
-Questions[0].answers = Answers1
-Questions[0].right_answer = Answers1[1].id
-Questions[0].save
-Questions[1].answers = Answers2
-Questions[1].right_answer = Answers2[1].id
-Questions[1].save
-Questions[2].answers = Answers3
-Questions[2].right_answer = Answers3[2].id
-Questions[2].save
-Questions[3].answers = Answers4
-Questions[3].right_answer = Answers4[3].id
-Questions[3].save
+Question.all.each do |question|
+  right_answer_index = Faker::Number.between(0, 3)
+  question.answers.each_with_index do |answer, answer_index|
+    question.right_answer = answer.id if answer_index == right_answer_index
+    question.save
+  end
+end
