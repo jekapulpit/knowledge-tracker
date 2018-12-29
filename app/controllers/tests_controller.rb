@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  def show
+  def start
     @test = Test.find(params[:id])
     Tests::StartOperation.new(@test, current_user).call
   end

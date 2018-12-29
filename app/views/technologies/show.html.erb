@@ -13,7 +13,7 @@
   <p class="tech-description"><%= @technology.discription %></p>
   <div class="tech-themes">
     <% @technology.tests.each do |test| %>
-      <%= link_to test.title, technology_test_path(@technology, test) %>
+      <%= link_to test.title, test_start_path(@technology, test), method: :post %>
     <% end %>
   </div>
 </div>
