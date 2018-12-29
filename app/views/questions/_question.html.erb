@@ -1,10 +1,10 @@
 <h1><%= question.question_text %></h1>
   <%= form_with url: '/answer' do %>
-    <%= hidden_field_tag :question, question.id %>
-    <%= hidden_field_tag :test, @test.id %>
+    <%= hidden_field_tag :question_id, question.id %>
+    <%= hidden_field_tag :test_id, @test.id %>
     <% question.answers.each do |ans| %>
-      <%= radio_button_tag 'ans', ans.id %>
-      <%= label_tag('ans', ans.answer_text) %>
+      <%= radio_button_tag 'answer', ans.id %>
+      <%= label_tag('answer', ans.answer_text) %>
     <% end %>
     <%= submit_tag 'answer' %>
   <% end %>
