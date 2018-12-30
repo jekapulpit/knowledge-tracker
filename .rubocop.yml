@@ -1,0 +1,28 @@
+Layout/EndOfLine:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  IgnoredPatterns:
+    - '#.'

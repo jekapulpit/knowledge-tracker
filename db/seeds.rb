@@ -20,45 +20,45 @@ require 'faker'
 # User.destroy_all
 
 [
-    {
-        username: 'fcbb99',
-        password: '123456',
-        email: 'fcbb99@mail.ru',
-        confirmed_at: '2018-12-31 15:32:10'
-    },
-    {
-        username: 'fcbb98',
-        password: '123456',
-        email: 'fcbb98@mail.ru',
-        confirmed_at: '2018-12-31 15:32:10'
-    },
-    {
-        username: 'fcbb97',
-        password: '123456',
-        email: 'fcbb97@mail.ru',
-        confirmed_at: '2018-12-31 15:32:10'
-    }
+  {
+    username: 'fcbb99',
+    password: '123456',
+    email: 'fcbb99@mail.ru',
+    confirmed_at: '2018-12-31 15:32:10'
+  },
+  {
+    username: 'fcbb98',
+    password: '123456',
+    email: 'fcbb98@mail.ru',
+    confirmed_at: '2018-12-31 15:32:10'
+  },
+  {
+    username: 'fcbb97',
+    password: '123456',
+    email: 'fcbb97@mail.ru',
+    confirmed_at: '2018-12-31 15:32:10'
+  }
 ].each do |user_attributes|
   User.create(user_attributes)
 end
 
 [
-    {
-        title: 'c++',
-        discription: Faker::Company.bs,
-    },
-    {
-        title: 'c#',
-        discription: Faker::Company.bs,
-    },
-    {
-        title: 'JavaScript',
-        discription: Faker::Company.bs,
-    },
-    {
-        title: 'Ruby',
-        discription: Faker::Company.bs,
-    }
+  {
+    title: 'c++',
+    discription: Faker::Company.bs
+  },
+  {
+    title: 'c#',
+    discription: Faker::Company.bs
+  },
+  {
+    title: 'JavaScript',
+    discription: Faker::Company.bs
+  },
+  {
+    title: 'Ruby',
+    discription: Faker::Company.bs
+  }
 ].each do |technology_params|
   tech = Technology.create(technology_params)
   num_of_tests = Faker::Number.between(5, 15)
