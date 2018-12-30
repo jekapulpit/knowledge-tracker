@@ -3,7 +3,7 @@
     <%= hidden_field_tag :question_id, question.id %>
     <%= hidden_field_tag :test_id, @test.id %>
     <% question.answers.each do |ans| %>
-      <%= radio_button_tag 'answer', ans.id %>
+      <%= radio_button_tag 'answer_id', ans.id %>
       <%= label_tag('answer', ans.answer_text) %>
     <% end %>
     <%= submit_tag 'answer' %>
