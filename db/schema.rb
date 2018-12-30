@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_181_213_172_723) do
+ActiveRecord::Schema.define(version: 20_181_226_190_507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -48,7 +48,10 @@ ActiveRecord::Schema.define(version: 20_181_213_172_723) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.bigint 'answers_id'
+    t.bigint 'test_id'
+    t.integer 'right_answer'
     t.index ['answers_id'], name: 'index_questions_on_answers_id'
+    t.index ['test_id'], name: 'index_questions_on_test_id'
   end
 
   create_table 'technologies', force: :cascade do |t|
@@ -84,6 +87,8 @@ ActiveRecord::Schema.define(version: 20_181_213_172_723) do
     t.bigint 'users_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.bigint 'technology_id'
+    t.index ['technology_id'], name: 'index_tests_on_technology_id'
     t.index ['users_id'], name: 'index_tests_on_users_id'
   end
 
@@ -110,4 +115,6 @@ ActiveRecord::Schema.define(version: 20_181_213_172_723) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'questions', 'answers', column: 'answers_id'
+  add_foreign_key 'questions', 'tests'
+  add_foreign_key 'tests', 'technologies'
 end

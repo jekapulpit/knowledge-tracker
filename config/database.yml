@@ -25,7 +25,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: blog_test
+  database: myapp_test
   pool: 5
   timeout: 5000
   username: alex

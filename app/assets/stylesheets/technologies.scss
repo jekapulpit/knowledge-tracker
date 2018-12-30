@@ -1,10 +1,6 @@
 // Place all the styles related to the technologies controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in app.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.header {
-  height: 200px;
-}
 
 .container {
   width: 1100px;
@@ -53,6 +49,14 @@
         top: 20px;
         right: 20px;
       }
+    }
+  }
+  .tech-title {
+    display: flex;
+
+    .tech-icon {
+      width: 70px;
+      height: 70px;
     }
   }
 }

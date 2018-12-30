@@ -3,12 +3,14 @@ language: ruby
 rvm:
 - 2.3.3
 
-script:
-- rvm gemset use global
-- bundle install
-- gem uninstall fileutils
-- gem install fileutils
-- gem update fileutils
-- rails db:create
-- rails db:migrale
+services:
+- postgresql
 
+script:
+- bundle install
+- psql -c "create user alex with encrypted password 'qwerty123';" -U postgres
+- psql -c "CREATE DATABASE myapp_test;" -U postgres
+- psql -c "GRANT ALL PRIVILEGES ON DATABASE myapp_test to alex;" -U postgres
+- psql -c "ALTER DATABASE myapp_test OWNER TO alex;" -U postgres
+- bundle exec rake db:migrate
+- bundle exec rubocop

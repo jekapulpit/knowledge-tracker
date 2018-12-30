@@ -1,1 +1,20 @@
-<%= @user.username %>
+<div class="container">
+  <div class="main-info">
+    <div class="main-avatar-block">
+      <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, class: 'main-avatar' %>
+      <% else %>
+      <%= image_tag 'no-photo.jpg', class: 'main-avatar' %>
+      <% end %>
+    </div>
+    <div class="text-info">
+        <p class="info-label">Username: <%= current_user.username %></p>
+    </div>
+  </div>
+  <div class="other-info">
+    <h1>Your technologies</h1>
+    <div class="tech-container">
+      <%= render current_user.technologies if current_user.technologies %>
+    </div>
+  </div>
+</div>
