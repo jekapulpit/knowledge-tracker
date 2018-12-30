@@ -1,2 +1,10 @@
-<h1>Search#start</h1>
-<p>Find me in app/views/search/start.html.erb</p>
+<div class="container">
+  <% if @found_techs.any? %>
+  <h1>Found: <%= @found_techs.length %></h1>
+  <div class="tech-container">
+    <%= render @found_techs %>
+  </div>
+  <% else %>
+    <h1>here's no any results, I'm so sorry (</h1>
+  <% end %>
+</div>

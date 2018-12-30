@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'search/start'
+  get '/search', to: 'search#start'
   get 'answers/answer'
   post '/technologies/:technology_id/tests/:id',
        to: 'tests#start',
