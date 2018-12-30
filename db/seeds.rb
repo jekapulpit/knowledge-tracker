@@ -13,40 +13,60 @@
 #
 require 'faker'
 
-Answer.destroy_all
-Question.destroy_all
-Test.destroy_all
-Technology.destroy_all
-User.destroy_all
+# Answer.destroy_all
+# Question.destroy_all
+# Test.destroy_all
+# Technology.destroy_all
+# User.destroy_all
 
-users = [
-  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10'],
-  ['fcbb99', '123456', 'fcbb99@mail.ru', '2018-12-31 15:32:10']
-]
-
-technologies = [
-  ['c++', Faker::Company.bs],
-  ['tech2', Faker::Company.bs],
-  ['tech3', Faker::Company.bs],
-  ['tech4', Faker::Company.bs],
-  ['tech5', Faker::Company.bs]
-]
-
-users.each do |uname, passw, email, crat|
-  User.create(username: uname, password: passw, email: email, confirmed_at: crat)
+[
+    {
+        username: 'fcbb99',
+        password: '123456',
+        email: 'fcbb99@mail.ru',
+        confirmed_at: '2018-12-31 15:32:10'
+    },
+    {
+        username: 'fcbb98',
+        password: '123456',
+        email: 'fcbb98@mail.ru',
+        confirmed_at: '2018-12-31 15:32:10'
+    },
+    {
+        username: 'fcbb97',
+        password: '123456',
+        email: 'fcbb97@mail.ru',
+        confirmed_at: '2018-12-31 15:32:10'
+    }
+].each do |user_attributes|
+  User.create(user_attributes)
 end
 
-technologies.each do |title, discr|
-  tech = Technology.create(title: title, discription: discr)
+[
+    {
+        title: 'c++',
+        discription: Faker::Company.bs,
+    },
+    {
+        title: 'c#',
+        discription: Faker::Company.bs,
+    },
+    {
+        title: 'JavaScript',
+        discription: Faker::Company.bs,
+    },
+    {
+        title: 'Ruby',
+        discription: Faker::Company.bs,
+    }
+].each do |technology_params|
+  tech = Technology.create(technology_params)
   num_of_tests = Faker::Number.between(5, 15)
-  num_of_tests.times do |_test_index|
+  num_of_tests.times do
     test = Test.create(title: Faker::Company.bs, discription: Faker::Company.bs)
-    10.times do |_question_index|
+    10.times do
       question = Question.new(question_text: Faker::Lorem.sentence(3))
-      4.times do |_ans_index|
+      4.times do
         answer = Answer.create(answer_text: Faker::Company.bs)
         question.answers << answer
       end
