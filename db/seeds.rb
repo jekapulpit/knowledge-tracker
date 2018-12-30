@@ -13,11 +13,10 @@
 #
 require 'faker'
 
-# Answer.destroy_all
-# Question.destroy_all
-# Test.destroy_all
-# Technology.destroy_all
-# User.destroy_all
+Answer.destroy_all
+Question.destroy_all
+Test.destroy_all
+User.destroy_all
 
 [
   {

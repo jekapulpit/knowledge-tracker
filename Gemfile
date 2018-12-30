@@ -35,6 +35,12 @@ gem 'turbolinks', '~> 5'
 
 gem 'jbuilder', '~> 2.5'
 
+gem 'elasticsearch'
+
+gem 'elasticsearch-model'
+
+gem 'elasticsearch-rails'
+
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do

@@ -69,6 +69,19 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    elasticsearch (6.1.0)
+      elasticsearch-api (= 6.1.0)
+      elasticsearch-transport (= 6.1.0)
+    elasticsearch-api (6.1.0)
+      multi_json
+    elasticsearch-model (6.0.0)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
+    elasticsearch-rails (6.0.0)
+    elasticsearch-transport (6.1.0)
+      faraday
+      multi_json
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -266,6 +279,9 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   devise
+  elasticsearch
+  elasticsearch-model
+  elasticsearch-rails
   faker
   jbuilder (~> 2.5)
   omniauth
