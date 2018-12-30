@@ -12,12 +12,14 @@ body {
     width: 90%;
     margin: auto;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
 
     .user-controls {
       height: 100%;
-      float: right;
       display: flex;
       color: #2EFEF7;
+      cursor: pointer;
 
       .user-avatar-preview, .user-name {
         display: flex;
@@ -39,19 +41,32 @@ body {
         position: absolute;
         display: flex;
         width: 130px;
+        visibility: hidden;
+        height: 0;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
         background-color: #2E2E2E;
         top: 60px;
         right: 5%;
-
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        -ms-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        z-index: 2;
 
         a {
           color: inherit;
           text-decoration: none;
           margin: 5px;
+          visibility: inherit;
         }
+      }
+      .user-menu-active {
+        height: 100px;
+        visibility: visible;
       }
     }
   }
