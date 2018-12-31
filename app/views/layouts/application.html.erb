@@ -16,7 +16,7 @@
           <%= submit_tag('Search') %>
         <% end %>
       </div>
-      <div class="user-controls">
+      <div class="user-controls" onclick="toggle_user_menu();">
         <div class="user-avatar-preview">
           <% if current_user.avatar.attached? %>
             <%= image_tag current_user

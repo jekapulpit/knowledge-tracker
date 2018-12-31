@@ -14,16 +14,12 @@
 //= require turbolinks
 //= require_tree .
 
-document.addEventListener('DOMContentLoaded', function() {
-    user_control = document.getElementsByClassName('user-controls')[0];
-    user_control.addEventListener('click', function() {
-        user_menu = document.getElementsByClassName('user-menu')[0];
-        if (~user_menu.getAttribute('class').indexOf('user-menu-active') == -11){
-            user_menu.setAttribute('class', 'user-menu');
-        }
-        else {
-            user_menu.setAttribute('class', 'user-menu user-menu-active');
-        }
-    });
-});
-
+function toggle_user_menu() {
+    user_menu = document.getElementsByClassName('user-menu')[0];
+    if (~user_menu.getAttribute('class').indexOf('user-menu-active') == -11){
+        user_menu.setAttribute('class', 'user-menu');
+    }
+    else {
+        user_menu.setAttribute('class', 'user-menu user-menu-active');
+    }
+}
