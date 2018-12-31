@@ -1,7 +1,6 @@
-
 <div class="container">
   <div class="tech-container">
-    <%= render @technologies if @technologies %>
+    <%= render @technologies if @technologies.any? %>
   </div>
   <%= will_paginate @technologies %>
 </div>

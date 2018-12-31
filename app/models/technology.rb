@@ -1,5 +1,6 @@
 class Technology < ApplicationRecord
   has_many :tests
+  has_many :technologies_users
   has_many :users, through: :technologies_users
   has_one_attached :icon
 
