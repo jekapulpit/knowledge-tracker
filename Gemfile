@@ -31,6 +31,8 @@ gem 'omniauth-vkontakte'
 
 gem 'simple_form'
 
+gem 'will_paginate', '~> 3.1.0'
+
 gem 'turbolinks', '~> 5'
 
 gem 'jbuilder', '~> 2.5'
