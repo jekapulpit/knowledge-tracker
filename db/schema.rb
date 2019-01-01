@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_101_143_438) do
+ActiveRecord::Schema.define(version: 20_190_101_151_118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 20_190_101_143_438) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'views', default: 0
+    t.bigint 'category_id'
+    t.index ['category_id'], name: 'index_technologies_on_category_id'
   end
 
   create_table 'technologies_users', id: false, force: :cascade do |t|
@@ -139,5 +141,6 @@ ActiveRecord::Schema.define(version: 20_190_101_143_438) do
   add_foreign_key 'marks', 'users'
   add_foreign_key 'questions', 'answers', column: 'answers_id'
   add_foreign_key 'questions', 'tests'
+  add_foreign_key 'technologies', 'categories'
   add_foreign_key 'tests', 'technologies'
 end
