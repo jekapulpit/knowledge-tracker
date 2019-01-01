@@ -46,15 +46,15 @@ end
 Technology.__elasticsearch__.create_index!
 
 [
-    {
-        title: 'program languages'
-    },
-    {
-        title: 'frameworks'
-    },
-    {
-        title: 'others'
-    }
+  {
+    title: 'program languages'
+  },
+  {
+    title: 'frameworks'
+  },
+  {
+    title: 'others'
+  }
 ].each do |category_params|
   category = Category.create(category_params)
   3.times do

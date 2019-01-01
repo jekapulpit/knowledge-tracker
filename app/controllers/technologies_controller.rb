@@ -5,14 +5,14 @@ class TechnologiesController < ApplicationController
   def index
     @categories_array = Category.all.map { |category| [category.title, category.id] }
     @categories_array.insert(0, ['all', nil])
-    if params[:category].present?
-      @technologies = Category.find(params[:category]).technologies
-    else
-      @technologies = Technology.all
-    end
+    @technologies = if params[:category].present?
+                      Category.find(params[:category]).technologies
+                    else
+                      Technology.all
+                    end
 
     if params[:sort_by].present?
-      @technologies.order!(params[:sort_by].gsub('-', ' '))
+      @technologies.order!(params[:sort_by].tr('-', ' '))
     else
       @technologies.order!(views: :desc)
     end
