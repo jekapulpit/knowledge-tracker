@@ -13,10 +13,12 @@
 #
 require 'faker'
 
-Answer.destroy_all
-Question.destroy_all
-Test.destroy_all
-User.destroy_all
+# Answer.destroy_all
+# Question.destroy_all
+# Test.destroy_all
+# Technology.__elasticsearch__.delete_index!
+# Technology.destroy_all
+# Category.destroy_all
 
 [
   {
@@ -41,37 +43,36 @@ User.destroy_all
   User.create(user_attributes)
 end
 
+Technology.__elasticsearch__.create_index!
+
 [
-  {
-    title: 'c++',
-    discription: Faker::Company.bs
-  },
-  {
-    title: 'c#',
-    discription: Faker::Company.bs
-  },
-  {
-    title: 'JavaScript',
-    discription: Faker::Company.bs
-  },
-  {
-    title: 'Ruby',
-    discription: Faker::Company.bs
-  }
-].each do |technology_params|
-  tech = Technology.create(technology_params)
-  num_of_tests = Faker::Number.between(5, 15)
-  num_of_tests.times do
-    test = Test.create(title: Faker::Company.bs, discription: Faker::Company.bs)
-    10.times do
-      question = Question.new(question_text: Faker::Lorem.sentence(3))
-      4.times do
-        answer = Answer.create(answer_text: Faker::Company.bs)
-        question.answers << answer
+    {
+        title: 'program languages'
+    },
+    {
+        title: 'frameworks'
+    },
+    {
+        title: 'others'
+    }
+].each do |category_params|
+  category = Category.create(category_params)
+  3.times do
+    tech = Technology.create(title: Faker::Lorem.sentence(2), discription: Faker::Lorem.sentence(3))
+    category.technologies << tech
+    num_of_tests = 5
+    num_of_tests.times do
+      test = Test.create(title: Faker::Company.bs, discription: Faker::Company.bs)
+      10.times do
+        question = Question.new(question_text: Faker::Lorem.sentence(3))
+        4.times do
+          answer = Answer.create(answer_text: Faker::Company.bs)
+          question.answers << answer
+        end
+        test.questions << question
       end
-      test.questions << question
+      tech.tests << test
     end
-    tech.tests << test
   end
 end
 
