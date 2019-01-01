@@ -42,6 +42,17 @@ class TechnologiesController < ApplicationController
     @technology = Technology.find(params[:id])
   end
 
+  #  def not_users_technologies
+  #    sql = 'select "id" from technologies
+  #           except
+  #           SELECT "id" FROM "technologies" INNER JOIN
+  #           "technologies_users" ON "technologies"."id" = "technologies_users"."technology_id"
+  #           WHERE "technologies_users"."user_id" = 46'
+  #    technologies_as_array = Technology.find_by_sql(sql)
+  #    technologies_as_relation = Technology
+  #                                   .where(id: technologies_as_array.map(&:id))
+  #  end
+
   def technology_params
     params.require(:technology).permit(:title, :discription, :icon)
   end
