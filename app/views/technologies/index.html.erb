@@ -1,4 +1,16 @@
 <div class="container">
+  <div class="filters">
+    <%= form_with(method: 'get', local: true) do %>
+      <%= select_tag(:category, options_for_select(@categories_array, params[:category])) %>
+      <%= select_tag(:sort_by, options_for_select([
+          ['most viewed', 'views'],
+          ['less viewed', 'views-desc'],
+          ['newest', 'created_at'],
+          ['oldest', 'created_at-desc'],
+        ], params[:sort_by])) %>
+      <%= submit_tag('Apply') %>
+  <% end %>
+  </div>
   <div class="tech-container">
     <%= render @technologies if @technologies.any? %>
   </div>

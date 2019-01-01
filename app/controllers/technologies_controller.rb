@@ -3,7 +3,20 @@ class TechnologiesController < ApplicationController
   before_action :increment_views, only: 'show'
 
   def index
-    @technologies = Technology.order(views: :desc).paginate(page: params[:page])
+    @categories_array = Category.all.map { |category| [category.title, category.id] }
+    @categories_array.insert(0, ['all', nil])
+    if params[:category].present?
+      @technologies = Category.find(params[:category]).technologies
+    else
+      @technologies = Technology.all
+    end
+
+    if params[:sort_by].present?
+      @technologies.order!(params[:sort_by].gsub('-', ' '))
+    else
+      @technologies.order!(views: :desc)
+    end
+    @technologies = @technologies.paginate(page: params[:page])
   end
 
   def edit;  end
