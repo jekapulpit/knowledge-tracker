@@ -1,8 +1,9 @@
 class TechnologiesController < ApplicationController
   before_action :set_technology, only: %i[edit show update destroy]
+  before_action :increment_views, only: 'show'
 
   def index
-    @technologies = Technology.paginate(page: params[:page])
+    @technologies = Technology.order(views: :desc).paginate(page: params[:page])
   end
 
   def edit;  end
@@ -40,6 +41,11 @@ class TechnologiesController < ApplicationController
 
   def set_technology
     @technology = Technology.find(params[:id])
+  end
+
+  def increment_views
+    @technology.views = @technology.views + 1
+    @technology.save
   end
 
   #  def not_users_technologies

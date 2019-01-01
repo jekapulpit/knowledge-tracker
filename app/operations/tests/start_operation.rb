@@ -8,7 +8,7 @@ module Tests
     end
 
     def call
-      user.tests << test unless test.in? user.tests
+      user.tests << test
       user.technologies << test.technology unless test.technology.in? user.technologies
       result_refresh
     end
