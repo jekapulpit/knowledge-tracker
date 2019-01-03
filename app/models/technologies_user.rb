@@ -1,6 +1,6 @@
 class TechnologiesUser < ApplicationRecord
+  self.per_page = 10
+
   belongs_to :user
   belongs_to :technology
-
-  self.per_page = 10
 end

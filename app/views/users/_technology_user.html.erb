@@ -5,9 +5,9 @@
   <%= image_tag 'no-photo.jpg', class: 'tech-icon' %>
   <% end %>
     <div class="tech-info">
-    <h2 class="tech-name"><%=progress.technology.title %></h2>
-    <p class="tech-description"><%=progress.technology.discription %></p>
-    <p class="tech-description"><%=progress.progress %></p>
+    <h2 class="tech-name"> <%= progress.technology.title %> </h2>
+    <p class="tech-description"> <%= progress.technology.discription %> </p>
+    <p class="tech-description"> <%= progress.progress %> </p>
   </div>
   <div class="contr-links">
     <%= link_to 'edit', edit_technology_path(progress.technology) %>

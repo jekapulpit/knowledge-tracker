@@ -14,8 +14,8 @@
   <div class="other-info">
     <h1>Your technologies</h1>
     <div class="tech-container">
-      <% @progress_list.each do |progress| %>
-        <%= render partial: 'technology_user', locals: {progress: progress} %>
+      <% @progress.each do |progress| %>
+        <%= render 'technology_user', progress: progress %>
       <% end %>
     </div>
   </div>

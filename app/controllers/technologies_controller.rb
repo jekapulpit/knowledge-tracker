@@ -3,15 +3,17 @@ class TechnologiesController < ApplicationController
   before_action :increment_views, only: 'show'
 
   def index
-    @categories_array = Category.all.map { |category| [category.title, category.id] }
-    @categories_array.insert(0, ['all', nil])
+    @categories = [
+        ['all', nil],
+        *Category.pluck(:title, :id)
+    ]
     @technologies = if params[:category].present?
                       Category.find(params[:category]).technologies
                     else
                       Technology.all
                     end
 
-    if params[:sort_by].present?
+    if params[:sort_by].in?(['views', 'views-desc', 'created_at', 'created_at-desc'])
       @technologies.order!(params[:sort_by].tr('-', ' '))
     else
       @technologies.order!(views: :desc)
@@ -73,6 +75,6 @@ class TechnologiesController < ApplicationController
   #  end
 
   def technology_params
-    params.require(:technology).permit(:title, :discription, :views, :icon)
+    params.require(:technology).permit(:title, :discription, :icon)
   end
 end

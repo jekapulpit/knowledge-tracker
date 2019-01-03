@@ -43,8 +43,6 @@ require 'faker'
   User.create(user_attributes)
 end
 
-Technology.__elasticsearch__.create_index!
-
 [
   {
     title: 'program languages'
