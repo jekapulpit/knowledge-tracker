@@ -4,8 +4,8 @@ class TechnologiesController < ApplicationController
 
   def index
     @categories = [
-        ['all', nil],
-        *Category.pluck(:title, :id)
+      ['all', nil],
+      *Category.pluck(:title, :id)
     ]
     @technologies = if params[:category].present?
                       Category.find(params[:category]).technologies
