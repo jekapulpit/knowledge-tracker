@@ -58,6 +58,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'selenium-webdriver'
 end
 
