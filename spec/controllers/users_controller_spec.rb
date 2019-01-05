@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
     context 'authorised' do
       it 'authorising user and going to the profile' do
         sign_in create_confirmed_user
-        should be_success 
+        should be_success
       end
     end
   end
