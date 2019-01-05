@@ -1,8 +1,24 @@
 class TechnologiesController < ApplicationController
   before_action :set_technology, only: %i[edit show update destroy]
+  before_action :increment_views, only: 'show'
 
   def index
-    @technologies = Technology.all
+    @categories = [
+      ['all', nil],
+      *Category.pluck(:title, :id)
+    ]
+    @technologies = if params[:category].present?
+                      Category.find(params[:category]).technologies
+                    else
+                      Technology.all
+                    end
+
+    if params[:sort_by].in?(['views', 'views-desc', 'created_at', 'created_at-desc'])
+      @technologies.order!(params[:sort_by].tr('-', ' '))
+    else
+      @technologies.order!(views: :desc)
+    end
+    @technologies = @technologies.paginate(page: params[:page])
   end
 
   def edit;  end
@@ -41,6 +57,21 @@ class TechnologiesController < ApplicationController
   def set_technology
     @technology = Technology.find(params[:id])
   end
+
+  def increment_views
+    @technology.update(views: @technology.views + 1)
+  end
+
+  #  def not_users_technologies
+  #    sql = 'select "id" from technologies
+  #           except
+  #           SELECT "id" FROM "technologies" INNER JOIN
+  #           "technologies_users" ON "technologies"."id" = "technologies_users"."technology_id"
+  #           WHERE "technologies_users"."user_id" = 46'
+  #    technologies_as_array = Technology.find_by_sql(sql)
+  #    technologies_as_relation = Technology
+  #                                   .where(id: technologies_as_array.map(&:id))
+  #  end
 
   def technology_params
     params.require(:technology).permit(:title, :discription, :icon)

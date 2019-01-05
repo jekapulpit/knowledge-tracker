@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_181_226_190_507) do
+ActiveRecord::Schema.define(version: 20_190_105_094_523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -43,6 +43,27 @@ ActiveRecord::Schema.define(version: 20_181_226_190_507) do
     t.index ['question_id'], name: 'index_answers_on_question_id'
   end
 
+  create_table 'categories', force: :cascade do |t|
+    t.string 'title'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'marks', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'user_id'
+    t.integer 'value'
+    t.index ['user_id'], name: 'index_marks_on_user_id'
+  end
+
+  create_table 'marks_technologies', id: false, force: :cascade do |t|
+    t.bigint 'technology_id', null: false
+    t.bigint 'mark_id', null: false
+    t.index ['mark_id'], name: 'index_marks_technologies_on_mark_id'
+    t.index ['technology_id'], name: 'index_marks_technologies_on_technology_id'
+  end
+
   create_table 'questions', force: :cascade do |t|
     t.text 'question_text'
     t.datetime 'created_at', null: false
@@ -59,6 +80,9 @@ ActiveRecord::Schema.define(version: 20_181_226_190_507) do
     t.text 'discription'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.integer 'views', default: 0
+    t.bigint 'category_id'
+    t.index ['category_id'], name: 'index_technologies_on_category_id'
   end
 
   create_table 'technologies_users', id: false, force: :cascade do |t|
@@ -114,7 +138,11 @@ ActiveRecord::Schema.define(version: 20_181_226_190_507) do
   end
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'marks', 'users'
+  add_foreign_key 'marks_technologies', 'marks'
+  add_foreign_key 'marks_technologies', 'technologies'
   add_foreign_key 'questions', 'answers', column: 'answers_id'
   add_foreign_key 'questions', 'tests'
+  add_foreign_key 'technologies', 'categories'
   add_foreign_key 'tests', 'technologies'
 end

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  def profile; end
+  def profile
+    @progress = current_user.technologies_users.includes(:technology)
+  end
 
   def create; end
 

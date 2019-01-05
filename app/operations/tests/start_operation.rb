@@ -8,8 +8,14 @@ module Tests
     end
 
     def call
-      user.tests << test unless test.in? user.tests
+      user.tests << test
       user.technologies << test.technology unless test.technology.in? user.technologies
+      reset_result
+    end
+
+    private
+
+    def reset_result
       test_result = user.test_results.find_by(test_id: test.id)
       test_result.result = 0
       test_result.save

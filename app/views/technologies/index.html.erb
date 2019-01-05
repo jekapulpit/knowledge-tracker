@@ -1,6 +1,15 @@
-
 <div class="container">
-  <div class="tech-container">
-    <%= render @technologies if @technologies %>
+  <div class="filters">
+    <%= form_with(method: 'get', local: true) do %>
+      <%= select_tag(:category, options_for_select(@categories,
+                                                   params[:category])) %>
+      <%= select_tag(:sort_by, options_for_select(technologies_sort_options,
+                                                  params[:sort_by])) %>
+      <%= submit_tag('Apply') %>
+  <% end %>
   </div>
+  <div class="tech-container">
+    <%= render @technologies if @technologies.any? %>
+  </div>
+  <%= will_paginate @technologies %>
 </div>

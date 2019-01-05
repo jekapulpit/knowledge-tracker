@@ -14,7 +14,9 @@
   <div class="other-info">
     <h1>Your technologies</h1>
     <div class="tech-container">
-      <%= render current_user.technologies if current_user.technologies %>
+      <% @progress.each do |progress| %>
+        <%= render 'technology_user', progress: progress %>
+      <% end %>
     </div>
   </div>
 </div>

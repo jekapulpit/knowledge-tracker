@@ -1,0 +1,10 @@
+<div class="container">
+  <% if @found_techs.any? %>
+  <h1>Found: <%= @found_techs.length %></h1>
+  <div class="tech-container">
+    <%= render @found_techs %>
+  </div>
+  <% else %>
+    <h1>Sorry, no matches were found for your query :(</h1>
+  <% end %>
+</div>
