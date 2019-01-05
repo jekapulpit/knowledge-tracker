@@ -3,7 +3,7 @@
     <%= form_with(method: 'get', local: true) do %>
       <%= select_tag(:category, options_for_select(@categories,
                                                    params[:category])) %>
-      <%= select_tag(:sort_by, options_for_select(get_sort_options,
+      <%= select_tag(:sort_by, options_for_select(technologies_sort_options,
                                                   params[:sort_by])) %>
       <%= submit_tag('Apply') %>
   <% end %>

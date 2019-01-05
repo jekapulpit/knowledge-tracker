@@ -1,5 +1,5 @@
 module TechnologiesHelper
-  def get_sort_options
+  def technologies_sort_options
     [
       ['most viewed', 'views-desc'],
       ['less viewed', 'views'],

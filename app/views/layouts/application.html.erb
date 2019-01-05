@@ -10,12 +10,7 @@
   <body>
   <div class="header">
     <div class="header-container">
-      <div class="search-block">
-        <%= form_tag '/search', method: 'get' do %>
-          <%= text_field_tag(:q, params[:q] )%>
-          <%= submit_tag('Search') %>
-        <% end %>
-      </div>
+      <%= render 'search' %>
       <div class="user-controls" onclick="toggle_user_menu();">
         <div class="user-avatar-preview">
           <% if current_user.avatar.attached? %>

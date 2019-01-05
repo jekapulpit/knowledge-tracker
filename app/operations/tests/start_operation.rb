@@ -10,12 +10,12 @@ module Tests
     def call
       user.tests << test
       user.technologies << test.technology unless test.technology.in? user.technologies
-      refresh_result
+      reset_result
     end
 
     private
 
-    def refresh_result
+    def reset_result
       test_result = user.test_results.find_by(test_id: test.id)
       test_result.result = 0
       test_result.save
