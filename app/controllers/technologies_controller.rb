@@ -59,8 +59,7 @@ class TechnologiesController < ApplicationController
   end
 
   def increment_views
-    @technology.views = @technology.views + 1
-    @technology.save
+    @technology.update(:views => @technology.views + 1)
   end
 
   #  def not_users_technologies

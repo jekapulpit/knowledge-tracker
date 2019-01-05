@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe UsersController, type: :controller do
   describe 'GET #profile' do
     subject { get :profile }
