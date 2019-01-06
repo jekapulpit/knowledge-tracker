@@ -1,4 +1,4 @@
-<div class="tech-panel">
+<a class="tech-panel">
   <% if progress.technology.icon.attached? %>
   <%= image_tag progress.technology.icon, class: 'tech-icon' %>
   <% else %>
@@ -9,11 +9,4 @@
     <p class="tech-description"> <%= progress.technology.discription %> </p>
     <p class="tech-description"> <%= progress.progress %> </p>
   </div>
-  <div class="contr-links">
-    <%= link_to 'edit', edit_technology_path(progress.technology) %>
-    <%= link_to 'show', technology_path(progress.technology) %>
-    <%= link_to 'delete',  technology_path(progress.technology),
-               method: :delete
-    %>
-  </div>
-</div>
+</a>
