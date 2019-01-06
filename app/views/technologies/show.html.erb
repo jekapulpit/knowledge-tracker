@@ -11,9 +11,13 @@
     <h2 class="tech-name"><%= @technology.title %></h2>
   </div>
   <p class="tech-description"><%= @technology.discription %></p>
+  <h1>ALL THEMES</h1>
   <div class="tech-themes">
-    <% @technology.tests.each do |test| %>
-      <%= link_to test.title, test_start_path(@technology, test), method: :post %>
+    <% @technology.tests.each_with_index do |test, index| %>
+      <div class="theme">
+        <%= index + 1 %>.
+        <%= link_to test.title, test_start_path(@technology, test), method: :post %>
+      </div>
     <% end %>
   </div>
 </div>

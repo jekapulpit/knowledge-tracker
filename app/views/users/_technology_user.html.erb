@@ -1,4 +1,4 @@
-<a class="tech-panel">
+<a class="tech-panel" href="<%= technology_path(progress.technology) %>">
   <% if progress.technology.icon.attached? %>
   <%= image_tag progress.technology.icon, class: 'tech-icon' %>
   <% else %>

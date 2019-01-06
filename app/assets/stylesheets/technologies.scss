@@ -6,6 +6,7 @@
   width: 1100px;
   margin: auto;
   background: rgba(0, 0, 0, .7);
+  min-height: 100%;
 
   .filters {
     padding: 20px;
@@ -33,7 +34,7 @@
       }
 
       input:hover {
-        border: 1px solid #FF933D;
+        border: 2px solid #FF933D;
         background-color: transparent;
         color: #FF933D;
         text-shadow: none;
@@ -136,9 +137,46 @@
   .tech-title {
     display: flex;
 
+    h2 {
+      color: #D9D9D9;
+      margin-left: 20px;
+      font-family: Proxima-semibold;
+    }
     .tech-icon {
       width: 70px;
       height: 70px;
+    }
+  }
+  .tech-description {
+    color: #D9D9D9;
+    font-family: Proxima-semibold;
+    margin-left: 20px;
+  }
+  h1 {
+    color: #D9D9D9;
+    text-align: center;
+    font-family: Proxima-bold;
+  }
+  .tech-themes {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .theme, .theme a {
+      font-size: 20px;
+      color: #D9D9D9;
+      text-decoration: none;
+      font-family: Proxima-reg;
+      -webkit-transition: .3s;
+      -moz-transition: .3s;
+      -ms-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s;
+    }
+    .theme:hover, .theme:hover a{
+      color: #FF933D;
+      cursor: pointer;
     }
   }
 }
