@@ -7,6 +7,58 @@
   margin: auto;
   background: rgba(0, 0, 0, .7);
 
+  .filters {
+    padding: 20px;
+
+    form {
+      display: flex;
+
+      .input-block {
+        margin: 20px;
+        color: #FF933D;
+        font-family: Proxima-semibold;
+
+        select {
+          color: #FF933D;
+          background-color: transparent;
+          border: 1px solid #D9D9D9;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+
+          option {
+            background-color: transparent;
+          }
+        }
+      }
+
+      input:hover {
+        border: 1px solid #FF933D;
+        background-color: transparent;
+        color: #FF933D;
+        text-shadow: none;
+        cursor: pointer;
+      }
+
+      input {
+        height: 30px;
+        width: 100px;
+        background-color: #FF933D;
+        color: #D9D9D9;
+        margin-top: 67px;
+        border: none;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        text-shadow: 0 0 5px #2E2E2E;
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        -ms-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+      }
+    }
+  }
   .tech-container {
     width: 950px;
     margin: auto;
