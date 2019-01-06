@@ -16,7 +16,7 @@
     <% @technology.tests.each_with_index do |test, index| %>
       <div class="theme">
         <%= index + 1 %>.
-        <%= link_to test.title, test_start_path(@technology, test), method: :post %>
+        <%= link_to test.title, technology_test_path(@technology, test) %>
       </div>
     <% end %>
   </div>
