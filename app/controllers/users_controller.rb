@@ -16,16 +16,14 @@ class UsersController < ApplicationController
     passed_tests = 0
     technology.tests.each do |test|
       max_result = current_user
-                       .test_results
-                       .find_by(test_id: test.id, result: 10)
-      if max_result
-        passed_tests = passed_tests + 1
-      end
+                   .test_results
+                   .find_by(test_id: test.id, result: 10)
+      passed_tests += 1 if max_result
     end
     current_user
-        .technologies_users
-        .find_by(technology_id: technology.id)
-        .update(progress: passed_tests*100/technology.tests.count)
+      .technologies_users
+      .find_by(technology_id: technology.id)
+      .update(progress: passed_tests * 100 / technology.tests.count)
   end
 
   def user_params

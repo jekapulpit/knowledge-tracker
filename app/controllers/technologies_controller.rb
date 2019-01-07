@@ -24,7 +24,7 @@ class TechnologiesController < ApplicationController
     @technologies = @technologies.paginate(page: params[:page])
   end
 
-  def edit;  end
+  def edit; end
 
   def show
     @user_mark = @technology.marks.find_by(user_id: current_user.id)
