@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get '/search', to: 'search#start'
-  get 'answers/answer'
   post '/technologies/:technology_id/tests/:id',
        to: 'tests#start',
        as: 'test_start'
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
     resources :tests
   end
   post '/answer', to: 'answers#answer'
+  post '/vote', to: 'votes#vote'
   get '/profile', to: 'users#profile'
   root 'technologies#index'
 end

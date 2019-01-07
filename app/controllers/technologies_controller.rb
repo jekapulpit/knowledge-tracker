@@ -23,7 +23,9 @@ class TechnologiesController < ApplicationController
 
   def edit;  end
 
-  def show;  end
+  def show
+    @user_mark = @technology.marks.find_by(user_id: current_user.id)
+  end
 
   def new
     @technology = Technology.new

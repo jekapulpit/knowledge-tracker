@@ -7,8 +7,18 @@
     <div class="tech-info">
     <h2 class="tech-name"> <%= technology.title %> </h2>
     <p class="tech-description"> <%= technology.discription %> </p>
-    <div class="views-container">
-      <%= image_tag 'view.png' %> <%= technology.views %> </div>
+    <div class="score-container">
+      <div class="views-block">
+        <%= image_tag 'view.png' %> <%= technology.views %>
+      </div>
+      <div class="rating-block">
+        <% if technology.average_mark %>
+          <%= image_tag 'star.jpg' %> <%= technology.average_mark %>
+        <% else %>
+          <%= image_tag 'star.jpg' %> no votes
+        <% end %>
+      </div>
+    </div>
     </div>
   <!-- <div class="contr-links">
     <%= link_to 'edit', edit_technology_path(technology) %>
