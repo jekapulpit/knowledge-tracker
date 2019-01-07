@@ -4,6 +4,13 @@ Layout/EndOfLine:
 Naming/AccessorMethodName:
   Enabled: false
 
+Metrics/ClassLength:
+  Enabled: false
+
+MultilineTernaryOperator:
+  Exclude:
+  - 'app/controllers/devise/registrations_controller.rb'
+
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
   - 'db/schema.rb'

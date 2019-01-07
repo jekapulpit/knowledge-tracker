@@ -31,6 +31,7 @@
     }
   }
 }
+
 .other-info {
   display: flex;
   flex-wrap: wrap;
@@ -41,6 +42,7 @@
     font-family: Lora-bold;
   }
 }
+
 .login-box {
   width: 280px;
   position: absolute;
@@ -73,9 +75,11 @@
       width: 100%;
     }
   }
+
   .flag-field {
     margin: 20px;
   }
+
   .actions {
     width: 100%;
     
