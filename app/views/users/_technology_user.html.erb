@@ -1,12 +1,9 @@
 <a class="tech-panel" href="<%= technology_path(progress.technology) %>">
-  <% if progress.technology.icon.attached? %>
-  <%= image_tag progress.technology.icon, class: 'tech-icon' %>
-  <% else %>
-  <%= image_tag 'no-photo.jpg', class: 'tech-icon' %>
-  <% end %>
+    <div class="tech-progress" style="color: rgb( <%= 255 - progress.progress*255/100 %> , <%= progress.progress*255/100 %> , 0)">
+      <%= progress.progress %>%
+    </div>
     <div class="tech-info">
     <h2 class="tech-name"> <%= progress.technology.title %> </h2>
     <p class="tech-description"> <%= progress.technology.discription %> </p>
-    <p class="tech-description"> <%= progress.progress %> </p>
   </div>
 </a>

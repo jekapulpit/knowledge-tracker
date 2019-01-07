@@ -107,6 +107,15 @@
         border-radius: 50%;
         border: 1px solid black;
       }
+      .tech-progress {
+        width: 100px;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+      }
       .tech-info {
         height: 100%;
         width: 300px;
