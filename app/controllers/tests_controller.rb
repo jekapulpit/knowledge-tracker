@@ -5,7 +5,7 @@ class TestsController < ApplicationController
     Tests::StartOperation.new(@test, current_user).call
   end
 
-  def show;  end
+  def show; end
 
   private
 
