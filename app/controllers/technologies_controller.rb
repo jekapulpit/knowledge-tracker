@@ -13,8 +13,11 @@ class TechnologiesController < ApplicationController
                       Technology.all
                     end
 
-    if params[:sort_by].in?(['views', 'views-desc', 'created_at', 'created_at-desc'])
-      @technologies.order!(params[:sort_by].tr('-', ' '))
+    if params[:sort_by].in?(['average_mark-desc', 'views-desc', 'created_at', 'created_at-desc'])
+      parameter = params[:sort_by].split('-')[0]
+      @technologies.order!(parameter +
+                               ' is null, ' +
+                               params[:sort_by].tr('-', ' '))
     else
       @technologies.order!(views: :desc)
     end
