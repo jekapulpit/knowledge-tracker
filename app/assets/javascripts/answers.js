@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    forms = document.getElementsByClassName('question-form');
-    for (i = 0; i < forms.length; i++) {
-        forms[i].addEventListener('ajax:success', function(event) {
+    var forms = document.querySelectorAll('.question-form');
+    forms.forEach(function (form) {
+        form.addEventListener('ajax:success', function(event) {
             var detail = event.detail;
             var isPassed = detail[0]['success'];
-            if (isPassed)
-                alert('uraaa');
-            else
-                alert('oh nooo');
+            var button = event.target.querySelector('.submit-btn');
+
+            if (isPassed) {
+                button.classList.add('success-btn');
+            }
+            else {
+                button.classList.add('fail-btn');
+            }
+
+            event.target.disabled = true;
         });
-    }
+    });
 });

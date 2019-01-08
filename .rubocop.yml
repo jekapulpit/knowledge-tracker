@@ -1,48 +1,24 @@
 Layout/EndOfLine:
   Enabled: false
 
-Naming/AccessorMethodName:
-  Enabled: false
-
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-  - 'db/schema.rb'
-
-Style/NumericLiterals:
-  Exclude:
-  - 'db/schema.rb'
-
-Style/StringLiterals:
-  Exclude:
-  - 'db/schema.rb'
-
-Style/WordArray:
-  Exclude:
-  - 'db/schema.rb'
-
-Lint/ScriptPermission:
-  Enabled: false
-
-Metrics/AbcSize:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
 
-Style/ClassAndModuleChildren:
-  Enabled: false
+Metrics/MethodLength:
+  Max: 12
+  Exclude:
+  - 'db/schema.rb'
+  - 'db/migrate/*'
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+  - 'db/migrate/*'
 
 Metrics/BlockLength:
-  Enabled: false
-
-Style/GuardClause:
-  Enabled: false
-
-Style/MixinUsage:
-  Enabled: false
-
-Metrics/MethodLength:
-  Enabled: false
+  Exclude:
+  - 'config/environments/development.rb'
+  - 'db/schema.rb'
 
 Metrics/LineLength:
   Max: 120
@@ -50,3 +26,27 @@ Metrics/LineLength:
   - 'db/schema.rb'
   IgnoredPatterns:
     - '#.'
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+  - 'db/schema.rb'
+
+Style/StringLiterals:
+  Exclude:
+  - 'db/schema.rb'
+
+Style/NumericLiterals:
+  Exclude:
+  - 'db/schema.rb'
+
+Style/MixinUsage:
+  Exclude:
+  - 'bin/update'
+  - 'bin/setup'
+
+Lint/ScriptPermission:
+  Enabled: false
+  
+Style/WordArray:
+  Exclude:
+  - 'db/schema.rb'

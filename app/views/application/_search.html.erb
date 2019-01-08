@@ -1,0 +1,6 @@
+<div class="search-block">
+  <%= form_tag '/search', method: 'get', class: 'search-box' do %>
+    <%= text_field_tag(:q, params[:q], placeholder: 'Type to search', class: 'search-txt')%>
+    <%= submit_tag('', class: 'search-btn') %>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_105_094_523) do
+ActiveRecord::Schema.define(version: 20_190_107_162_731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -82,15 +82,14 @@ ActiveRecord::Schema.define(version: 20_190_105_094_523) do
     t.datetime 'updated_at', null: false
     t.integer 'views', default: 0
     t.bigint 'category_id'
+    t.float 'average_mark'
     t.index ['category_id'], name: 'index_technologies_on_category_id'
   end
 
-  create_table 'technologies_users', id: false, force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.bigint 'technology_id', null: false
-    t.float 'progress'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table 'technologies_users', force: :cascade do |t|
+    t.float 'progress', default: 0.0
+    t.bigint 'user_id'
+    t.bigint 'technology_id'
     t.index ['technology_id'], name: 'index_technologies_users_on_technology_id'
     t.index ['user_id'], name: 'index_technologies_users_on_user_id'
   end

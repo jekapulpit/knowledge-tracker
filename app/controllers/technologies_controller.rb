@@ -13,17 +13,15 @@ class TechnologiesController < ApplicationController
                       Technology.all
                     end
 
-    if params[:sort_by].in?(['views', 'views-desc', 'created_at', 'created_at-desc'])
-      @technologies.order!(params[:sort_by].tr('-', ' '))
-    else
-      @technologies.order!(views: :desc)
-    end
+    @technologies = TechnologiesSorter.new(params[:sort_by]).apply_on(@technologies)
     @technologies = @technologies.paginate(page: params[:page])
   end
 
-  def edit;  end
+  def edit; end
 
-  def show;  end
+  def show
+    @user_mark = @technology.marks.find_by(user_id: current_user.id)
+  end
 
   def new
     @technology = Technology.new

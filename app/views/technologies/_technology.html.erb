@@ -1,4 +1,4 @@
-<div class="tech-panel">
+<a class="tech-panel" href="<%= technology_path(technology) %>">
   <% if technology.icon.attached? %>
   <%= image_tag technology.icon, class: 'tech-icon' %>
   <% else %>
@@ -7,13 +7,24 @@
     <div class="tech-info">
     <h2 class="tech-name"> <%= technology.title %> </h2>
     <p class="tech-description"> <%= technology.discription %> </p>
-    <p class="tech-description">Views: <%= technology.views %> </p>
+    <div class="score-container">
+      <div class="views-block">
+        <%= image_tag 'view.png' %> <%= technology.views %>
+      </div>
+      <div class="rating-block">
+        <% if technology.average_mark %>
+          <%= image_tag 'star.jpg' %> <%= technology.average_mark %>
+        <% else %>
+          <%= image_tag 'star.jpg' %> no votes
+        <% end %>
+      </div>
     </div>
-  <div class="contr-links">
+    </div>
+  <!-- <div class="contr-links">
     <%= link_to 'edit', edit_technology_path(technology) %>
     <%= link_to 'show', technology_path(technology) %>
     <%= link_to 'delete',  technology_path(technology),
                method: :delete
     %>
-  </div>
-</div>
+  </div> -->
+</a>
