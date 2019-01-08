@@ -15,11 +15,11 @@
 //= require_tree .
 
 function toggle_user_menu() {
-    var UserMenu = document.querySelector('.user-menu');
-    if (UserMenu.getAttribute('class').indexOf('user-menu-active') != -1){
-        UserMenu.classList.remove('user-menu-active');
+    var userMenu = document.querySelector('.user-menu');
+    if (userMenu.getAttribute('class').indexOf('user-menu-active') != -1){
+        userMenu.classList.remove('user-menu-active');
     }
     else {
-        UserMenu.classList.add('user-menu-active');
+        userMenu.classList.add('user-menu-active');
     }
 }

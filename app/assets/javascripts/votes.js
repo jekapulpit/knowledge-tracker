@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var VoteRadios = document.getElementsByName('rating');
-    var VoteForm = document.getElementById('vote');
-    for(i = 0; i < VoteRadios.length; i++) {
-        VoteRadios[i].addEventListener('click', function() {
-            Rails.fire(VoteForm, 'submit')
+    var voteRadios = document.getElementsByName('rating');
+    var voteForm = document.getElementById('vote');
+    for(i = 0; i < voteRadios.length; i++) {
+        voteRadios[i].addEventListener('click', function() {
+            Rails.fire(voteForm, 'submit')
         });
     }
-    VoteForm.addEventListener('ajax:success', function (event) {
-        var AverageMark = event.detail[0]['average_mark'];
+    voteForm.addEventListener('ajax:success', function (event) {
+        var averageMark = event.detail[0]['average_mark'];
         document.getElementById('user_mark')
-            .innerHTML = 'Your mark: <b> ' + VoteForm['rating'].value + ' </b>'
+            .innerHTML = 'Your mark: <b> ' + voteForm['rating'].value + ' </b>'
         document.getElementById('average_mark')
-            .innerHTML = 'Average mark: <b> ' + AverageMark + ' </b>'
+            .innerHTML = 'Average mark: <b> ' + averageMark + ' </b>'
     });
 });
