@@ -15,7 +15,7 @@
 //= require_tree .
 
 function toggle_user_menu() {
-    var UserMenu = document.getElementsByClassName('user-menu')[0];
+    var UserMenu = document.querySelector('.user-menu');
     if (UserMenu.getAttribute('class').indexOf('user-menu-active') != -1){
         UserMenu.classList.remove('user-menu-active');
     }
