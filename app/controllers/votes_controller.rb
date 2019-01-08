@@ -1,12 +1,7 @@
 class VotesController < ApplicationController
   def vote
     technology = Technology.find(params[:technology])
-    user_mark = technology.marks.find_by(user_id: current_user.id)
-    if user_mark
-      user_mark.update(value: params[:rating])
-    else
-      technology.marks << Mark.new(user_id: current_user.id, value: params[:rating])
-    end
+    add_mark(technology)
     update_avarage_mark(technology)
 
     respond_to do |format|
@@ -15,6 +10,15 @@ class VotesController < ApplicationController
   end
 
   private
+
+  def add_mark(technology)
+    user_mark = technology.marks.find_by(user: current_user)
+    if user_mark
+      user_mark.update(value: params[:rating])
+    else
+      technology.marks << Mark.new(user: current_user, value: params[:rating])
+    end
+  end
 
   def update_avarage_mark(technology)
     technology.update(average_mark: technology.marks.average(:value))
