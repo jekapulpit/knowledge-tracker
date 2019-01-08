@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var button = event.target.getElementsByClassName('submit-btn')[0];
 
             if (isPassed) {
-                button.setAttribute('class', 'submit-btn success-btn');
+                button.classList.add('success-btn');
             }
             else {
-                button.setAttribute('class', 'submit-btn fail-btn');
+                button.classList.add('fail-btn');
             }
 
             event.target.disabled = true;
