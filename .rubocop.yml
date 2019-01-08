@@ -46,3 +46,7 @@ Style/MixinUsage:
 
 Lint/ScriptPermission:
   Enabled: false
+  
+Style/WordArray:
+  Exclude:
+  - 'db/schema.rb'
