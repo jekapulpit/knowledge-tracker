@@ -9,11 +9,13 @@
     <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very bag">1 star</label>
   </fieldset>
   <% if @user_mark %>
-    <p>Your mark: <%= @user_mark.value %> </p>
+    <p id="user_mark">Your mark: <b> <%= @user_mark.value %> </b> </p>
+  <% else %>
+    <p id="user_mark"></p>
   <% end %>
   <% if @technology.average_mark %>
-    <p>Average rating: <%= @technology.average_mark %> </p>
+    <p id="average_mark">Average mark: <b> <%= @technology.average_mark %> </b></p>
   <% else %>
-    <p>No votes</p>
+    <p id="average_mark">No votes</p>
   <% end %>
 <% end %>

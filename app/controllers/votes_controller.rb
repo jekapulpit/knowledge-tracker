@@ -8,6 +8,10 @@ class VotesController < ApplicationController
       technology.marks << Mark.new(user_id: current_user.id, value: params[:rating])
     end
     update_avarage_mark(technology)
+
+    respond_to do |format|
+      format.json { render json: { average_mark: technology.average_mark } }
+    end
   end
 
   private
