@@ -18,6 +18,9 @@
       <div class="theme">
         <%= index + 1 %>.
         <%= link_to test.title, technology_test_path(@technology, test) %>
+        <% if passed?(test) %>
+        <i style="color: green; font-family: Lora-italic;">passed</i>
+        <% end %>
       </div>
     <% end %>
   </div>
