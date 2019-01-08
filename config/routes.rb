@@ -4,7 +4,7 @@ Rails.application.routes.draw do
        to: 'tests#start',
        as: 'test_start'
   post '/test/finish', to: 'tests#finish',
-      as: 'test_finish'
+                       as: 'test_finish'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   resources :technologies do
     resources :tests
