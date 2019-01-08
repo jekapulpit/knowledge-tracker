@@ -13,8 +13,7 @@ class TechnologiesController < ApplicationController
                       Technology.all
                     end
 
-    @technologies = TechnologiesSorter
-                        .new(params[:sort_by]).apply_on(@technologies)
+    @technologies = TechnologiesSorter.new(params[:sort_by]).apply_on(@technologies)
     @technologies = @technologies.paginate(page: params[:page])
   end
 

@@ -27,7 +27,22 @@ Metrics/LineLength:
   IgnoredPatterns:
     - '#.'
 
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+  - 'db/schema.rb'
+
+Style/StringLiterals:
+  Exclude:
+  - 'db/schema.rb'
+
+Style/NumericLiterals:
+  Exclude:
+  - 'db/schema.rb'
+
 Style/MixinUsage:
   Exclude:
   - 'bin/update'
   - 'bin/setup'
+
+Lint/ScriptPermission:
+  Enabled: false
