@@ -9,6 +9,7 @@ class TestsController < ApplicationController
 
   def finish
     test_result = current_user.test_results.last
+    UpdateProgressJob.perform_later current_user
     respond_to do |format|
       format.json { render json: { result: test_result.result } }
     end
