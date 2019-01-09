@@ -60,6 +60,17 @@
         -o-transition: .3s;
         transition: .3s;
       }
+      a {
+        margin-top: 70px;
+        margin-left: 20px;
+        font-family: Lora-italic;
+        color: #FF933D;
+        text-decoration: none;
+
+        &:hover {
+          color: #D9D9D9;
+        }
+      }
     }
   }
 

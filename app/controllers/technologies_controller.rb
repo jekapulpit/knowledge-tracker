@@ -17,7 +17,9 @@ class TechnologiesController < ApplicationController
     @technologies = @technologies.paginate(page: params[:page])
   end
 
-  def edit; end
+  def edit
+    authorize @technology
+  end
 
   def show
     @user_mark = @technology.marks.find_by(user: current_user)
@@ -25,9 +27,11 @@ class TechnologiesController < ApplicationController
 
   def new
     @technology = Technology.new
+    authorize @technology
   end
 
   def create
+    authorize @technology
     if Technology.create(technology_params)
       redirect_to root_path
     else
@@ -36,6 +40,7 @@ class TechnologiesController < ApplicationController
   end
 
   def update
+    authorize @technology
     if @technology.update(technology_params)
       render 'show'
     else
