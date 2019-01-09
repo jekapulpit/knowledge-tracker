@@ -12,8 +12,8 @@ class UpdateProgressJob < ApplicationJob
       passed_tests += 1 if max_result
     end
     user
-        .technologies_users
-        .find_by(technology_id: technology.id)
-        .update(progress: passed_tests * 100 / technology.tests.count)
+      .technologies_users
+      .find_by(technology_id: technology.id)
+      .update(progress: passed_tests * 100 / technology.tests.count)
   end
 end
