@@ -32,7 +32,8 @@ class TestsController < ApplicationController
   end
 
   def update
-
+    authorize @test
+    @test.update(test_params)
   end
 
   def destroy

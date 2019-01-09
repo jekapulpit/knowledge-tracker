@@ -16,8 +16,9 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    authorize @question
-    @question.update(question_params)
+    question = Question.find(params[:id])
+    authorize question
+    question.update(question_params)
 
     redirect_to technology_test_path(params[:technology_id], params[:test_id])
   end

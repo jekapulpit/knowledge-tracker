@@ -18,6 +18,7 @@
   }
   a {
     display: flex;
+    margin: 10px;
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -33,6 +34,17 @@
     -ms-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
+  }
+}
+
+.test-form {
+  margin: 50px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
   }
 }
 
