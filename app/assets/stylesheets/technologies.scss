@@ -76,7 +76,23 @@
       cursor: pointer;
     }
 
-    .tech-panel {
+    a.tech-panel {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      border-radius: 75px;
+      text-decoration: none;
+      font-family: Lora-bold;
+      -webkit-transition: .3s;
+      -moz-transition: .3s;
+      -ms-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s;
+      color: #D9D9D9;
+    }
+
+    div.tech-panel {
       display: flex;
       width: 400px;
       height: 100px;
@@ -86,10 +102,7 @@
       border-radius: 75px;
       padding: 10px;
       background-color: transparent;
-      color: #D9D9D9;
       box-shadow: 0 0 15px #FF933D;
-      text-decoration: none;
-      font-family: Lora-bold;
       -webkit-transition: .3s;
       -moz-transition: .3s;
       -ms-transition: .3s;
@@ -124,15 +137,25 @@
         width: 300px;
         margin-left: 10px;
       }
-      .contr-links {
+      .admin-menu {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        visibility: hidden;
+        top: 10px;
+        right: 50px;
+        font-size: 15px;
+
+        a {
+          color: #FF933D;
+          text-decoration: none;
+          font-family: Lora-italic;
+
+          &:hover {
+            color: #D9D9D9;
+          }
+        }
       }
       .score-container {
         position: absolute;
-        bottom: 5px;
+        bottom: -5px;
         right: 40px;
         font-size: 12px;
         display: flex;

@@ -1,10 +1,7 @@
 <div class="container">
   <div class="tech-title">
     <% if @technology.icon.attached? %>
-      <%= image_tag @technology
-                        .icon
-                        .preview(resize_to_limit: [50, 50]),
-                    class: 'tech-icon' %>
+      <%= image_tag @technology.icon, class: 'tech-icon' %>
     <% else %>
       <%= image_tag 'no-photo.jpg', class: 'tech-icon' %>
     <% end %>

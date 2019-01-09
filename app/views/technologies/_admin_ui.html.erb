@@ -1,0 +1,7 @@
+<div class="admin-menu">
+  <%= link_to 'edit', edit_technology_path(technology) %>
+  <%= link_to 'delete',  technology_path(technology),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }
+  %>
+</div>

@@ -5,7 +5,7 @@ class VotesController < ApplicationController
     update_avarage_mark(technology)
 
     respond_to do |format|
-      format.json { render json: { average_mark: technology.average_mark, mark_id: user_mark.id  } }
+      format.json { render json: { average_mark: technology.average_mark, mark_id: user_mark.id } }
     end
   end
 
