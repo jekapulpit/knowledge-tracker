@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def profile
     current_user.technologies.each { |technology| update_progress(technology) }
     @progress = current_user.technologies_users.includes(:technology)
+    @passed_tests = current_user.test_results.where(result: 10).pluck(:test_id).uniq.count
   end
 
   def create; end
@@ -9,6 +10,14 @@ class UsersController < ApplicationController
   def update; end
 
   def delete; end
+
+  def change_avatar
+    current_user.avatar.attach(params[:new_avatar])
+
+    respond_to do |format|
+      format.json { render json: { avatar: url_for(current_user.avatar) } }
+    end
+  end
 
   private
 

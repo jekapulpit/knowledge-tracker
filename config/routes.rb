@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/technologies/:technology_id/tests/:id',
        to: 'tests#start',
        as: 'test_start'
+  post '/profile/change_avatar', to: 'users#change_avatar', as: 'change_avatar'
   post '/test/finish', to: 'tests#finish',
                        as: 'test_finish'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }

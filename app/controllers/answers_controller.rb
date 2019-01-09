@@ -7,6 +7,7 @@ class AnswersController < ApplicationController
       test_result.result = test_result.result + 1
       test_result.save
     end
+
     respond_to do |format|
       format.json { render json: { success: correct } }
     end

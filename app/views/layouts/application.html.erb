@@ -14,9 +14,7 @@
       <div class="user-controls" onclick="toggle_user_menu();">
         <div class="user-avatar-preview">
           <% if current_user.avatar.attached? %>
-            <%= image_tag current_user
-                              .avatar
-                              .preview(resize_to_limit: [50, 50]) %>
+            <%= image_tag current_user.avatar %>
           <% else %>
           <%= image_tag 'no-photo.jpg' %>
           <% end %>

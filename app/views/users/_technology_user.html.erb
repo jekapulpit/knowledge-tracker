@@ -8,10 +8,12 @@
       <p class="tech-description"> <%= progress.technology.discription %> </p>
     </div>
   </a>
+  <% if progress.user == current_user %>
   <div class="admin-menu">
     <%= link_to 'delete progress',  destroy_users_technology_path(progress),
                 method: :delete,
                 data: { confirm: 'Are you sure?' }
     %>
+  <% end %>
   </div>
 </div>

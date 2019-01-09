@@ -6,9 +6,16 @@
       <% else %>
       <%= image_tag 'no-photo.jpg', class: 'main-avatar' %>
       <% end %>
+      <%= form_with url: change_avatar_url,multipart: true, id: 'avatar-form' do %>
+        <%= label_tag 'new-avatar', 'change your avatar' %>
+        <%= file_field_tag :new_avatar,direct_upload: true,  id: 'new-avatar' %>
+      <% end %>
     </div>
     <div class="text-info">
         <p class="info-label">Username: <%= current_user.username %></p>
+        <p class="info-label">Technologies tracking: <%= current_user.technologies.count %></p>
+        <p class="info-label">Passed tests: <%= @passed_tests %></p>
+        <p class="info-label">Attempts summary: <%= current_user.tests.count %></p>
     </div>
   </div>
   <div class="other-info">
