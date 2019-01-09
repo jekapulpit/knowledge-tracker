@@ -8,7 +8,7 @@ class UpdateProgressJob < ApplicationJob
   def update_progress(technology, user)
     passed_tests = 0
     technology.tests.each do |test|
-      max_result = user.test_results.find_by(test: test, result: 10)
+      max_result = user.test_results.find_by(test: test, result: test.questions.count)
       passed_tests += 1 if max_result
     end
     user

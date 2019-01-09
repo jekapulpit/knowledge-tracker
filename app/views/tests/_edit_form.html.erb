@@ -1,0 +1,15 @@
+<div class="question-block">
+  <%= simple_form_for [@technology, @test, question], class: 'question-form' do |f| %>
+    <%= f.input :question_text %>
+    <%= f.input :test_id, :as => :hidden %>
+    <div class="custom-radios">
+      <%= f.input :right_answer,
+                  as: :radio_buttons,
+                  collection: question.answers.pluck(:id, :answer_text),
+                  label_method: :second,
+                  value_method: :first,
+                  selected: question.right_answer %>
+    </div>
+    <%= submit_tag('update', class: 'submit-btn') %>
+  <% end %>
+</div>

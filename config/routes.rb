@@ -11,7 +11,11 @@ Rails.application.routes.draw do
                        as: 'test_finish'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   resources :technologies do
-    resources :tests
+    resources :tests do
+      resources :questions, only: %i[create update destroy] do
+        resources :answers, only: %i[create update destroy]
+      end
+    end
   end
   post '/answer', to: 'answers#answer'
   post '/vote', to: 'votes#vote'

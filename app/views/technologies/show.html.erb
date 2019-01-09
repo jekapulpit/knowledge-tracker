@@ -29,5 +29,10 @@
         <% end %>
       </div>
     <% end %>
+    <% if current_user.admin? %>
+      <%= link_to 'add new test',
+                  new_technology_test_path(@technology),
+                  class: 'create-test-link' %>
+    <% end %>
   </div>
 </div>

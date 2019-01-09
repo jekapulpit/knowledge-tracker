@@ -1,0 +1,6 @@
+<%= form_for [@technology, @test] do |f| %>
+  <%= f.text_field :title, label: 'Title of test' %>
+  <%= f.text_field :discription, label: 'discription of test' %>
+  <%= f.hidden_field :technology_id, value: @technology.id %>
+  <%= f.submit 'create test' %>
+<% end %>

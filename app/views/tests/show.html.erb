@@ -3,3 +3,10 @@
   <%= link_to 'start test',
               test_start_path(@test.technology, @test), method: :post %>
 </div>
+<% if current_user.admin? %>
+<div class="tests-container">
+  <% @test.questions.each do |question| %>
+    <%= render 'edit_form', question: question %>
+  <% end %>
+</div>
+<% end %>
