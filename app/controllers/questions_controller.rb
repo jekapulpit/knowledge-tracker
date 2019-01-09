@@ -37,9 +37,7 @@ class QuestionsController < ApplicationController
     4.times do |index|
       answer = Answer.new(answer_text: params[:answer][index.to_param])
       question.answers << answer
-      if index.to_param == params[:question][:right_answer]
-        question.update(right_answer: answer.id)
-      end
+      question.update(right_answer: answer.id) if index.to_param == params[:question][:right_answer]
     end
   end
 
