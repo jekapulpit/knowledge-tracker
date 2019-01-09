@@ -20,7 +20,7 @@ class TechnologiesController < ApplicationController
   def edit; end
 
   def show
-    @user_mark = @technology.marks.find_by(user_id: current_user.id)
+    @user_mark = @technology.marks.find_by(user: current_user)
   end
 
   def new
