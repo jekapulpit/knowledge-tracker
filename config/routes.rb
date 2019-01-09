@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   resources :technologies do
     resources :tests do
-      resources :questions, only: %i[create update destroy] do
+      resources :questions, only: %i[new create update destroy] do
         resources :answers, only: %i[create update destroy]
       end
     end

@@ -231,6 +231,13 @@
       display: flex;
     }
 
+    a.create-test-link {
+      font-size: 15px;
+      color: #FF933D;
+      text-decoration: none;
+      font-family: Lora-italic;
+    }
+
     a.delete-test-link {
       color: red;
       text-decoration: none;
