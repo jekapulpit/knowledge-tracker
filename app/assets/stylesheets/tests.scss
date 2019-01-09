@@ -45,6 +45,23 @@
     flex-direction: column;
     margin: auto;
     width: 300px;
+    justify-content: flex-start;
+    align-items: center;
+
+    input[type="submit"] {
+      margin: 10px;
+    }
+
+    input[type="file"] {
+      width: 115px;
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      margin: 10px;
+    }
   }
 }
 
