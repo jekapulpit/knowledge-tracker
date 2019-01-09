@@ -5,6 +5,7 @@
 </div>
 <% if current_user.admin? %>
 <div class="tests-container">
+
   <% @test.questions.each do |question| %>
     <%= render 'edit_form', question: question %>
   <% end %>
