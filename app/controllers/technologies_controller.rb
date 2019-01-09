@@ -1,6 +1,5 @@
 class TechnologiesController < ApplicationController
   before_action :set_technology, only: %i[edit show update destroy]
-  before_action :increment_views, only: 'show'
 
   def index
     @categories = [
@@ -23,6 +22,7 @@ class TechnologiesController < ApplicationController
 
   def show
     @user_mark = @technology.marks.find_by(user: current_user)
+    IncrementViewsJob.perform_later @technology
   end
 
   def new
@@ -59,10 +59,6 @@ class TechnologiesController < ApplicationController
 
   def set_technology
     @technology = Technology.find(params[:id])
-  end
-
-  def increment_views
-    @technology.update(views: @technology.views + 1)
   end
 
   #  def not_users_technologies
