@@ -8,4 +8,10 @@
       <p class="tech-description"> <%= progress.technology.discription %> </p>
     </div>
   </a>
+  <div class="admin-menu">
+    <%= link_to 'delete progress',  destroy_users_technology_path(progress),
+                method: :delete,
+                data: { confirm: 'Are you sure?' }
+    %>
+  </div>
 </div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  delete 'technologies_users/destroy/:id',
+         to: 'technologies_users#destroy',
+         as: 'destroy_users_technology'
   get '/search', to: 'search#start'
   post '/technologies/:technology_id/tests/:id',
        to: 'tests#start',
