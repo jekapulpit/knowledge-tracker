@@ -300,7 +300,6 @@ Devise.setup do |config|
                   '74728872189f5cec7bb6a183e0f61c6a',
                   scope: 'email'
 
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the

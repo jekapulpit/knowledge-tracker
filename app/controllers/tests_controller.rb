@@ -13,8 +13,9 @@ class TestsController < ApplicationController
     test_result = current_user.test_results.includes(:test).last
     UpdateProgressJob.perform_later current_user
     respond_to do |format|
-      format.json do  render json: { result: test_result.result,
-                                     number_of_questions: test_result.test.questions.count }
+      format.json do
+        render json: { result: test_result.result,
+                       number_of_questions: test_result.test.questions.count }
       end
     end
   end
