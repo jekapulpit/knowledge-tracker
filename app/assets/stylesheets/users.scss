@@ -11,8 +11,22 @@
     width: 400px;
     height: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    form {
+      margin-top: 10px;
+
+      label:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      input {
+        display: none;
+      }
+    }
 
     .main-avatar {
       width: 300px;
@@ -28,6 +42,7 @@
 
     .info-label {
       font-weight: bold;
+      margin-top: 0;
     }
   }
 }

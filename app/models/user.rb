@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          :confirmable,
-         omniauth_providers: [:vkontakte]
+         omniauth_providers: [:facebook]
 
   has_one_attached :avatar
   has_many :marks

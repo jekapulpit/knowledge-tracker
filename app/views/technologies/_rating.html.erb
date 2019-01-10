@@ -9,7 +9,10 @@
     <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very bag">1 star</label>
   </fieldset>
   <% if @user_mark %>
-    <p id="user_mark">Your mark: <b> <%= @user_mark.value %> </b> </p>
+    <p id="user_mark">
+      Your mark: <b> <%= @user_mark.value %> </b>
+      <%= link_to 'remove', delete_mark_path(@user_mark), method: :delete, id: 'remove-mark' %>
+    </p>
   <% else %>
     <p id="user_mark"></p>
   <% end %>

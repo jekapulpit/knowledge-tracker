@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'omniauth-vkontakte'
 
+gem 'pundit'
+
 gem 'simple_form'
 
 gem 'will_paginate', '~> 3.1.0'

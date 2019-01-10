@@ -12,6 +12,9 @@
                                                     params[:sort_by])) %>
       </div>
       <%= submit_tag('Apply') %>
+      <% if current_user.admin? %>
+      <%= link_to 'create technology', new_technology_path %>
+      <% end %>
   <% end %>
   </div>
   <div class="tech-container">

@@ -2,4 +2,25 @@
   <h1>Are you sure that you want to start?</h1>
   <%= link_to 'start test',
               test_start_path(@test.technology, @test), method: :post %>
+  <%= link_to 'back to all tests',
+              technology_path(@test.technology) %>
 </div>
+<% if current_user.admin? %>
+<div class="tests-container">
+  <div class="test-form">
+    <h1>edit Test:</h1>
+    <%= render 'form' %>
+  </div>
+  <%= link_to 'add new question', new_technology_test_question_path(@test.technology, @test) %>
+  <% @test.questions.each do |question| %>
+    <div class="question-block">
+      <%= render 'edit_form', question: question %>
+      <%= link_to 'delete question',
+                  technology_test_question_path(@test.technology, @test, question),
+                  method: :delete,
+                  class: 'delete-link',
+                  data: { confirm: 'Are you sure?' } %>
+    </div>
+<% end %>
+</div>
+<% end %>

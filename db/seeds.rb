@@ -16,7 +16,7 @@ require 'faker'
 # Answer.destroy_all
 # Question.destroy_all
 # Test.destroy_all
-# Technology.__elasticsearch__.delete_index!
+Technology.__elasticsearch__.create_index!
 # Technology.destroy_all
 # Category.destroy_all
 

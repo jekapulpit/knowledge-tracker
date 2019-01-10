@@ -1,9 +1,19 @@
-<a class="tech-panel" href="<%= technology_path(progress.technology) %>">
-    <div class="tech-progress" style="color: rgb( <%= 255 - progress.progress*255/100 %> , <%= progress.progress*255/100 %> , 0)">
-      <%= progress.progress %>%
+<div class="tech-panel">
+  <a class="tech-panel" href="<%= technology_path(progress.technology) %>">
+      <div class="tech-progress" style="color: rgb( <%= 255 - progress.progress*255/100 %> , <%= progress.progress*255/100 %> , 0)">
+        <%= progress.progress %>%
+      </div>
+      <div class="tech-info">
+      <h2 class="tech-name"> <%= progress.technology.title %> </h2>
+      <p class="tech-description"> <%= progress.technology.discription %> </p>
     </div>
-    <div class="tech-info">
-    <h2 class="tech-name"> <%= progress.technology.title %> </h2>
-    <p class="tech-description"> <%= progress.technology.discription %> </p>
+  </a>
+  <% if progress.user == current_user %>
+  <div class="admin-menu">
+    <%= link_to 'delete progress',  destroy_users_technology_path(progress),
+                method: :delete,
+                data: { confirm: 'Are you sure?' }
+    %>
+  <% end %>
   </div>
-</a>
+</div>
