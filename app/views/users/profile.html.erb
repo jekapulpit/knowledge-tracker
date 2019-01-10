@@ -14,8 +14,8 @@
     <div class="text-info">
         <p class="info-label">Username: <%= current_user.username %></p>
         <p class="info-label">Technologies tracking: <%= current_user.technologies.count %></p>
-        <p class="info-label">Passed tests: <%= @passed_tests %></p>
         <p class="info-label">Attempts summary: <%= current_user.tests.count %></p>
+        <%= link_to 'Change your password', edit_user_registration_path %>
     </div>
   </div>
   <div class="other-info">

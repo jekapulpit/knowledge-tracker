@@ -10,20 +10,24 @@ class TestsController < ApplicationController
   end
 
   def finish
-    test_result = current_user.test_results.last
+    test_result = current_user.test_results.includes(:test).last
     UpdateProgressJob.perform_later current_user
     respond_to do |format|
-      format.json { render json: { result: test_result.result } }
+      format.json do  render json: { result: test_result.result,
+                                     number_of_questions: test_result.test.questions.count }
+      end
     end
   end
 
   def new
     @technology = Technology.find(params[:technology_id])
     @test = Test.new
+    authorize @test
   end
 
   def create
     test = Test.new(test_params)
+    authorize test
     if test.save
       redirect_to technology_test_path(test.technology, test)
     else

@@ -31,7 +31,6 @@ class TechnologiesController < ApplicationController
   end
 
   def create
-    authorize @technology
     if Technology.create(technology_params)
       redirect_to root_path
     else
