@@ -25,7 +25,8 @@ Technology.__elasticsearch__.create_index!
     username: 'fcbb99',
     password: '123456',
     email: 'fcbb99@mail.ru',
-    confirmed_at: '2018-12-31 15:32:10'
+    confirmed_at: '2018-12-31 15:32:10',
+    admin: true
   },
   {
     username: 'fcbb98',
