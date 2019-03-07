@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbolinks:load', function() {
     var fileField = document.getElementById('new-avatar');
     var vatarForm = document.getElementById('avatar-form');
     fileField.addEventListener('change', function() {

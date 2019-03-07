@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbolinks:load', function() {
     var voteRadios = document.getElementsByName('rating');
     var voteForm = document.getElementById('vote');
     voteRadios.forEach(function (voteRadio) {

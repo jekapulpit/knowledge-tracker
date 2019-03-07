@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbolinks:load', function() {
     var forms = document.querySelectorAll('.question-form');
     forms.forEach(function (form) {
         form.addEventListener('ajax:success', function(event) {
