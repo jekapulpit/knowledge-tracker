@@ -6,38 +6,38 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.2'
 gem 'pg'
+gem 'rails', '~> 5.2.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails'
 gem 'figaro'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
+gem 'react-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
-gem 'react-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'devise'
+gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-linkedin'
 gem 'omniauth-instagram'
-gem 'devise'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'pundit'
 gem 'simple_form'
-gem 'will_paginate', '~> 3.1.0'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'will_paginate', '~> 3.1.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
 gem 'elasticsearch'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

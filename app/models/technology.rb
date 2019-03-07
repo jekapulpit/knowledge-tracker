@@ -12,9 +12,9 @@ class Technology < ApplicationRecord
   has_one_attached :icon, dependent: :destroy
 
   def all_attributes
-    self.attributes
-        .merge(:icon_url => image_url,
-               :average_mark => average_mark || 'no votes')
+    attributes
+      .merge(icon_url: image_url,
+             average_mark: average_mark || 'no votes')
   end
 
   def image_url
