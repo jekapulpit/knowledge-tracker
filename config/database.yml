@@ -3,8 +3,8 @@ default: &default
   timeout: 5000
   adapter: postgresql
   encoding: unicode
-  username: alex
-  password: qwerty123
+  username: <%= ENV["db_user"] %>
+  password: <%= ENV["db_password"] %>
   host: localhost
   port: 5432
 
