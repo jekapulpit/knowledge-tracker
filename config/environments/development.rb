@@ -55,8 +55,8 @@ Rails.application.configure do
     port: 465,
     domain: 'localhost',
     authentication: :plain,
-    user_name: 'q020@bk.ru',
-    password: 'k00000'
+    user_name: ENV['email_sender'],
+    password: ENV['password_sender']
   }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
