@@ -24,3 +24,10 @@ template1.jpg
 /config/initializers/omniauth.rb
 /storage
 /storage/*
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
