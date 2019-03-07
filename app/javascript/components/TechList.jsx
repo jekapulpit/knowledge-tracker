@@ -17,7 +17,7 @@ class TechList extends React.Component {
             return(
                 <div className="tech-panel">
                     <a className="tech-panel" href={"/technologies/" + technology.id}>
-                        <img className="tech-icon" src={this.props.emptyPhoto} />
+                        <img className="tech-icon" src={technology.icon_url} />
                         <div className="tech-info">
                             <h2 className="tech-name"> {technology.title} </h2>
                             <p className="tech-description">{technology.discription}</p>

@@ -10,4 +10,12 @@ class Technology < ApplicationRecord
   belongs_to :category, required: false
   has_many :marks, dependent: :destroy
   has_one_attached :icon, dependent: :destroy
+
+  def icon_url
+    if icon.attached?
+      ActionController::Base.helpers.image_url(icon)
+    else
+      ActionController::Base.helpers.image_url('no-photo.jpg')
+    end
+  end
 end
