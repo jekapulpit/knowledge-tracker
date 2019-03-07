@@ -11,7 +11,13 @@ class Technology < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_one_attached :icon, dependent: :destroy
 
-  def icon_url
+  def all_attributes
+    self.attributes
+        .merge(:icon_url => image_url,
+               :average_mark => average_mark || 'no votes')
+  end
+
+  def image_url
     if icon.attached?
       ActionController::Base.helpers.image_url(icon)
     else
