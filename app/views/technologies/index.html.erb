@@ -17,8 +17,6 @@
       <% end %>
   <% end %>
   </div>
-  <div class="tech-container">
-    <%= render @technologies if @technologies.any? %>
-  </div>
+  <%= react_component('TechList') %>
   <%= will_paginate @technologies %>
 </div>
