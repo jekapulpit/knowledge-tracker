@@ -17,6 +17,6 @@
       <% end %>
   <% end %>
   </div>
-  <%= react_component('TechList') %>
+  <%= react_component('TechList', { viewsImage: views_image, ratingImage: rating_image, emptyPhoto: no_photo }) %>
   <%= will_paginate @technologies %>
 </div>
