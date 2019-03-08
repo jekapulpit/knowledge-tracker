@@ -13,6 +13,8 @@ class TechList extends React.Component {
             .then((data) => {this.setState({ technologies: data }) });
     }
     render(){
+        var adminUI;
+
         var technologies = this.state.technologies.map((technology) => {
             return(
                 <div className="tech-panel">
@@ -33,6 +35,10 @@ class TechList extends React.Component {
                             </div>
                         </div>
                     </a>
+                    <div className="admin-menu">
+                        <a href={"/technologies/" + technology.id + "/edit"}>edit </a>
+                        <a href={"/technologies/" + technology.id} data-confirm="Are you sure?" data-method="delete"> destroy</a>
+                    </div>
                 </div>
             )
         });

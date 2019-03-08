@@ -1,4 +1,5 @@
 class Technology < ApplicationRecord
+  include Rails.application.routes.url_helpers
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
@@ -19,7 +20,7 @@ class Technology < ApplicationRecord
 
   def image_url
     if icon.attached?
-      ActionController::Base.helpers.image_url(icon)
+      ActionController::Base.helpers.image_url(rails_blob_path(icon))
     else
       ActionController::Base.helpers.image_url('no-photo.jpg')
     end
