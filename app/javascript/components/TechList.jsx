@@ -1,20 +1,48 @@
 import React from "react"
 import PropTypes from "prop-types"
+import AdminUi from './AdminUi'
+import Paginator from './Paginator'
+
 class TechList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            technologies: []
+            technologies: [],
+            page: 1,
+            totalPages: null,
+            loading: false
         };
+        this.handlePage = this.handlePage.bind(this)
     }
+
+    handlePage = (e, {activePage}) => {
+        let goToPage = {activePage};
+        let pagestring = goToPage.activePage.toString()
+        this.setState({
+            loading: true
+        });
+        const url = "/api/technologies/?page=" + pagestring;
+        fetch(url).then(result => result.json()).then(this.initialState);
+    };
+
     componentDidMount(){
         fetch('/api/technologies')
             .then((response) => {return response.json()})
-            .then((data) => {this.setState({ technologies: data }) });
+            .then((data) => {this.setState({ technologies: data.technologies,
+                page: data.page,
+                totalPages: data.totalPages }) });
     }
-    render(){
-        var adminUI;
 
+    initialState = (resultData) => {
+        this.setState({
+            loading: false,
+            technologies: resultData.technologies,
+            totalPages: resultData.totalPages,
+            page: resultData.page
+        })
+    };
+
+    render(){
         var technologies = this.state.technologies.map((technology) => {
             return(
                 <div className="tech-panel">
@@ -35,18 +63,18 @@ class TechList extends React.Component {
                             </div>
                         </div>
                     </a>
-                    <div className="admin-menu">
-                        <a href={"/technologies/" + technology.id + "/edit"}>edit </a>
-                        <a href={"/technologies/" + technology.id} data-confirm="Are you sure?" data-method="delete"> destroy</a>
-                    </div>
+                    <AdminUi id={technology.id} />
                 </div>
             )
         });
 
         return(
-            <div className="tech-container">
-                {technologies}
-            </div>
+            <React.Fragment>
+                <div className="tech-container">
+                    {technologies}
+                </div>
+                <Paginator page={this.state.page} handlePage={this.handlePage} totalPages={this.state.totalPages}/>
+            </React.Fragment>
         )
     }
 }
