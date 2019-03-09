@@ -1,3 +1,7 @@
 <div class="container">
-  <%= react_component('TechList', { viewsImage: views_image, ratingImage: rating_image, emptyPhoto: no_photo }) %>
+  <%= react_component('TechList', { viewsImage: views_image,
+                                    ratingImage: rating_image,
+                                    emptyPhoto: no_photo,
+                                    categories: @categories,
+                                    sortOptions: technologies_sort_options }) %>
 </div>

@@ -1,10 +1,15 @@
 class Api::TechnologiesController < ApplicationController
   def index
-    technologies = if params[:category].present?
+    @categories = [
+        ['all', nil],
+        *Category.pluck(:title, :id)
+    ]
+    technologies = if params[:category].present? and params[:category] != 'all'
                      Category.find(params[:category]).technologies
                    else
                      Technology.all
                    end
+    technologies = TechnologiesSorter.new(params[:sort_by]).apply_on(technologies)
     technologies = technologies.paginate(page: params[:page])
     json = technologies.map(&:all_attributes)
     render json: {

@@ -98,7 +98,9 @@ class TechList extends React.Component {
             <React.Fragment>
                 <Filters handleFilters = {this.handleFilters}
                          category={this.state.category}
-                         sort_by={this.state.sortBy}/>
+                         sort_by={this.state.sortBy}
+                         categories={this.props.categories}
+                         sortOptions={this.props.sortOptions}/>
                 <div className="tech-container">
                     {technologies}
                 </div>
