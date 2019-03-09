@@ -16,6 +16,8 @@ const Filters = (props) => {
             <option value={sortOption[1]}>{sortOption[0]}</option>
         )
     });
+    let adminUi = props.isAdmin ? ( <a href="/technologies/new">create technology</a> ) : null;
+
     return (
       <div className="filters">
         <form data-remote="true" onSubmit={ (e) => { props.handleFilters(filters.category.value,
@@ -33,6 +35,7 @@ const Filters = (props) => {
               </select>
             </div>
             <button>Apply</button>
+            {adminUi}
         </form>
 
       </div>

@@ -70,6 +70,7 @@ class TechList extends React.Component {
 
     render(){
         var technologies = this.state.technologies.map((technology) => {
+            var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} /> : null
             return(
                 <div className="tech-panel">
                     <a className="tech-panel" href={"/technologies/" + technology.id}>
@@ -89,7 +90,7 @@ class TechList extends React.Component {
                             </div>
                         </div>
                     </a>
-                    <AdminUi id={technology.id} />
+                    {adminUi}
                 </div>
             )
         });
@@ -99,6 +100,7 @@ class TechList extends React.Component {
                 <Filters handleFilters = {this.handleFilters}
                          category={this.state.category}
                          sort_by={this.state.sortBy}
+                         isAdmin={this.props.isAdmin}
                          categories={this.props.categories}
                          sortOptions={this.props.sortOptions}/>
                 <div className="tech-container">
