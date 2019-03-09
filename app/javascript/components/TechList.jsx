@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import AdminUi from './AdminUi'
 import Paginator from './Paginator'
+import Filters from "./Filters";
 
 class TechList extends React.Component {
     constructor(props) {
@@ -70,6 +71,7 @@ class TechList extends React.Component {
 
         return(
             <React.Fragment>
+                <Filters/>
                 <div className="tech-container">
                     {technologies}
                 </div>

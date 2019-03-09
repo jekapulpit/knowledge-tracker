@@ -35,15 +35,7 @@
         }
       }
 
-      input:hover {
-        border: 2px solid #FF933D;
-        background-color: transparent;
-        color: #FF933D;
-        text-shadow: none;
-        cursor: pointer;
-      }
-
-      input {
+      button {
         height: 30px;
         width: 100px;
         background-color: #FF933D;
@@ -59,7 +51,16 @@
         -ms-transition: .3s;
         -o-transition: .3s;
         transition: .3s;
+
+        &:hover {
+          border: 2px solid #FF933D;
+          background-color: transparent;
+          color: #FF933D;
+          text-shadow: none;
+          cursor: pointer;
+        }
       }
+
       a {
         margin-top: 70px;
         margin-left: 20px;
