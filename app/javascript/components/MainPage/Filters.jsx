@@ -34,6 +34,7 @@ const Filters = (props) => {
             </div>
             <button>Apply</button>
         </form>
+
       </div>
     );
 };
