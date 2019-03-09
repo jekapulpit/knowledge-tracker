@@ -1,11 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-class Filters extends React.Component {
-  render () {
-    let filters = {};
+const Filters = (props) => {
+    let filters = {
+      category: props.category,
+      sort_by: props.sort_by
+    };
     return (
       <div className="filters">
-        <form>
+        <form data-remote="true" onSubmit={ (e) => { props.handleFilters(filters.category.value,
+            filters.sort_by.value); } }>
           <div className="input-block">
             <p>category filter: </p>
               <select ref={input => filters.category = input}>
@@ -26,7 +29,6 @@ class Filters extends React.Component {
         </form>
       </div>
     );
-  }
-}
+};
 
 export default Filters

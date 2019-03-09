@@ -12,7 +12,7 @@ class TechList extends React.Component {
             page: 1,
             totalPages: null,
             loading: false,
-            categoty: null,
+            category: null,
             sortBy: 'views-desc'
         };
         this.handlePage = this.handlePage.bind(this)
@@ -21,16 +21,33 @@ class TechList extends React.Component {
 
     handlePage = (e, {activePage}) => {
         let goToPage = {activePage};
-        let pagestring = goToPage.activePage.toString()
+        let pagestring = goToPage.activePage.toString();
         this.setState({
             loading: true
         });
-        const url = "/api/technologies/?page=" + pagestring;
+        const url = "/api/technologies/?page=" + pagestring +
+            "&category=" + this.state.category +
+            "&sort_by=" + this.state.sortBy;
         fetch(url).then(result => result.json()).then(this.initialState);
     };
 
     handleFilters = (category, sortBy) => {
-        console.log(category, sortBy);
+        this.setState({
+            loading: true
+        });
+        const url = "/api/technologies" +
+            "?category=" + category.toString() +
+            "&sort_by=" + sortBy.toString();
+        fetch(url)
+            .then((response) => {return response.json()})
+            .then((data) => {this.setState({
+                technologies: data.technologies,
+                page: data.page,
+                category: category,
+                sortBy: sortBy,
+                loading: false,
+                totalPages: data.totalPages })
+            });
     };
 
     componentDidMount(){
@@ -79,11 +96,15 @@ class TechList extends React.Component {
 
         return(
             <React.Fragment>
-                <Filters/>
+                <Filters handleFilters = {this.handleFilters}
+                         category={this.state.category}
+                         sort_by={this.state.sortBy}/>
                 <div className="tech-container">
                     {technologies}
                 </div>
-                <Paginator page={this.state.page} handlePage={this.handlePage} totalPages={this.state.totalPages}/>
+                <Paginator page={this.state.page}
+                           handlePage={this.handlePage}
+                           totalPages={this.state.totalPages}/>
             </React.Fragment>
         )
     }
