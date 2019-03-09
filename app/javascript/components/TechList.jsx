@@ -11,7 +11,9 @@ class TechList extends React.Component {
             technologies: [],
             page: 1,
             totalPages: null,
-            loading: false
+            loading: false,
+            categoty: null,
+            sortBy: 'views-desc'
         };
         this.handlePage = this.handlePage.bind(this)
     }
@@ -29,17 +31,18 @@ class TechList extends React.Component {
     componentDidMount(){
         fetch('/api/technologies')
             .then((response) => {return response.json()})
-            .then((data) => {this.setState({ technologies: data.technologies,
+            .then((data) => {this.setState({
+                technologies: data.technologies,
                 page: data.page,
-                totalPages: data.totalPages }) });
+                totalPages: data.totalPages })
+            });
     }
 
     initialState = (resultData) => {
         this.setState({
             loading: false,
             technologies: resultData.technologies,
-            totalPages: resultData.totalPages,
-            page: resultData.page
+            page: resultData.page,
         })
     };
 
