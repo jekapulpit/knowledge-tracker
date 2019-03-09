@@ -16,6 +16,7 @@ class TechList extends React.Component {
             sortBy: 'views-desc'
         };
         this.handlePage = this.handlePage.bind(this)
+        this.handleFilters = this.handleFilters.bind(this)
     }
 
     handlePage = (e, {activePage}) => {
@@ -26,6 +27,10 @@ class TechList extends React.Component {
         });
         const url = "/api/technologies/?page=" + pagestring;
         fetch(url).then(result => result.json()).then(this.initialState);
+    };
+
+    handleFilters = (category, sortBy) => {
+        console.log(category, sortBy);
     };
 
     componentDidMount(){
