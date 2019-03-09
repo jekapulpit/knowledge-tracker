@@ -8,7 +8,7 @@ class TechnologiesSorter
   ].freeze
 
   def initialize(value)
-    @value = value
+    @value = value ? value : 'views-desc'
   end
 
   def apply_on(relation)

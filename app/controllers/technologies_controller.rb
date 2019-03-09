@@ -6,14 +6,6 @@ class TechnologiesController < ApplicationController
       ['all', nil],
       *Category.pluck(:title, :id)
     ]
-    @technologies = if params[:category].present?
-                      Category.find(params[:category]).technologies
-                    else
-                      Technology.all
-                    end
-
-    @technologies = TechnologiesSorter.new(params[:sort_by]).apply_on(@technologies)
-    @technologies = @technologies.paginate(page: params[:page])
   end
 
   def edit

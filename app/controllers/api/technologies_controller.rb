@@ -1,9 +1,5 @@
 class Api::TechnologiesController < ApplicationController
   def index
-    @categories = [
-        ['all', nil],
-        *Category.pluck(:title, :id)
-    ]
     technologies = if params[:category].present? and params[:category] != 'all'
                      Category.find(params[:category]).technologies
                    else
