@@ -1,5 +1,5 @@
 class TechnologiesController < ApplicationController
-  before_action :set_technology, only: %i[edit show update destroy]
+  before_action :set_technology, only: %i[edit update destroy]
 
   def index
     @categories = [
@@ -13,8 +13,10 @@ class TechnologiesController < ApplicationController
   end
 
   def show
+    @technology = Technology.find(params[:id])
     @user_mark = @technology.marks.find_by(user: current_user)
     IncrementViewsJob.perform_later @technology
+    @technology_attributes = Technology.find(params[:id]).all_attributes
   end
 
   def new

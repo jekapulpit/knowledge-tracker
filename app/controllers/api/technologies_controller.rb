@@ -16,4 +16,7 @@ class Api::TechnologiesController < ApplicationController
         sortBy: params[:sort_by] || 'views-desc'
     }
   end
+  def show
+
+  end
 end
