@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import AdminUi from './AdminUi'
 import Paginator from './Paginator'
 import Filters from "./Filters";
+import Technology from "./Technology";
 
 class TechList extends React.Component {
     constructor(props) {
@@ -73,23 +74,9 @@ class TechList extends React.Component {
             var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} /> : null
             return(
                 <div className="tech-panel">
-                    <a className="tech-panel" href={"/technologies/" + technology.id}>
-                        <img className="tech-icon" src={technology.icon_url} />
-                        <div className="tech-info">
-                            <h2 className="tech-name"> {technology.title} </h2>
-                            <p className="tech-description">{technology.discription}</p>
-                            <div className="score-container">
-                                <div className="views-block">
-                                    <img src={this.props.viewsImage} />
-                                    {technology.views}
-                                </div>
-                                <div className="rating-block">
-                                    <img src={this.props.ratingImage} />
-                                    {technology.average_mark || 'no marks'}
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <Technology technology={technology}
+                                viewsImage={this.props.viewsImage}
+                                ratingImage={this.props.ratingImage} />
                     {adminUi}
                 </div>
             )
