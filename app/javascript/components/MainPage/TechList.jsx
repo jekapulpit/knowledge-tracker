@@ -12,7 +12,7 @@ class TechList extends React.Component {
             page: 1,
             totalPages: null,
             loading: false,
-            category: null,
+            category: '',
             sortBy: 'views-desc'
         };
         this.handlePage = this.handlePage.bind(this)
@@ -42,7 +42,7 @@ class TechList extends React.Component {
             .then((response) => {return response.json()})
             .then((data) => {this.setState({
                 technologies: data.technologies,
-                page: data.page,
+                page: 1,
                 category: category,
                 sortBy: sortBy,
                 loading: false,
