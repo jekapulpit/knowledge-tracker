@@ -2,7 +2,7 @@ class Technology < ApplicationRecord
   include Rails.application.routes.url_helpers
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-
+  ratyrate_rateable "mark"
   self.per_page = 10
 
   has_many :tests, dependent: :destroy

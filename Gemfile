@@ -17,6 +17,7 @@ gem 'sass-rails'
 gem 'react-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
+gem 'jquery-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
