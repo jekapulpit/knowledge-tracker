@@ -1,6 +1,6 @@
 <div class="container">
   <div class="tech-title">
-    <% react_component('technology/Technology', { technology: @technology_attributes }) %>
+    <%= react_component('technology/Technology', { technology: @technology_attributes }) %>
     <h2 class="tech-name"><%= @technology.title %></h2>
   </div>
   <%= render 'rating' %>

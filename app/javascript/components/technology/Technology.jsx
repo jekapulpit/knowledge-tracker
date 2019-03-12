@@ -13,7 +13,7 @@ class Technology extends React.Component {
     return (
       <React.Fragment>
         <div className="tech-title">
-          <img src={this.props.technology.icon_url} />
+          <img className="tech-icon" src={this.props.technology.icon_url} />
         </div>
       </React.Fragment>
     );
