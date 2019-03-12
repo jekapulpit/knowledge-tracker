@@ -31,6 +31,7 @@ gem 'pundit'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'will_paginate', '~> 3.1.0'
+gem 'ratyrate'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

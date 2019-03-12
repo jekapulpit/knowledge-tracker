@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   delete 'technologies_users/destroy/:id',
          to: 'technologies_users#destroy',
          as: 'destroy_users_technology'
