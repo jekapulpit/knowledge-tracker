@@ -3,7 +3,11 @@
     <%= react_component('technology/Technology', { technology: @technology_attributes }) %>
     <h2 class="tech-name"><%= @technology.title %></h2>
   </div>
-  <%= render 'rating' %>
+  <div class="rating">
+    <h1>Please rate!</h1>
+    <%= rating_for @technology, 'mark', disable_after_rate: false, cancel: false %>
+    <p class="user-mark"> <%= "your mark: #{@user_rate}" if @user_rate %> </p>
+  </div>
   <p class="technology-description"><%= @technology.discription %></p>
   <h1>ALL THEMES</h1>
   <div class="tech-themes">

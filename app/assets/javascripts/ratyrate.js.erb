@@ -47,9 +47,8 @@ document.addEventListener('turbolinks:load', function(){
           klass: $(this).attr('data-classname')
         },
         function(data) {
-          if(data) {
-            // success code goes here ...
-
+            _this.parentNode.querySelector('.user-mark').innerHTML = "your mark: " + score;
+            if(data) {
             if ($(_this).attr('data-disable-after-rate') == 'true') {
               $(_this).raty('set', { readOnly: true, score: score });
             }
