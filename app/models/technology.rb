@@ -15,7 +15,7 @@ class Technology < ApplicationRecord
   def all_attributes
     attributes
       .merge(icon_url: image_url,
-             average_mark: average_mark || 'no votes')
+             average_mark: Rating::GetOperation.new(self).avg_rate || 'no votes')
   end
 
   def image_url

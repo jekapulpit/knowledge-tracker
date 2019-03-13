@@ -3,7 +3,7 @@ module Rating
     attr_reader :technology, :user
 
 
-    def initialize(technology, user)
+    def initialize(technology, user = nil)
       @technology = technology
       @user = user
     end

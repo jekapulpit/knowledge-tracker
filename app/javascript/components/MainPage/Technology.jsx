@@ -14,7 +14,7 @@ const Technology = (props) => {
               </div>
               <div className="rating-block">
                 <img src={props.ratingImage} />
-                {props.technology.average_mark || 'no marks'}
+                {props.technology.average_mark}
               </div>
             </div>
           </div>

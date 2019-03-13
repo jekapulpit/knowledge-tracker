@@ -14,7 +14,6 @@ class TechnologiesController < ApplicationController
 
   def show
     @technology = Technology.find(params[:id])
-    @user_mark = @technology.marks.find_by(user: current_user)
     IncrementViewsJob.perform_later @technology
     @user_rate = Rating::GetOperation.new(@technology, current_user).user_rate
     @technology_attributes = Technology.find(params[:id]).all_attributes
