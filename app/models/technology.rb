@@ -9,13 +9,12 @@ class Technology < ApplicationRecord
   has_many :technologies_users, dependent: :destroy
   has_many :users, through: :technologies_users
   belongs_to :category, required: false
-  has_many :marks, dependent: :destroy
   has_one_attached :icon, dependent: :destroy
 
   def all_attributes
     attributes
       .merge(icon_url: image_url,
-             average_mark: Rating::GetOperation.new(self).avg_rate || 'no votes')
+             average_mark: average_mark || 'no votes')
   end
 
   def image_url
@@ -24,5 +23,10 @@ class Technology < ApplicationRecord
     else
       ActionController::Base.helpers.image_url('no-photo.jpg')
     end
+  end
+
+  def update_rating
+    self.average_mark = Rating::GetOperation.new(self).avg_rate
+    save
   end
 end

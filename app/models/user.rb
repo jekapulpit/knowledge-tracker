@@ -10,7 +10,6 @@ class User < ApplicationRecord
          omniauth_providers: [:facebook]
 
   has_one_attached :avatar
-  has_many :marks
   has_many :technologies_users
   has_many :technologies, through: :technologies_users
   has_many :test_results
