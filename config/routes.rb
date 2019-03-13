@@ -22,8 +22,6 @@ Rails.application.routes.draw do
     resources :technologies, only: [:index]
   end
   post '/answer', to: 'answers#answer'
-  post '/vote', to: 'votes#vote'
-  delete '/vote/:id', to: 'votes#destroy', as: 'delete_mark'
   get '/profile', to: 'users#profile'
   root 'technologies#index'
 end
