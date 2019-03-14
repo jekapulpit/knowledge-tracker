@@ -86,13 +86,16 @@
     }
   }
 
-  .tech-container {
+  .tech-container.parent {
+    height: 830px;
+  }
+  .tech-container.child {
     width: 950px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 830px;
+    align-items: flex-start;
 
     .tech-panel:hover {
       border-color: #FF933D;

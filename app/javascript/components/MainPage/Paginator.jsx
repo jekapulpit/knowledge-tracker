@@ -6,7 +6,7 @@ const Paginator = (props) => {
     return (
         <React.Fragment>
             <Pagination onPageChange={props.handlePage} size='mini' siblingRange='6'
-                        defaultActivePage={props.page} totalPages={props.totalPages}/>
+                        ActivePage={props.page} defaultActivePage={props.page} totalPages={props.totalPages}/>
         </React.Fragment>
     );
 };

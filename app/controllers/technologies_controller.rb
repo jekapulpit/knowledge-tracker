@@ -1,5 +1,6 @@
 class TechnologiesController < ApplicationController
   before_action :set_technology, only: %i[edit update destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
     @categories = [
@@ -43,9 +44,8 @@ class TechnologiesController < ApplicationController
   end
 
   def destroy
-    @technology.destroy
-
-    redirect_to root_path
+    authorize @technology
+    render json: { deleted: @technology.destroy }
   end
 
   private

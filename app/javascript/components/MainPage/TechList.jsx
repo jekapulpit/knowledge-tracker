@@ -12,12 +12,28 @@ class TechList extends React.Component {
             technologies: [],
             page: 1,
             totalPages: null,
-            loading: false,
+            loading: true,
             category: '',
             sortBy: 'views-desc'
         };
-        this.handlePage = this.handlePage.bind(this)
-        this.handleFilters = this.handleFilters.bind(this)
+        this.handlePage = this.handlePage.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleFilters = this.handleFilters.bind(this);
+    }
+
+    handleDelete = (technologyId) => {
+        fetch(`http://localhost:3000/technologies/${technologyId}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((response) => {return response.json()})
+            .then((result) => {
+                if(result.deleted)
+                    this.handleFilters(this.state.category, this.state.sortBy);
+            })
+
     }
 
     handlePage = (e, {activePage}) => {
@@ -43,11 +59,11 @@ class TechList extends React.Component {
             .then((response) => {return response.json()})
             .then((data) => {this.setState({
                 technologies: data.technologies,
-                page: 1,
                 category: category,
                 sortBy: sortBy,
                 loading: false,
-                totalPages: data.totalPages })
+                totalPages: data.totalPages,
+                page: data.page })
             });
     };
 
@@ -56,8 +72,8 @@ class TechList extends React.Component {
             .then((response) => {return response.json()})
             .then((data) => {this.setState({
                 technologies: data.technologies,
-                page: data.page,
-                totalPages: data.totalPages })
+                totalPages: data.totalPages,
+                loading: false })
             });
     }
 
@@ -66,12 +82,12 @@ class TechList extends React.Component {
             loading: false,
             technologies: resultData.technologies,
             page: resultData.page,
-        })
+        });
     };
 
     render(){
         var technologies = this.state.technologies.map((technology) => {
-            var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} /> : null
+            var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
             return(
                 <div className="tech-panel">
                     <Technology technology={technology}
@@ -83,20 +99,22 @@ class TechList extends React.Component {
         });
 
         return(
-            <React.Fragment>
+            <div>
                 <Filters handleFilters = {this.handleFilters}
                          category={this.state.category}
                          sort_by={this.state.sortBy}
                          isAdmin={this.props.isAdmin}
                          categories={this.props.categories}
                          sortOptions={this.props.sortOptions}/>
-                <div className="tech-container">
-                    {technologies}
+                <div className="tech-container parent">
+                    <div className="tech-container child">
+                        {technologies}
+                    </div>
                 </div>
                 <Paginator page={this.state.page}
                            handlePage={this.handlePage}
                            totalPages={this.state.totalPages}/>
-            </React.Fragment>
+            </div>
         )
     }
 }
