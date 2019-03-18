@@ -18,30 +18,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/technologies/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/TechList.jsx">
+        <entry file="file://$PROJECT_DIR$/app/views/technologies/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b187ff5b... wrong
             <state relative-caret-position="23">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
-=======
-            <state relative-caret-position="501">
-              <caret line="49" column="31" lean-forward="true" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
->>>>>>> parent of 0f26a03f... rendered tests and the rest attributes
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
@@ -63,6 +53,7 @@
 <<<<<<< HEAD
             <state relative-caret-position="276">
               <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+<<<<<<< HEAD
 =======
         <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/Paginator.jsx">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,6 +64,8 @@
             <state relative-caret-position="562">
               <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -83,10 +76,14 @@
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b187ff5b... wrong
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="115">
               <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+<<<<<<< HEAD
 =======
         <entry file="file://$PROJECT_DIR$/app/controllers/api/technologies_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -99,17 +96,23 @@
             <state relative-caret-position="115">
               <caret line="5" column="25" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="25" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
             </state>
           </provider>
         </entry>
       </file>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b187ff5b... wrong
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+<<<<<<< HEAD
 =======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/technologies.scss">
@@ -130,6 +133,8 @@
             <state relative-caret-position="138">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
             </state>
           </provider>
         </entry>
@@ -155,6 +160,7 @@
       <list>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <option value="$PROJECT_DIR$/config/application.yml" />
         <option value="$PROJECT_DIR$/app/javascript/components/technology/Technology.jsx" />
@@ -162,6 +168,8 @@
 =======
         <option value="$PROJECT_DIR$/config/application.yml" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
         <option value="$PROJECT_DIR$/db/migrate/20190312111619_create_overall_averages.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20190312111618_create_average_caches.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
@@ -169,18 +177,14 @@
         <option value="$PROJECT_DIR$/db/migrate/20190312111616_create_rating_caches.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/technologies/_rating.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/ratyrate.js.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.raty.js" />
-        <option value="$PROJECT_DIR$/app/views/technologies/show.html.erb" />
         <option value="$PROJECT_DIR$/app/operations/rating/get_operation.rb" />
         <option value="$PROJECT_DIR$/app/javascript/components/MainPage/Technology.jsx" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20190313135513_remove_votes.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20190313152518_add_avg_mark_to_tech.rb" />
         <option value="$PROJECT_DIR$/app/controllers/rater_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/technologies_controller.rb" />
         <option value="$PROJECT_DIR$/app/helpers/technologies_helper.rb" />
         <option value="$PROJECT_DIR$/app/services/technologies_sorter.rb" />
         <option value="$PROJECT_DIR$/app/models/technology.rb" />
@@ -189,7 +193,6 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/technologies.scss" />
         <option value="$PROJECT_DIR$/app/javascript/components/MainPage/Paginator.jsx" />
         <option value="$PROJECT_DIR$/app/javascript/components/MainPage/TechList.jsx" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/controllers/api/technologies_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/technologies/_rating.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
@@ -209,11 +212,14 @@
         <option value="$PROJECT_DIR$/scripts/start_webpack_dev.sh" />
         <option value="$PROJECT_DIR$/scripts/wait-for-it.sh" />
         <option value="$PROJECT_DIR$/Dockerfile" />
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 0f26a03f... rendered tests and the rest attributes
 =======
         <option value="$PROJECT_DIR$/app/javascript/components/technology/Technology.jsx" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
       </list>
     </option>
   </component>
@@ -237,6 +243,7 @@
               <item name="knowledge-tracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="knowledge-tracker" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -337,6 +344,8 @@
               <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
           </expand>
           <select />
         </subPane>
@@ -348,6 +357,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/controllers/api" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/javascript/components/MainPage" />
     </key>
@@ -474,6 +486,9 @@
       <workItem from="1552480911034" duration="9133000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b187ff5b... wrong
       <workItem from="1552554133737" duration="12098000" />
       <workItem from="1552649071548" duration="942000" />
       <workItem from="1552661482404" duration="286000" />
@@ -483,16 +498,20 @@
       <workItem from="1552899549508" duration="3029000" />
       <workItem from="1552904990456" duration="1370000" />
       <workItem from="1552906482875" duration="509000" />
+<<<<<<< HEAD
 =======
       <workItem from="1552554133737" duration="7959000" />
 >>>>>>> parent of 0f26a03f... rendered tests and the rest attributes
 =======
       <workItem from="1552554133737" duration="11720000" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="39767000" />
@@ -502,6 +521,9 @@
 =======
     <option name="totallyTimeSpent" value="30060000" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+    <option name="totallyTimeSpent" value="39767000" />
+>>>>>>> parent of b187ff5b... wrong
   </component>
   <component name="ToolWindowManager">
     <frame x="503" y="55" width="1400" height="937" extended-state="0" />
@@ -533,6 +555,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -642,6 +665,8 @@
 >>>>>>> parent of 0f26a03f... rendered tests and the rest attributes
 =======
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -653,13 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -719,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/technology.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/technologies_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -740,6 +751,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -759,6 +771,8 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
     <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/Technology.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -773,13 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/tests_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -799,17 +806,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/technologies_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/AdminUi.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/technologies_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="46">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -826,9 +826,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/technologies/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/technologies/_rating.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/technology.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/tests_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/technologies_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1081">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/Paginator.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/Filters.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
+        <state relative-caret-position="23">
           <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -836,13 +884,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/AdminUi.jsx">
+    <entry file="file://$PROJECT_DIR$/app/controllers/tests_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        <state relative-caret-position="-54">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -858,15 +907,21 @@
 =======
     <entry file="file://$PROJECT_DIR$/app/views/technologies/index.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/Paginator.jsx">
->>>>>>> parent of 0f26a03f... rendered tests and the rest attributes
+=======
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/technologies_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="138">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+>>>>>>> parent of b187ff5b... wrong
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/TechList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="75" column="33" lean-forward="true" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-<<<<<<< HEAD
             <element signature="e#2800#3255#0" />
           </folding>
         </state>
@@ -898,6 +953,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+<<<<<<< HEAD
 =======
           </folding>
 >>>>>>> parent of 0f26a03f... rendered tests and the rest attributes
@@ -908,11 +964,14 @@
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+>>>>>>> parent of b187ff5b... wrong
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/components/MainPage/TechList.jsx">
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/technology/Technology.jsx">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="276">
@@ -925,6 +984,10 @@
         <state relative-caret-position="562">
           <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
 >>>>>>> parent of aea2e491... integrated docker (removed elasticsearch)
+=======
+        <state relative-caret-position="276">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+>>>>>>> parent of b187ff5b... wrong
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>

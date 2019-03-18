@@ -1,0 +1,5 @@
+<div class="rating">
+  <h1>Please rate!</h1>
+  <%= rating_for @technology, 'mark', disable_after_rate: false, cancel: false %>
+  <p class="user-mark"> <%= "your mark: #{@user_rate}" if @user_rate %> </p>
+</div>
