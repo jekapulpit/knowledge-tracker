@@ -16,7 +16,7 @@ require 'faker'
 # Answer.destroy_all
 # Question.destroy_all
 # Test.destroy_all
-# Technology.__elasticsearch__.create_index!
+Technology.__elasticsearch__.create_index!
 # Technology.destroy_all
 # Category.destroy_all
 
@@ -57,7 +57,7 @@ end
 ].each do |category_params|
   category = Category.create(category_params)
   3.times do
-    tech = Technology.create(title: Faker::Book.title, discription: Faker::Book.author)
+    tech = Technology.create(title: Faker::Lorem.sentence(2), discription: Faker::Lorem.sentence(3))
     category.technologies << tech
     num_of_tests = 5
     num_of_tests.times do

@@ -24,7 +24,7 @@ template1.jpg
 /config/initializers/omniauth.rb
 /storage
 /storage/*
-.env
+
 /public/packs
 /public/packs-test
 /node_modules

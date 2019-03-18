@@ -5,7 +5,7 @@ default: &default
   encoding: unicode
   username: <%= ENV["db_user"] %>
   password: <%= ENV["db_password"] %>
-  host: db
+  host: localhost
   port: 5432
 
 
