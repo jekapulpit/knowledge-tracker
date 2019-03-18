@@ -1,5 +1,10 @@
 config = {
-  host: 'http://localhost:9200/',
+  host: 'http://elasticsearch:9200/',
+  xpack: {
+      security: { enabled: false }
+  },
+  user: 'elastic',
+  password: 'changeme',
   transport_options: {
     request: { timeout: 5 }
   }

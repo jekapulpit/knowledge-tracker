@@ -49,6 +49,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
 end
 
 group :development do
