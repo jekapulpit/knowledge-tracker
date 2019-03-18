@@ -19,9 +19,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :api do
-    resources :technologies, only: [:index] do
-      resources :tests
-    end
+    resources :technologies, only: [:index]
   end
   post '/answer', to: 'answers#answer'
   get '/profile', to: 'users#profile'
