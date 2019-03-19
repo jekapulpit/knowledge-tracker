@@ -12,7 +12,7 @@ class Test extends React.Component {
   render() {
     let isPassed = this.state.test.passed ? (<div className='test-status'> passed</div>) : null;
     return(
-        <div key={this.state.test.id} className="theme-block">
+        <div className="theme-block">
           <div className="theme">
             <div className="number">1</div>
             <a href={'/technologies/' + this.props.technologyId + '/tests/' + this.state.test.id}>{this.state.test.title}</a>

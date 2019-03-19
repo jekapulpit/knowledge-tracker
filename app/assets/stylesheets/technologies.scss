@@ -243,6 +243,7 @@
     display: flex;
     border-bottom: 2px solid #D9D9D9;
     flex-direction: column;
+    overflow: hidden;
 
     .theme-block {
       display: flex;

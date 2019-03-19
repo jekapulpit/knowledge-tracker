@@ -24,7 +24,7 @@ class Technology extends React.Component {
   render () {
     var tests = this.state.tests.map((test) => {
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
-        return( <Test technologyId={this.state.technology.id} test={test}/> )
+        return( <Test key={test.id}  technologyId={this.state.technology.id} test={test}/> )
     });
 
     return (
