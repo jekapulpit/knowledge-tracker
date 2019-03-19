@@ -35,17 +35,17 @@ class Technology extends React.Component {
     });
 
     return (
-      <div className="container">
-        <div className="tech-title">
-          <img className="tech-icon" src={this.state.technology.icon_url} />
-          <h2 className="tech-name">{this.state.technology.title}</h2>
-        </div>
-        <p className="technology-description">{this.state.technology.discription}</p>
-          <h1>ALL THEMES</h1>
-          <div className="tech-themes">
-              {tests}
-          </div>
-      </div>
+        <React.Fragment>
+            <div className="tech-title">
+                <img className="tech-icon" src={this.state.technology.icon_url} />
+                <h2 className="tech-name">{this.state.technology.title}</h2>
+            </div>
+            <p className="technology-description">{this.state.technology.discription}</p>
+            <h1>ALL THEMES</h1>
+            <div className="tech-themes">
+                {tests}
+            </div>
+        </React.Fragment>
     );
   }
 }
