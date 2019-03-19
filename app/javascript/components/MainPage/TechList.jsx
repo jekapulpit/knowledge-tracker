@@ -11,7 +11,7 @@ class TechList extends React.Component {
         this.state = {
             technologies: [],
             page: 1,
-            totalPages: null,
+            totalPages: 0,
             loading: true,
             category: '',
             sortBy: 'views-desc'
@@ -89,7 +89,7 @@ class TechList extends React.Component {
         var technologies = this.state.technologies.map((technology) => {
             var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
             return(
-                <div className="tech-panel">
+                <div key={technology.id} className="tech-panel">
                     <Technology technology={technology}
                                 viewsImage={this.props.viewsImage}
                                 ratingImage={this.props.ratingImage} />
@@ -100,20 +100,22 @@ class TechList extends React.Component {
 
         return(
             <div>
-                <Filters handleFilters = {this.handleFilters}
+                <Filters key={'filter'}
+                         handleFilters = {this.handleFilters}
                          category={this.state.category}
                          sort_by={this.state.sortBy}
                          isAdmin={this.props.isAdmin}
                          categories={this.props.categories}
                          sortOptions={this.props.sortOptions}/>
-                <div className="tech-container parent">
+                <div key={'tech-container'} className="tech-container parent">
                     <div className="tech-container child">
                         {technologies}
                     </div>
                 </div>
                 <Paginator page={this.state.page}
                            handlePage={this.handlePage}
-                           totalPages={this.state.totalPages}/>
+                           totalPages={this.state.totalPages}
+                           key={'paginator'} />
             </div>
         )
     }

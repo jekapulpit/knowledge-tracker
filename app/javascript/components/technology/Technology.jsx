@@ -25,7 +25,7 @@ class Technology extends React.Component {
         var isPassed = test.passed ? (<i style={{color: 'green', fontFamily: 'Lora-italic'}}>passed</i>) : null;
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
         return(
-            <div className="theme-block">
+            <div key={this.state.technology.id} className="theme-block">
                 <div className="theme">
                    <a href={'/technologies/' + this.state.technology.id + '/tests/' + test.id}>{test.title}</a>
                     {isPassed}

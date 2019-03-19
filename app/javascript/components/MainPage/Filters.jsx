@@ -8,12 +8,12 @@ const Filters = (props) => {
     };
     let categories = props.categories.map((category) => {
         return(
-            <option value={category[1]}>{category[0]}</option>
+            <option key={category[0]} value={category[1]}>{category[0]}</option>
         )
     });
     let sortOprions = props.sortOptions.map((sortOption) => {
         return(
-            <option value={sortOption[1]}>{sortOption[0]}</option>
+            <option key={sortOption[1]} value={sortOption[1]}>{sortOption[0]}</option>
         )
     });
     let adminUi = props.isAdmin ? ( <a href="/technologies/new">create technology</a> ) : null;
