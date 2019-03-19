@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import AdminUi from "../MainPage/TechList";
+import Test from "./Test";
 class Technology extends React.Component {
   constructor(props) {
     super(props);
@@ -22,16 +23,8 @@ class Technology extends React.Component {
 
   render () {
     var tests = this.state.tests.map((test) => {
-        var isPassed = test.passed ? (<i style={{color: 'green', fontFamily: 'Lora-italic'}}>passed</i>) : null;
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
-        return(
-            <div key={this.state.technology.id} className="theme-block">
-                <div className="theme">
-                   <a href={'/technologies/' + this.state.technology.id + '/tests/' + test.id}>{test.title}</a>
-                    {isPassed}
-                </div>
-            </div>
-        )
+        return( <Test technologyId={this.state.technology.id} test={test}/> )
     });
 
     return (
