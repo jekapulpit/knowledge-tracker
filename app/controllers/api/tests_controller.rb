@@ -9,7 +9,7 @@ class Api::TestsController < ApplicationController
   def update
     test = Test.find(params[:id])
     test.update_attributes(test_params)
-    render json: {test: test}
+    render json: {test: test.with_passed_by_user(current_user)}
   end
 
   private
