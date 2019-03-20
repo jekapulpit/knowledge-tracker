@@ -7,13 +7,37 @@ class Test extends React.Component {
       editable: false,
       test: props.test
     };
-    this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
-  handleUpdate = (test) => {
+  handleEdit = () => {
+    if(this.state.editable){
+      let test = {
+        id: this.state.test.id,
+        title: this.title.value,
+        discription: this.discription.value
+      };
+      this.handleUpdate(test)
+    }
     this.setState({
       editable: !this.state.editable
     });
+  };
+
+  handleUpdate = (test) => {
+    fetch(`http://localhost:3000/api/tests/${test.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({test: test}),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then((response) => {return response.json()})
+        .then((data) => {
+      this.setState({
+        test: data.test
+      })
+    })
   };
 
   render() {
@@ -32,7 +56,7 @@ class Test extends React.Component {
             {title}
             {discription}
           </div>
-          <div className="edit-button"><button onClick={(e) => this.handleUpdate(this.state.test)}>{buttonVal}</button></div>
+          <div className="edit-button"><button onClick={(e) => this.handleEdit(this.state.test)}>{buttonVal}</button></div>
         </div>
     )
   }
