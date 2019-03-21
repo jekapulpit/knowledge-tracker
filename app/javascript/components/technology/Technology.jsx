@@ -85,7 +85,7 @@ class Technology extends React.Component {
     let discription = this.state.editable ? (<textarea ref={input => this.discription = input}>{this.state.technology.discription}</textarea>) :
         (<p className="technology-description">{this.state.technology.discription}</p>);
     return (
-        <React.Fragment>
+        <div className="tech">
             <div className="tech-title">
                 <img className="tech-icon" src={this.state.technology.icon_url} />
                 {title}
@@ -96,7 +96,7 @@ class Technology extends React.Component {
             <div className="tech-themes">
                 {tests}
             </div>
-        </React.Fragment>
+        </div>
     );
   }
 }

@@ -85,7 +85,34 @@
       }
     }
   }
+  .tech {
+    display: flex;
+    flex-direction: column;
 
+    input, textarea {
+      width: auto;
+      background-color: #D9D9D9;
+      color: black;
+      margin: 10px;
+    }
+    textarea {
+      font-size: 13px;
+      width: 600px;
+      height: 120px;
+
+    }
+    input {
+      font-size: 20px;
+      width: 600px;
+      height: 40px;
+    }
+    button {
+      width: 60px;
+    }
+    .tech-title, .technology-description {
+      width: 700px;
+    }
+  }
   .tech-container.parent {
     height: 830px;
   }
