@@ -2,16 +2,19 @@ import React from "react"
 import PropTypes from "prop-types"
 import AdminUi from "../MainPage/TechList";
 import Test from "./Test";
+import TestForm from "./TestForm";
 class Technology extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       technology: props.technology,
       editable: false,
-      tests: []
+      tests: [],
+      newTest: false
     };
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this)
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
   }
 
   handleEdit = () => {
@@ -25,6 +28,32 @@ class Technology extends React.Component {
       }
       this.setState({
           editable: !this.state.editable
+      });
+  };
+
+  handleNew = () => {
+    this.setState({ newTest: true })
+  };
+
+  handleCreate = (title, disctiption) => {
+    let body = JSON.stringify({test: {title: title, discription: disctiption, technology_id: this.state.technology.id} });
+    fetch('http://localhost:3000/api/tests', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: body,
+    }).then((response) => {return response.json()})
+        .then((data)=>{
+            if(data.valid)
+              this.addNewTest(data.test)
+        })
+  };
+
+  addNewTest = (test) => {
+      this.setState({
+          newTest: false,
+          tests: this.state.tests.concat(test)
       });
   };
 
@@ -79,6 +108,7 @@ class Technology extends React.Component {
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
         return( <Test key={test.id}  technologyId={this.state.technology.id} test={test} handleDelete={this.handleDelete} /> )
     });
+    let newTestForm = this.state.newTest ? <TestForm handleCreate={this.handleCreate}/> : (<button className="new-test-but" onClick={(e) => this.handleNew()}>add new test</button>);
     let buttonVal = this.state.editable ? 'save' : 'edit';
     let title = this.state.editable ? (<input type='text' ref={input => this.title = input} defaultValue={this.state.technology.title}/>) :
         (<h2 className="tech-name">{this.state.technology.title}</h2>);
@@ -92,7 +122,10 @@ class Technology extends React.Component {
             </div>
             {discription}
             <button onClick={(e) => this.handleEdit()}>{buttonVal}</button>
-            <h1>ALL THEMES</h1>
+            <h1>ALL THEMES </h1>
+            <div className="tech-themes new">
+                {newTestForm}
+            </div>
             <div className="tech-themes">
                 {tests}
             </div>

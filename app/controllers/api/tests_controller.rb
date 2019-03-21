@@ -7,7 +7,11 @@ class Api::TestsController < ApplicationController
     render json: { tests: tests.map{ |test| test.with_user_result(current_user) } }
   end
 
-  def create; end
+  def create
+    test = Test.new
+    test.attributes = test_params
+    render json: { test: test, valid: test.save }
+  end
 
   def update
     @test.update_attributes(test_params)
@@ -21,7 +25,7 @@ class Api::TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:id, :title, :discription)
+    params.require(:test).permit(:title, :discription, :technology_id)
   end
 
   def set_test
