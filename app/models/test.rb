@@ -3,7 +3,7 @@ class Test < ApplicationRecord
   has_many :users, through: :test_results
   belongs_to :technology
 
-  def with_passed_by_user(user)
+  def with_user_result(user)
     attributes
         .merge(passed: passed_by_user?(user))
   end

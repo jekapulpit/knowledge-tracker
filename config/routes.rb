@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :technologies, only: [:index] do
       resources :tests
     end
-    resources :tests, only: [:update]
+    resources :tests, only: %i[create update destroy]
   end
   post '/answer', to: 'answers#answer'
   get '/profile', to: 'users#profile'

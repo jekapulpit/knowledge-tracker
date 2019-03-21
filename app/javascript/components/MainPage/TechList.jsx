@@ -34,7 +34,7 @@ class TechList extends React.Component {
                     this.handleFilters(this.state.category, this.state.sortBy);
             })
 
-    }
+    };
 
     handlePage = (e, {activePage}) => {
         let goToPage = {activePage};

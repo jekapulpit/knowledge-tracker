@@ -56,7 +56,10 @@ class Test extends React.Component {
             {title}
             {discription}
           </div>
-          <div className="edit-button"><button onClick={(e) => this.handleEdit(this.state.test)}>{buttonVal}</button></div>
+          <div className="edit-button">
+              <button onClick={(e) => this.handleEdit(this.state.test)}>{buttonVal}</button>
+              <button data-confirm="Are you sure?" onClick={(e) => this.props.handleDelete(this.state.test.id)}>delete</button>
+          </div>
         </div>
     )
   }

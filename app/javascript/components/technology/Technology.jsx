@@ -10,7 +10,29 @@ class Technology extends React.Component {
       editable: false,
       tests: []
     };
+    this.handleDelete = this.handleDelete.bind(this)
   }
+
+  handleDelete = (testId) => {
+      fetch(`http://localhost:3000/api/tests/${testId}`,
+          {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }).then((response) => {return response.json()})
+          .then((result) => {
+              if(result.deleted)
+                  this.deleteTest(testId)
+          })
+  };
+
+  deleteTest = (testId) => {
+      let newTests = this.state.tests.filter((test) => test.id !== testId);
+      this.setState({
+          tests: newTests
+      })
+  };
 
   componentDidMount() {
     fetch(`/api/technologies/${this.props.technology.id}/tests/`)
@@ -24,7 +46,7 @@ class Technology extends React.Component {
   render () {
     var tests = this.state.tests.map((test) => {
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
-        return( <Test key={test.id}  technologyId={this.state.technology.id} test={test}/> )
+        return( <Test key={test.id}  technologyId={this.state.technology.id} test={test} handleDelete={this.handleDelete} /> )
     });
 
     return (
