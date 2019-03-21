@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :api do
-    resources :technologies, only: [:index] do
+    resources :technologies, only: [:index, :update] do
       resources :tests
     end
     resources :tests, only: %i[create update destroy]
