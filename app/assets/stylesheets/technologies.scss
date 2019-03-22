@@ -272,6 +272,15 @@
     flex-direction: column;
     overflow: hidden;
 
+    &.new {
+      border-bottom: none;
+    }
+    .new-test-but {
+      width: 100px;
+      align-self: center;
+      margin: 10px;
+    }
+
     .theme-block {
       display: flex;
       padding: 10px;

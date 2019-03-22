@@ -47,7 +47,7 @@ class Test extends React.Component {
         (<a href={'/technologies/' + this.props.technologyId + '/tests/' + this.state.test.id}>
           {this.state.test.title}
         </a>);
-    let discription = this.state.editable ? (<textarea ref={input => this.discription = input}>{this.state.test.discription}</textarea>) :
+    let discription = this.state.editable ? (<textarea ref={input => this.discription = input} defaultValue={this.state.test.discription} />) :
         (<p>{this.state.test.discription}</p>);
     return(
         <div className="theme-block">
