@@ -18,10 +18,12 @@ gem 'react-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'jquery-rails'
+gem 'sidekiq'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
-gem 'jbuilder', '~> 2.5'
+gem 'devise-async'
+gem 'jbuilder'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-instagram'

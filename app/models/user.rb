@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          :confirmable,
+         :async,
          omniauth_providers: [:facebook]
 
   has_one_attached :avatar
