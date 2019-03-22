@@ -304,6 +304,9 @@
         &.not-passed {
           color: red;
         }
+        &.new {
+          color: #D9D9D9;
+        }
       }
 
       .theme {
