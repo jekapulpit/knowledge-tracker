@@ -49,6 +49,8 @@ class Test extends React.Component {
         </a>);
     let discription = this.state.editable ? (<textarea ref={input => this.discription = input} defaultValue={this.state.test.discription} />) :
         (<p>{this.state.test.discription}</p>);
+    let editButton = this.props.isAdmin ? (<button onClick={(e) => this.handleEdit(this.state.test)}>{buttonVal}</button>) : null
+    let destroyButton = this.props.isAdmin ? (<button data-confirm="Are you sure?" onClick={(e) => this.props.handleDelete(this.state.test.id)}>delete</button>) : null
     return(
         <div className="theme-block">
           <div className="theme">
@@ -57,8 +59,8 @@ class Test extends React.Component {
             {discription}
           </div>
           <div className="edit-button">
-              <button onClick={(e) => this.handleEdit(this.state.test)}>{buttonVal}</button>
-              <button data-confirm="Are you sure?" onClick={(e) => this.props.handleDelete(this.state.test.id)}>delete</button>
+              {editButton}
+              {destroyButton}
           </div>
         </div>
     )

@@ -1,4 +1,4 @@
 <div class="container">
-  <%= react_component('technology/Technology', { technology: @technology_attributes }) %>
+  <%= react_component('technology/Technology', { technology: @technology_attributes, isAdmin: current_user.admin? }) %>
   <%= render 'rating' %>
 </div>

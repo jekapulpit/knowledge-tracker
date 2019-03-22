@@ -106,14 +106,16 @@ class Technology extends React.Component {
   render () {
     let tests = this.state.tests.map((test) => {
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
-        return( <Test key={test.id}  technologyId={this.state.technology.id} test={test} handleDelete={this.handleDelete} /> )
+        return( <Test key={test.id} isAdmin={this.props.isAdmin} technologyId={this.state.technology.id} test={test} handleDelete={this.handleDelete} /> )
     });
-    let newTestForm = this.state.newTest ? <TestForm handleCreate={this.handleCreate}/> : (<button className="new-test-but" onClick={(e) => this.handleNew()}>add new test</button>);
+    var newTestForm = this.state.newTest ? <TestForm handleCreate={this.handleCreate}/> : (<button className="new-test-but" onClick={(e) => this.handleNew()}>add new test</button>);
+    newTestForm = this.props.isAdmin ? newTestForm : null;
     let buttonVal = this.state.editable ? 'save' : 'edit';
     let title = this.state.editable ? (<input type='text' ref={input => this.title = input} defaultValue={this.state.technology.title}/>) :
         (<h2 className="tech-name">{this.state.technology.title}</h2>);
     let discription = this.state.editable ? (<textarea ref={input => this.discription = input}>{this.state.technology.discription}</textarea>) :
         (<p className="technology-description">{this.state.technology.discription}</p>);
+    let editButton = this.props.isAdmin ? (<button onClick={(e) => this.handleEdit()}>{buttonVal}</button>) : null;
     return (
         <div className="tech">
             <div className="tech-title">
@@ -121,7 +123,7 @@ class Technology extends React.Component {
                 {title}
             </div>
             {discription}
-            <button onClick={(e) => this.handleEdit()}>{buttonVal}</button>
+            {editButton}
             <h1>ALL THEMES </h1>
             <div className="tech-themes new">
                 {newTestForm}
