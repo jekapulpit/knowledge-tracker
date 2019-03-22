@@ -26,7 +26,7 @@ class Technology < ApplicationRecord
   end
 
   def update_rating
-    self.average_mark = Rating::GetOperation.new(self).avg_rate
+    self.average_mark = Rating::GetOperation.new(self).avg_rate.round(1)
     save
   end
 end
