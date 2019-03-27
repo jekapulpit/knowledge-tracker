@@ -12,3 +12,12 @@
 2019-03-19 17:21:21.935 +03 [2957] LOG:  invalid record length at 0/1B5E6C8: wanted 24, got 0
 2019-03-19 17:21:21.935 +03 [2957] LOG:  redo done at 0/1B5E690
 2019-03-19 17:21:21.946 +03 [2956] LOG:  database system is ready to accept connections
+2019-03-25 19:39:29.170 +03 [2956] LOG:  received smart shutdown request
+2019-03-25 19:39:29.172 +03 [2956] LOG:  background worker "logical replication launcher" (PID 2963) exited with exit code 1
+2019-03-25 19:39:29.172 +03 [2958] LOG:  shutting down
+2019-03-25 19:39:29.181 +03 [2956] LOG:  database system is shut down
+2019-03-27 14:09:06.107 +03 [21955] LOG:  listening on IPv6 address "::1", port 5432
+2019-03-27 14:09:06.107 +03 [21955] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-03-27 14:09:06.107 +03 [21955] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-03-27 14:09:06.128 +03 [21956] LOG:  database system was shut down at 2019-03-25 19:39:29 +03
+2019-03-27 14:09:06.133 +03 [21955] LOG:  database system is ready to accept connections
