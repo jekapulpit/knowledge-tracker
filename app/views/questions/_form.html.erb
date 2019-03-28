@@ -1,12 +1,6 @@
 <div class="question-block">
   <%= simple_form_for [@technology, @test, @question], class: 'question-form' do |f| %>
     <%= f.input :question_text %>
-    <div class="custom-radios">
-      <% 4.times do |index| %>
-        <%= text_field_tag "answer[#{index}]", "question #{index}" %>
-      <% end %>
-    </div>
-    <%= f.input :right_answer, collection: 0..3, prompt: 'Select the right answer' %>
     <%= submit_tag('create', class: 'submit-btn') %>
   <% end %>
 </div>

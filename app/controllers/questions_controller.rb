@@ -6,9 +6,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
+    question = Question.new
+    question.attributes = question_params
     if @test.questions << question
-      fill_with_answers(question)
       redirect_to technology_test_path(@test.technology, @test)
     else
       render 'new'
@@ -46,6 +46,10 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:question_text, :right_answer, :test_id, :technology_id)
+    params.require(:question).permit(:question_text, :test_id, :technology_id)
+  end
+
+  def allowed_params
+    params.require(:question).permit(:question_text, :right_answer, :test_id, :technology_id, answers_attributes: [:id, :answer_text])
   end
 end
