@@ -2,6 +2,7 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :users, through: :test_results
   belongs_to :technology
+  enum status: [ :new, :approved ]
 
   def with_user_result(user)
     attributes
