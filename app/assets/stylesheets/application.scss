@@ -13,6 +13,16 @@
 
 
  */
+*, *::before, *::after {
+  box-sizing: inherit !important;
+}
+input {
+  box-sizing: border-box !important;
+}
+ 
+
+
+@import 'bootstrap';
 @import 'app.scss';
 @import 'fonts.css';
 @import 'search.scss';
@@ -20,4 +30,3 @@
 @import 'technologies_users.scss';
 @import 'tests.scss';
 @import 'users.scss';
-@import 'bootstrap';

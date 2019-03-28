@@ -11,7 +11,7 @@ class QuestionList extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
 
     this.state = {
-      index: 0,
+      index: 1,
       direction: null,
     };
   }
