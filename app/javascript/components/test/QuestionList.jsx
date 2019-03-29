@@ -12,7 +12,7 @@ class QuestionList extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
 
     this.state = {
-      index: 1,
+      index: null,
       direction: null,
       questions: []
     };
@@ -35,13 +35,38 @@ class QuestionList extends React.Component {
   render() {
     const {index, direction} = this.state;
     let questions = this.state.questions.map((question) => {
-      return( <Carousel.Item><Carousel.Caption><div>asdasd</div></Carousel.Caption></Carousel.Item> );
+      return( <Carousel.Item>
+        <Carousel.Caption>
+          <div className="question-block">
+            <form className="question-form">
+              <input type='text' ref={input => this.question_text = input} defaultValue={question.question_text}/>
+              <input type='text' ref={input => this.test_id = input} defaultValue={question.test_id} style={{ display: 'none' }} />
+              <div className="custom-radios">
+                <span className="radio">
+                  <label htmlFor={"question_right_answer_1_" + question.id}>
+                    <input ref={input => this.right_answer = input} type="radio" value="1" id={"question_right_answer_1_" + question.id}/>
+                    stubbb
+                  </label>
+                </span>
+                <span className="radio">
+                  <label htmlFor={"question_right_answer_1_" + question.id}>
+                    <input ref={input => this.right_answer = input} type="radio" value="2" id={"question_right_answer_2_" + question.id}/>
+                    stubbb
+                  </label>
+                </span>
+              </div>
+            </form>
+          </div>
+        </Carousel.Caption>
+      </Carousel.Item> );
     });
     return (
         <Carousel
             activeIndex={index}
             direction={direction}
             onSelect={this.handleSelect}
+            interval={null}
+            className="test-carousel"
         >
           {questions}
         </Carousel>
