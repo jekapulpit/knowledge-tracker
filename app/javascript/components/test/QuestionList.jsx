@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import PropTypes from "prop-types"
 import Carousel from 'react-bootstrap/Carousel'
+import Test from "../technology/Technology";
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class QuestionList extends React.Component {
     this.state = {
       index: 1,
       direction: null,
+      questions: []
     };
   }
 
@@ -23,49 +25,25 @@ class QuestionList extends React.Component {
     });
   }
 
+  componentDidMount(props) {
+    fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
+        .then((response) => {return response.json()})
+        .then((data) => {this.setState({ questions: data.questions })
+        });
+  }
+
   render() {
     const {index, direction} = this.state;
-
+    let questions = this.state.questions.map((question) => {
+      return( <Carousel.Item><Carousel.Caption><div>asdasd</div></Carousel.Caption></Carousel.Item> );
+    });
     return (
         <Carousel
             activeIndex={index}
             direction={direction}
             onSelect={this.handleSelect}
         >
-          <Carousel.Item>
-            <img
-                className="d-block w-100"
-                alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-                className="d-block w-100"
-                alt="Third slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-                className="d-block w-100"
-                alt="Third slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
+          {questions}
         </Carousel>
     );
   }

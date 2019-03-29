@@ -6,7 +6,7 @@
               technology_path(@test.technology) %>
 </div>
 <% if current_user.admin? %>
- <%= react_component('test/QuestionList') %>
+ <%= react_component('test/QuestionList', {technology_id: @test.technology.id, test: @test}) %>
 <div class="tests-container">
   <div class="test-form">
     <h1>edit Test:</h1>
