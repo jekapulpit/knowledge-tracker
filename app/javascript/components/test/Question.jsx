@@ -6,9 +6,33 @@ class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: props.question
+      question: props.question,
+      answers: []
     };
   }
+
+  handleUpdate = () => {
+    let question = {
+      id: this.state.question.id,
+      question_text: this.question_text.value,
+      right_answer: this.right_answer,
+      test_id: this.test_id.value,
+      answers: this.state.answers
+    };
+    fetch(`http://localhost:3000/api/questions/${question.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({question: question}),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then((response) => {return response.json()})
+        .then((data) => {
+          this.setState({
+            question: data.question
+          })
+        })
+  };
 
   render () {
     return (

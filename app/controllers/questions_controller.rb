@@ -49,7 +49,4 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:question_text, :test_id, :technology_id)
   end
 
-  def allowed_params
-    params.require(:question).permit(:question_text, :right_answer, :test_id, :technology_id, answers_attributes: [:id, :answer_text])
-  end
 end

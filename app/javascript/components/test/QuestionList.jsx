@@ -56,7 +56,6 @@ class QuestionList extends React.Component {
               className="test-carousel"
               controls={false}
               indicators={false}
-
           >
             {questions}
 
