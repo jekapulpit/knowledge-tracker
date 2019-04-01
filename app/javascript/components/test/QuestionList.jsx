@@ -5,32 +5,35 @@ import PropTypes from "prop-types"
 import Carousel from 'react-bootstrap/Carousel'
 import Test from "../technology/Technology";
 import Question from "./Question";
+import { Pagination } from 'semantic-ui-react'
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleSelect = this.handleSelect.bind(this);
-
     this.state = {
-      index: null,
+      index: 0,
+      page: 1,
       direction: null,
-      questions: []
+      questions: [],
     };
   }
 
-  handleSelect(selectedIndex, e) {
+  handleTest = (e, {activePage}) => {
+    let goToTest = {activePage};
+    let moveTo = (goToTest.activePage - this.state.page);
+    let direction = moveTo < 0 ? 'prev' : 'next';
     this.setState({
-      index: selectedIndex,
-      direction: e.direction,
+      page: goToTest.activePage,
+      index: goToTest.activePage - 1,
+      direction: direction
     });
-  }
+  };
 
   componentDidMount(props) {
     fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
         .then((response) => {return response.json()})
         .then((data) => {this.setState({ questions: data.questions })
-        });
+      });
   }
 
   render() {
@@ -43,16 +46,32 @@ class QuestionList extends React.Component {
         </Carousel.Caption>
       </Carousel.Item> );
     });
+
     return (
-        <Carousel
-            activeIndex={index}
-            direction={direction}
-            onSelect={this.handleSelect}
-            interval={null}
-            className="test-carousel"
-        >
-          {questions}
-        </Carousel>
+        <React.Fragment >
+          <Carousel
+              activeIndex={index}
+              direction={direction}
+              interval={null}
+              className="test-carousel"
+              controls={false}
+              indicators={false}
+
+          >
+            {questions}
+
+          </Carousel>
+          <div className="pagination">
+            <Pagination onPageChange={this.handleTest}
+                        size='mini'
+                        siblingRange='6'
+                        firstItem={null}
+                        lastItem={null}
+                        activepage={this.state.page}
+                        defaultActivePage={this.state.page}
+                        totalPages={questions.length}/>
+          </div>
+        </React.Fragment>
     );
   }
 }
