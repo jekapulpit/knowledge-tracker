@@ -20,7 +20,7 @@ class Answer extends React.Component {
                  id={"question_right_answer_" + this.state.answer.id}
                  onChange={this.props.handleOptionChange}
                  defaultChecked={this.props.selected === this.state.answer.id}/>
-            {this.state.answer.answer_text}
+            {this.state.answer.answer_text + " dsfdsf"}
         </label>
       </span>
     );

@@ -42,7 +42,7 @@ class QuestionList extends React.Component {
       return(
       <Carousel.Item>
         <Carousel.Caption>
-          <Question question={question} />
+          <Question technology_id={this.props.technology_id} question={question} />
         </Carousel.Caption>
       </Carousel.Item> );
     });

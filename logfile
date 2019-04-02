@@ -30,3 +30,5 @@
 2019-04-01 16:44:08.613 +03 [4825] LOG:  invalid record length at 0/1C5F1E8: wanted 24, got 0
 2019-04-01 16:44:08.613 +03 [4825] LOG:  redo done at 0/1C5F1B0
 2019-04-01 16:44:08.622 +03 [4824] LOG:  database system is ready to accept connections
+2019-04-02 16:38:39.815 +03 [6937] ERROR:  column "questions" does not exist at character 45
+2019-04-02 16:38:39.815 +03 [6937] STATEMENT:  SELECT  "tests".* FROM "tests" WHERE (count(questions) = 3) LIMIT $1
