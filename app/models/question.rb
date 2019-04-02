@@ -6,6 +6,6 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :answers
 
   def with_answers
-    attributes.merge(answers: answers)
+    attributes.merge(answers: answers.order(:created_at))
   end
 end

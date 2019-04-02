@@ -12,12 +12,13 @@ class Question extends React.Component {
       selectedAnswer: props.question.right_answer,
       available: true
     };
-    this.handleOptionChange = this.handleOptionChange.bind(this)
+    this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.handleAnsDelete = this.handleAnsDelete.bind(this)
   }
 
   handleUpdate = () => {
     let answers_attributes = {};
-    
+
     this.state.answers.map((answer) => {
         answers_attributes[answer.id] = {
             answer_text:    answer.answer_text,
@@ -48,6 +49,39 @@ class Question extends React.Component {
         })
   };
 
+  handleAnsDelete = (answerId) => {
+      fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.state.question.test_id}/questions/${this.state.question.id}/answers/${answerId}`,
+          {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }).then((response) => {return response.json()})
+          .then((result) => {
+              if(result.deleted)
+                  this.deleteAnswer(answerId)
+          })
+  };
+
+  deleteAnswer = (answerId) => {
+      let newAnswers = this.state.answers.filter((answer) => answer.id !== answerId);
+      this.setState({
+          answers: newAnswers,
+          selectedAnswer: newAnswers[0].id
+      });
+  };
+
+  updateAnswers = () => {
+      fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.state.question.test_id}/questions/${this.state.question.id}/answers`)
+          .then((response) => {return response.json()})
+          .then((result) => {
+              this.setState({
+                  selectedAnswer: result.answers[0],
+                  answers: result.answers
+              });
+          })
+  };
+
   handleOptionChange = (changeEvent) => {
       this.setState({
           selectedAnswer: changeEvent.target.value
@@ -58,14 +92,16 @@ class Question extends React.Component {
       this.setState({
           available: false
       });
-  }
+  };
 
   render () {
     let answers = this.state.answers.map((answer) => {
-      return(<Answer handleOptionChange={this.handleOptionChange}
+      return(<Answer key={answer.id}
+                     handleOptionChange={this.handleOptionChange}
                      question_id={this.state.question.id}
                      answer={answer}
-                     selected={this.state.selectedAnswer}/>)
+                     selected={this.state.selectedAnswer}
+                     handleAnsDelete={this.handleAnsDelete}/>)
     });
     return (
             <div className="question-block">

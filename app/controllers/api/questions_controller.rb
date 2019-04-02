@@ -2,13 +2,14 @@ class Api::QuestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    questions = Test.find(params[:test_id]).questions
+    questions = Test.find(params[:test_id]).questions.order(:created_at)
     render json: { questions: questions.map(&:with_answers) }
   end
 
   def update
     question = Question.find(params[:id])
     question.update_attributes(allowed_params)
+    render json: { question: question }
   end
 
   private
