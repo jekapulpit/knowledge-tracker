@@ -6,11 +6,13 @@ class Answer extends React.Component {
       super(props);
       this.state = {
           editable: false,
-          answer: props.answer
+          answer: props.answer,
+          status: props.status
       };
   }
 
   render () {
+    let actionButton = this.state.status ? (<button>edit</button>) : (<button>save</button>);
     return (
       <span className="radio">
         <label htmlFor={"question_right_answer_" + this.state.answer.id}>

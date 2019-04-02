@@ -101,7 +101,8 @@ class Question extends React.Component {
                      question_id={this.state.question.id}
                      answer={answer}
                      selected={this.state.selectedAnswer}
-                     handleAnsDelete={this.handleAnsDelete}/>)
+                     handleAnsDelete={this.handleAnsDelete}
+                     created={true}/>)
     });
     return (
             <div className="question-block">
