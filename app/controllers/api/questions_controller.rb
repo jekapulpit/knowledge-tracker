@@ -1,7 +1,7 @@
 class Api::QuestionsController < ApplicationController
   def index
     questions = Test.find(params[:test_id]).questions
-    render json: { questions: questions }
+    render json: { questions: questions.map(&:with_answers) }
   end
 
   def update; end

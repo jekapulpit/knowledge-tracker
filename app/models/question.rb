@@ -4,4 +4,8 @@ class Question < ApplicationRecord
   belongs_to :test
   enum type: [ :checkbox, :radio, :text ]
   accepts_nested_attributes_for :answers
+
+  def with_answers
+    attributes.merge(answers: answers)
+  end
 end
