@@ -16,7 +16,8 @@ class Question extends React.Component {
     };
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleAnsDelete = this.handleAnsDelete.bind(this);
-    this.handleCreate = this.handleCreate.bind(this)
+    this.handleCreate = this.handleCreate.bind(this);
+    this.handleNew = this.handleNew.bind(this)
   }
 
   handleUpdate = () => {
@@ -99,7 +100,7 @@ class Question extends React.Component {
 
   handleNew = () => {
     this.setState({
-       newAnswer: true
+       newAnswer: !this.state.newAnswer
     });
   };
 
@@ -139,7 +140,7 @@ class Question extends React.Component {
                      handeNew={this.handleNew}
                      created={true}/>)
     });
-    let newAns = this.state.newAnswer ? (<AnswerForm handleCreate={this.handleCreate}/>) : (<button onClick={() => {this.handleNew()}}>add new answer</button>)
+    let newAns = this.state.newAnswer ? (<AnswerForm handleNew={this.handleNew} handleCreate={this.handleCreate}/>) : (<button onClick={() => {this.handleNew()}}>add new answer</button>)
     return (
             <div className="question-block">
               <form className="question-form" data-remote="true">
