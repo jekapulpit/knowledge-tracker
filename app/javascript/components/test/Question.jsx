@@ -98,6 +98,8 @@ class Question extends React.Component {
     let answers = this.state.answers.map((answer) => {
       return(<Answer key={answer.id}
                      handleOptionChange={this.handleOptionChange}
+                     technology_id={this.props.technology_id}
+                     test_id={this.state.question.test_id}
                      question_id={this.state.question.id}
                      answer={answer}
                      selected={this.state.selectedAnswer}
