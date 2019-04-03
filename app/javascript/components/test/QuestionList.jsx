@@ -6,6 +6,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import Test from "../technology/Technology";
 import Question from "./Question";
 import { Pagination } from 'semantic-ui-react'
+import QuestionForm from "./QuestionForm";
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -13,9 +14,46 @@ class QuestionList extends React.Component {
     this.state = {
       index: 0,
       page: 1,
+      newQuestion: false,
       direction: null,
       questions: [],
     };
+    this.handleCreate = this.handleCreate.bind(this)
+  }
+
+  handleNew = () => {
+    this.setState({
+      questions: this.state.questions.concat("new"),
+      newQuestion: true,
+      page: this.state.questions.length + 1,
+      index: this.state.questions.length
+    })
+  };
+
+  handleCreate = (question_text) => {
+    let body = JSON.stringify({question: {question_text: question_text, test_id: this.props.test.id} });
+    fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: body,
+        }).then((response) => {return response.json()})
+        .then((data)=>{
+          if(data.valid)
+            this.addNewQuestion(data.question)
+        })
+  };
+
+  addNewQuestion(question) {
+      fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
+          .then((response) => {return response.json()})
+          .then((data) => {this.setState({
+              questions: data.questions,
+              newQuestion: false
+          })
+      });
   }
 
   handleTest = (e, {activePage}) => {
@@ -39,13 +77,16 @@ class QuestionList extends React.Component {
   render() {
     const {index, direction} = this.state;
     let questions = this.state.questions.map((question) => {
+      let ques = question.id ? (<Question technology_id={this.props.technology_id} question={question} />) : (<QuestionForm handleCreate={this.handleCreate}/>);
       return(
-      <Carousel.Item>
-        <Carousel.Caption>
-          <Question technology_id={this.props.technology_id} question={question} />
-        </Carousel.Caption>
-      </Carousel.Item> );
-    });
+          <Carousel.Item>
+            <Carousel.Caption>
+              {ques}
+            </Carousel.Caption>
+          </Carousel.Item>
+      )});
+
+    let newQuestion = this.state.newQuestion ? (null) : (<button onClick={() => {this.handleNew()}}>new question</button>);
 
     return (
         <React.Fragment >
@@ -68,7 +109,9 @@ class QuestionList extends React.Component {
                         lastItem={null}
                         activepage={this.state.page}
                         defaultActivePage={this.state.page}
-                        totalPages={questions.length}/>
+                        totalPages={questions.length}>
+            </Pagination>
+              {newQuestion}
           </div>
         </React.Fragment>
     );
