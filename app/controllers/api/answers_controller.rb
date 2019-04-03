@@ -16,10 +16,16 @@ class Api::AnswersController < ApplicationController
     render json: { deleted: @answer.destroy }
   end
 
+  def create
+    answer = Answer.new
+    answer.attributes = answer_params
+    render json: { answer: answer, valid: answer.save }
+  end
+
   private
 
   def answer_params
-    params.require(:answer).permit(:answer_text)
+    params.require(:answer).permit(:answer_text, :question_id)
   end
 
   def set_answer

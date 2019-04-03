@@ -2,6 +2,7 @@ import React from "react"
 import Carousel from 'react-bootstrap/Carousel'
 import PropTypes from "prop-types"
 import Answer from "./Answer";
+import AnswerForm from "./AnswerForm";
 
 class Question extends React.Component {
   constructor(props) {
@@ -9,11 +10,13 @@ class Question extends React.Component {
     this.state = {
       question: props.question,
       answers: props.question.answers,
+      newAnswer: false,
       selectedAnswer: props.question.right_answer,
       available: true
     };
     this.handleOptionChange = this.handleOptionChange.bind(this);
-    this.handleAnsDelete = this.handleAnsDelete.bind(this)
+    this.handleAnsDelete = this.handleAnsDelete.bind(this);
+    this.handleCreate = this.handleCreate.bind(this)
   }
 
   handleUpdate = () => {
@@ -94,6 +97,35 @@ class Question extends React.Component {
       });
   };
 
+  handleNew = () => {
+    this.setState({
+       newAnswer: true
+    });
+  };
+
+  handleCreate = (answer_text) => {
+      let body = JSON.stringify({answer: {answer_text: answer_text, question_id: this.state.question.id} });
+      fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.state.question.test_id}/questions/${this.state.question.id}/answers`,
+          {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+          },
+            body: body,
+      }).then((response) => {return response.json()})
+          .then((data)=>{
+              if(data.valid)
+                  this.addNewAnswer(data.answer)
+          })
+  };
+
+  addNewAnswer = (answer) => {
+    this.setState({
+      newAnswer: false,
+      answers: this.state.answers.concat(answer)
+    });
+  };
+
   render () {
     let answers = this.state.answers.map((answer) => {
       return(<Answer key={answer.id}
@@ -104,14 +136,17 @@ class Question extends React.Component {
                      answer={answer}
                      selected={this.state.selectedAnswer}
                      handleAnsDelete={this.handleAnsDelete}
+                     handeNew={this.handleNew}
                      created={true}/>)
     });
+    let newAns = this.state.newAnswer ? (<AnswerForm handleCreate={this.handleCreate}/>) : (<button onClick={() => {this.handleNew()}}>add new answer</button>)
     return (
             <div className="question-block">
               <form className="question-form" data-remote="true">
                 <input type='text' ref={input => this.question_text = input} defaultValue={this.state.question.question_text}/>
                 <input type='text' ref={input => this.test_id = input} defaultValue={this.state.question.test_id} style={{ display: 'none' }} />
                 <div className="custom-radios">
+                  {newAns}
                   {answers}
                 </div>
                 <button onClick={() => this.handleUpdate()}>save</button>

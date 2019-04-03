@@ -106,7 +106,11 @@ class Technology extends React.Component {
   render () {
     let tests = this.state.tests.map((test) => {
         //var adminUi = this.props.isAdmin ? <AdminUi id={technology.id} handleDelete={this.handleDelete}/> : null
-        return( <Test key={test.id} isAdmin={this.props.isAdmin} technologyId={this.state.technology.id} test={test} handleDelete={this.handleDelete} /> )
+        return( <Test key={test.id}
+                      isAdmin={this.props.isAdmin}
+                      technologyId={this.state.technology.id}
+                      test={test}
+                      handleDelete={this.handleDelete} /> )
     });
     var newTestForm = this.state.newTest ? <TestForm handleCreate={this.handleCreate}/> : (<button className="new-test-but" onClick={(e) => this.handleNew()}>add new test</button>);
     newTestForm = this.props.isAdmin ? newTestForm : null;
