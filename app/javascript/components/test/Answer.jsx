@@ -57,6 +57,7 @@ class Answer extends React.Component {
       <span className="radio">
           {input}
           <p onClick={() => this.handleEdit()}> {this.state.created ? 'edit' : 'save'} </p>
+          <p onClick={() => this.props.handleAnsDelete(this.state.answer.id)}> delete </p>
       </span>
   );
   }
