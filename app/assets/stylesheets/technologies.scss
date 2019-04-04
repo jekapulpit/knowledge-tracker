@@ -407,6 +407,11 @@
   justify-content: center;
   align-items: center;
 
+  .item.new-question {
+    margin-top: 20px;
+    color: #fff;
+  }
+
   .previous_page, .current, a {
     height: 40px;
     display: flex;

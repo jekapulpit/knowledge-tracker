@@ -94,7 +94,7 @@ class QuestionList extends React.Component {
           </Carousel.Item>
       )});
 
-    let newQuestion = this.state.newQuestion ? (null) : (<button onClick={() => {this.handleNew()}}>new question</button>);
+    let newQuestion = this.state.newQuestion ? (null) : (<a className="item new-question" onClick={() => {this.handleNew()}}>+</a>);
 
     return (
         <React.Fragment >
