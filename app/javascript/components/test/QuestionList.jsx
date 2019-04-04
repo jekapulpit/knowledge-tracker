@@ -18,7 +18,8 @@ class QuestionList extends React.Component {
       direction: null,
       questions: [],
     };
-    this.handleCreate = this.handleCreate.bind(this)
+    this.handleCreate = this.handleCreate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleNew = () => {
@@ -42,19 +43,28 @@ class QuestionList extends React.Component {
         }).then((response) => {return response.json()})
         .then((data)=>{
           if(data.valid)
-            this.addNewQuestion(data.question)
+            this.updateQuestionList()
         })
   };
 
-  addNewQuestion(question) {
-      fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
+  deleteQuestion = (questionId) => {
+      let newQuestions = this.state.questions.filter((question) => question.id !== questionId);
+      this.setState({
+          questions: newQuestions,
+          page: 1,
+          index: 0
+      }).then(() => {this.updateQuestionList()})
+  };
+
+  updateQuestionList = () => {
+      fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
           .then((response) => {return response.json()})
           .then((data) => {this.setState({
               questions: data.questions,
               newQuestion: false
           })
       });
-  }
+  };
 
   handleTest = (e, {activePage}) => {
     let goToTest = {activePage};
@@ -67,6 +77,21 @@ class QuestionList extends React.Component {
     });
   };
 
+  handleDelete = (questionId) => {
+      fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions/${questionId}`,
+          {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }).then((response) => {return response.json()})
+          .then((result) => {
+              if(result.deleted) {
+                this.deleteQuestion(questionId);
+              }
+          })
+  };
+
   componentDidMount(props) {
     fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
         .then((response) => {return response.json()})
@@ -77,12 +102,15 @@ class QuestionList extends React.Component {
   render() {
     const {index, direction} = this.state;
     let questions = this.state.questions.map((question) => {
-      let ques = question.id ? (<Question editImage={this.props.editImage}
+      let ques = question.id ? (<Question key={question.id}
+                                          editImage={this.props.editImage}
+                                          handleDelete={this.handleDelete}
                                           deleteImage={this.props.deleteImage}
                                           saveImage={this.props.saveImage}
                                           technology_id={this.props.technology_id}
                                           question={question} />) :
-                               (<QuestionForm editImage={this.props.editImage}
+                               (<QuestionForm key={'newq'}
+                                          editImage={this.props.editImage}
                                           deleteImage={this.props.deleteImage}
                                           saveImage={this.props.saveImage}
                                           handleCreate={this.handleCreate}/>);

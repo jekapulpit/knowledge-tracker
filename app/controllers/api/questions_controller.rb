@@ -18,6 +18,11 @@ class Api::QuestionsController < ApplicationController
     render json: { question: question, valid: question.save }
   end
 
+  def destroy
+    question = Question.find(params[:id])
+    render json: { deleted: question.destroy }
+  end
+
   private
 
   def allowed_params

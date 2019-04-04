@@ -157,6 +157,7 @@ class Question extends React.Component {
                   {answers}
                 </div>
                 <button onClick={() => this.handleUpdate()}>save</button>
+                <button onClick={() => this.props.handleDelete(this.state.question.id)}>delete</button>
               </form>
             </div>
     );
