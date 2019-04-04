@@ -102,8 +102,7 @@ class QuestionList extends React.Component {
   render() {
     const {index, direction} = this.state;
     let questions = this.state.questions.map((question) => {
-      let ques = question.id ? (<Question key={question.id}
-                                          editImage={this.props.editImage}
+      let ques = question.id ? (<Question editImage={this.props.editImage}
                                           handleDelete={this.handleDelete}
                                           deleteImage={this.props.deleteImage}
                                           saveImage={this.props.saveImage}
@@ -115,7 +114,7 @@ class QuestionList extends React.Component {
                                           saveImage={this.props.saveImage}
                                           handleCreate={this.handleCreate}/>);
       return(
-          <Carousel.Item>
+          <Carousel.Item key={question.id}>
             <Carousel.Caption>
               {ques}
             </Carousel.Caption>
