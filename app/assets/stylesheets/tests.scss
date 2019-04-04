@@ -119,6 +119,20 @@
     height: 500px;
     width: 100%;
 
+    .answer-radio  {
+      display: flex;
+      justify-content: space-between;
+
+      .ans-controls {
+        display: flex;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     form, .input {
       display: flex;
       flex-direction: column;

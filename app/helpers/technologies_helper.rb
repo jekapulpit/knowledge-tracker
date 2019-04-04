@@ -8,16 +8,4 @@ module TechnologiesHelper
       ['lowest marks', 'average_mark-asc']
     ]
   end
-
-  def views_image
-    image_url('view.png')
-  end
-
-  def rating_image
-    image_url('star.jpg')
-  end
-
-  def no_photo
-    image_url('no-photo.jpg')
-  end
 end

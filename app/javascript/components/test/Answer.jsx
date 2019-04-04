@@ -55,10 +55,12 @@ class Answer extends React.Component {
         :
         (<input ref={input => this.answer_text = input} defaultValue={this.state.answer.answer_text}/>);
     return (
-      <span className="radio">
+      <span className="radio answer-radio">
           {input}
-          <p onClick={() => this.handleEdit()}> {this.state.created ? 'edit' : 'save'} </p>
-          <p onClick={() => this.props.handleAnsDelete(this.state.answer.id)}> delete </p>
+          <div className="ans-controls">
+              <img onClick={() => this.handleEdit()} src={this.state.created ? this.props.editImage : this.props.saveImage} />
+              <img onClick={() => this.props.handleAnsDelete(this.state.answer.id)} src={this.props.deleteImage} />
+          </div>
       </span>
   );
   }

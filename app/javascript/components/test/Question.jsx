@@ -130,6 +130,9 @@ class Question extends React.Component {
   render () {
     let answers = this.state.answers.map((answer) => {
       return(<Answer key={answer.id}
+                     editImage={this.props.editImage}
+                     deleteImage={this.props.deleteImage}
+                     saveImage={this.props.saveImage}
                      handleOptionChange={this.handleOptionChange}
                      technology_id={this.props.technology_id}
                      test_id={this.state.question.test_id}
@@ -140,7 +143,10 @@ class Question extends React.Component {
                      handeNew={this.handleNew}
                      created={true}/>)
     });
-    let newAns = this.state.newAnswer ? (<AnswerForm handleNew={this.handleNew} handleCreate={this.handleCreate}/>) : (<button onClick={() => {this.handleNew()}}>add new answer</button>)
+    let newAns = this.state.newAnswer ? (<AnswerForm editImage={this.props.editImage}
+                                                     deleteImage={this.props.deleteImage}
+                                                     saveImage={this.props.saveImage}
+                                                     handleNew={this.handleNew} handleCreate={this.handleCreate}/>) : (<button onClick={() => {this.handleNew()}}>add new answer</button>)
     return (
             <div className="question-block">
               <form className="question-form" data-remote="true">

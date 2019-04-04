@@ -7,10 +7,10 @@
 </div>
 <% if current_user.admin? %>
 <div class="tests-container">
-  <div class="test-form">
-    <h1>edit Test:</h1>
-    <%= render 'form' %>
-  </div>
-  <%= react_component('test/QuestionList', {technology_id: @test.technology.id, test: @test}) %>
+  <%= react_component('test/QuestionList', {technology_id: @test.technology.id,
+                                            test: @test,
+                                            editImage: edit_image,
+                                            deleteImage: delete_image,
+                                            saveImage: save_image}) %>
 </div>
 <% end %>
