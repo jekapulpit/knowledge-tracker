@@ -24,7 +24,6 @@ class Answer extends React.Component {
     })
   };
 
-
   handleUpdateAnswer = (answer_attributes) => {
       fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.props.test_id}/questions/${this.props.question_id}/answers/${this.state.answer.id}`,
           {

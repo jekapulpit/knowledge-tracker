@@ -106,6 +106,7 @@ class QuestionList extends React.Component {
                                           handleDelete={this.handleDelete}
                                           deleteImage={this.props.deleteImage}
                                           saveImage={this.props.saveImage}
+                                          process={false}
                                           technology_id={this.props.technology_id}
                                           question={question} />) :
                                (<QuestionForm key={'newq'}

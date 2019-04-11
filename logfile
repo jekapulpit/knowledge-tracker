@@ -32,3 +32,22 @@
 2019-04-01 16:44:08.622 +03 [4824] LOG:  database system is ready to accept connections
 2019-04-02 16:38:39.815 +03 [6937] ERROR:  column "questions" does not exist at character 45
 2019-04-02 16:38:39.815 +03 [6937] STATEMENT:  SELECT  "tests".* FROM "tests" WHERE (count(questions) = 3) LIMIT $1
+2019-04-05 15:20:48.089 +03 [61763] FATAL:  database "chat_dev" does not exist
+2019-04-05 18:33:31.490 +03 [66771] ERROR:  column messages.user_id does not exist at character 43
+2019-04-05 18:33:31.490 +03 [66771] STATEMENT:  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN ($1, $2)
+2019-04-05 18:36:17.788 +03 [66820] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
+2019-04-05 18:36:17.788 +03 [66820] DETAIL:  Key (id)=(11) is still referenced from table "room_relations".
+2019-04-05 18:36:17.788 +03 [66820] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
+2019-04-05 18:36:30.257 +03 [66820] ERROR:  update or delete on table "rooms" violates foreign key constraint "fk_rails_b4b3fa6f0f" on table "room_relations"
+2019-04-05 18:36:30.257 +03 [66820] DETAIL:  Key (id)=(4) is still referenced from table "room_relations".
+2019-04-05 18:36:30.257 +03 [66820] STATEMENT:  DELETE FROM "rooms" WHERE "rooms"."id" = $1
+2019-04-05 18:36:34.526 +03 [66820] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
+2019-04-05 18:36:34.526 +03 [66820] DETAIL:  Key (id)=(11) is still referenced from table "room_relations".
+2019-04-05 18:36:34.526 +03 [66820] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
+2019-04-05 18:39:00.502 +03 [66881] ERROR:  column messages.room_id does not exist at character 43
+2019-04-05 18:39:00.502 +03 [66881] STATEMENT:  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1
+2019-04-05 18:40:50.581 +03 [66881] ERROR:  column messages.recipient_type does not exist at character 43
+2019-04-05 18:40:50.581 +03 [66881] STATEMENT:  SELECT "messages".* FROM "messages" WHERE "messages"."recipient_type" = $1 AND "messages"."recipient_id" = $2
+2019-04-09 17:33:40.258 +03 [71671] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
+2019-04-09 17:33:40.258 +03 [71671] DETAIL:  Key (id)=(14) is still referenced from table "room_relations".
+2019-04-09 17:33:40.258 +03 [71671] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
