@@ -30,15 +30,22 @@ class TestOperation extends React.Component {
               }
           }).then((response) => {return response.json()})
           .then((data) => {
-              console.log(data.success)
+              if(this.state.index < this.state.questions.length - 1) {
+                  this.setState({
+                      index: this.state.index + 1,
+                  })
+              } else {
+                  console.log('test is over')
+              }
           });
+
   };
 
   componentDidMount(props) {
     fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
         .then((response) => {return response.json()})
         .then((data) => {this.setState({ questions: data.questions })
-        });
+        })
   }
 
   render() {
