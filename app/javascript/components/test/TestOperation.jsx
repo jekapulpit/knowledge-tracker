@@ -32,7 +32,7 @@ class TestOperation extends React.Component {
       return(
           <Carousel.Item key={question.id}>
             <Carousel.Caption>
-                <QuestionOperation question={question} answers={question.answers}/>
+                <QuestionOperation test={this.props.test} question={question} answers={question.answers}/>
             </Carousel.Caption>
           </Carousel.Item>
       )});
