@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :api do
+    post '/answer/', to: 'answers#answer'
     resources :technologies, only: [:index, :update] do
       resources :tests do
         resources :questions do

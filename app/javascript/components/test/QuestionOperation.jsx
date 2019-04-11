@@ -14,7 +14,6 @@ class QuestionOperation extends React.Component{
         this.setState({
             activeAnswer: changeEvent.target.value
         });
-        console.log(this.state.activeAnswer + " " + changeEvent.target.value)
     };
 
   render() {
@@ -30,13 +29,17 @@ class QuestionOperation extends React.Component{
       return(
           <div className="question-block">
               <h1>{this.props.question.question_text}</h1>
-              <form>
+              <form data-remote="true" onSubmit={() => {this.props.handleAnswer({
+                  answer_id: this.state.activeAnswer,
+                  test_id: this.props.test.id,
+                  question_id: this.props.question.id
+              })}}>
                   <input defaultValue={this.props.test.id} ref={input => answered.test_id = input} style={{display: 'none'}} type="text"/>
                   <input defaultValue={this.props.question.id} ref={input => answered.question_id = input} style={{display: 'none'}} type="text"/>
                   <div className="custom-radios">
                       {answers}
                   </div>
-                  <button className="submit-btn">send</button>
+                  <button data-remote="true" className="submit-btn">send</button>
               </form>
           </div>
       )

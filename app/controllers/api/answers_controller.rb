@@ -22,6 +22,17 @@ class Api::AnswersController < ApplicationController
     render json: { answer: answer, valid: answer.save }
   end
 
+  def answer
+    correct = (Question.find(params[:question_id])
+                   .right_answer == params[:answer_id].to_i)
+    if correct
+      test_result = current_user.test_results.last
+      test_result.result = test_result.result + 1
+      test_result.save
+    end
+    render json: { success: correct }
+  end
+
   private
 
   def answer_params

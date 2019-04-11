@@ -17,7 +17,22 @@ class TestOperation extends React.Component {
       direction: 'next',
       questions: [],
     };
+    this.handleAnswer = this.handleAnswer.bind(this)
   }
+
+  handleAnswer = (data) => {
+      fetch(`/api/answer`,
+          {
+              method: 'POST',
+              body: JSON.stringify(data),
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }).then((response) => {return response.json()})
+          .then((data) => {
+              console.log(data.success)
+          });
+  };
 
   componentDidMount(props) {
     fetch(`/api/technologies/${this.props.technology_id}/tests/${this.props.test.id}/questions`)
@@ -32,7 +47,7 @@ class TestOperation extends React.Component {
       return(
           <Carousel.Item key={question.id}>
             <Carousel.Caption>
-                <QuestionOperation test={this.props.test} question={question} answers={question.answers}/>
+                <QuestionOperation handleAnswer={this.handleAnswer} test={this.props.test} question={question} answers={question.answers}/>
             </Carousel.Caption>
           </Carousel.Item>
       )});
