@@ -4,6 +4,7 @@ Rails.application.routes.draw do
          to: 'technologies_users#destroy',
          as: 'destroy_users_technology'
   get '/search', to: 'search#start'
+  get '/profile', to: 'users#profile'
   post '/technologies/:technology_id/tests/:id',
        to: 'tests#start',
        as: 'test_start'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   namespace :api do
     post '/test/finish', to: 'tests#finish',
          as: 'test_finish'
+    get '/profile', to: 'users#profile'
     post '/answer/', to: 'answers#answer'
     resources :technologies, only: [:index, :update] do
       resources :tests do
@@ -30,6 +32,5 @@ Rails.application.routes.draw do
     resources :tests, only: %i[create update destroy]
   end
   post '/answer', to: 'answers#answer'
-  get '/profile', to: 'users#profile'
   root 'technologies#index'
 end

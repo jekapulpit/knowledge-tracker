@@ -1,5 +1,9 @@
-class UsersController < ApplicationController
-  def profile; end
+class Api::UsersController < ApplicationController
+  def profile
+    user = current_user.with_all_attributes
+    progress = current_user.technologies_users.includes(:technology)
+    render json: { trackingTechnologies: progress, user: user }
+  end
 
   def create; end
 
