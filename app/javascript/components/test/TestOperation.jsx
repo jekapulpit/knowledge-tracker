@@ -35,10 +35,22 @@ class TestOperation extends React.Component {
                       index: this.state.index + 1,
                   })
               } else {
-                  console.log('test is over')
+                  this.finishTest()
               }
           });
+  };
 
+  finishTest = () => {
+      fetch(`/api/test/finish`,
+          {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }).then((response) => {return response.json()})
+          .then((data) => {
+              this.mainElement.innerHTML = `<div><h1>Your result: ${data.result}/${data.number_of_questions}</h1><a href="/profile">back to profile</a></div>`;
+          });
   };
 
   componentDidMount(props) {
@@ -60,17 +72,20 @@ class TestOperation extends React.Component {
       )});
 
     return (
-        <React.Fragment >
-          <Carousel
-              activeIndex={index}
-              direction={direction}
-              interval={null}
-              className="test-carousel"
-              controls={false}
-              indicators={false}>
-            {questions}
-          </Carousel>
-        </React.Fragment>
+        <div ref={node => this.mainElement = node} className="tests-container">
+            <div>
+              <Carousel
+                  activeIndex={index}
+                  direction={direction}
+                  interval={null}
+                  className="test-carousel"
+                  controls={false}
+                  indicators={false}>
+                {questions}
+              </Carousel>
+            </div>
+            <button onClick={() => {this.finishTest()}}>finish</button>
+        </div>
     );
   }
 }

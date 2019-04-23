@@ -8,8 +8,6 @@ Rails.application.routes.draw do
        to: 'tests#start',
        as: 'test_start'
   post '/profile/change_avatar', to: 'users#change_avatar', as: 'change_avatar'
-  post '/test/finish', to: 'tests#finish',
-                       as: 'test_finish'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   resources :technologies do
     resources :tests do
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
   namespace :api do
+    post '/test/finish', to: 'tests#finish',
+         as: 'test_finish'
     post '/answer/', to: 'answers#answer'
     resources :technologies, only: [:index, :update] do
       resources :tests do

@@ -76,7 +76,7 @@ class Question extends React.Component {
   };
 
   updateAnswers = () => {
-      fetch(`http://localhost:3000/api/technologies/${this.props.technology_id}/tests/${this.state.question.test_id}/questions/${this.state.question.id}/answers`)
+      fetch(`/api/technologies/${this.props.technology_id}/tests/${this.state.question.test_id}/questions/${this.state.question.id}/answers`)
           .then((response) => {return response.json()})
           .then((result) => {
               this.setState({

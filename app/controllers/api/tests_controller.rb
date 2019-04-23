@@ -22,6 +22,17 @@ class Api::TestsController < ApplicationController
     render json: { deleted: @test.destroy }
   end
 
+  def finish
+    test_result = current_user.test_results.includes(:test).last
+    ProgressWorker.perform_async current_user.id
+    respond_to do |format|
+      format.json do
+        render json: { result: test_result.result,
+                       number_of_questions: test_result.test.questions.count }
+      end
+    end
+  end
+
   private
 
   def test_params
