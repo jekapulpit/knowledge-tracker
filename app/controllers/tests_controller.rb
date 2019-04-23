@@ -11,7 +11,7 @@ class TestsController < ApplicationController
 
   def finish
     test_result = current_user.test_results.includes(:test).last
-    UpdateProgressJob.perform_later current_user
+    ProgressWorker.perform_async current_user.id
     respond_to do |format|
       format.json do
         render json: { result: test_result.result,

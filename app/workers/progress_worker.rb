@@ -1,7 +1,8 @@
-class UpdateProgressJob < ApplicationJob
-  queue_as :default
+class ProgressWorker
+  include Sidekiq::Worker
 
-  def perform(user)
+  def perform(user_id)
+    user = User.find(user_id)
     user.technologies.each { |technology| update_progress(technology, user) }
   end
 
@@ -12,8 +13,8 @@ class UpdateProgressJob < ApplicationJob
       passed_tests += 1 if max_result
     end
     user
-      .technologies_users
-      .find_by(technology_id: technology.id)
-      .update(progress: passed_tests * 100 / technology.tests.count)
+        .technologies_users
+        .find_by(technology_id: technology.id)
+        .update(progress: passed_tests * 100 / technology.tests.count)
   end
 end

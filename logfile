@@ -51,3 +51,12 @@
 2019-04-09 17:33:40.258 +03 [71671] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
 2019-04-09 17:33:40.258 +03 [71671] DETAIL:  Key (id)=(14) is still referenced from table "room_relations".
 2019-04-09 17:33:40.258 +03 [71671] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
+2019-04-23 14:40:27.964 +03 [6484] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-23 14:40:27.964 +03 [6484] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-23 14:40:27.965 +03 [6484] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-23 14:40:27.986 +03 [6485] LOG:  database system was interrupted; last known up at 2019-04-19 16:02:19 +03
+2019-04-23 14:40:28.192 +03 [6485] LOG:  database system was not properly shut down; automatic recovery in progress
+2019-04-23 14:40:28.196 +03 [6485] LOG:  redo starts at 0/1EB8BB0
+2019-04-23 14:40:28.196 +03 [6485] LOG:  invalid record length at 0/1EB8C90: wanted 24, got 0
+2019-04-23 14:40:28.196 +03 [6485] LOG:  redo done at 0/1EB8C58
+2019-04-23 14:40:28.209 +03 [6484] LOG:  database system is ready to accept connections
