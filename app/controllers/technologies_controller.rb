@@ -33,16 +33,6 @@ class TechnologiesController < ApplicationController
     end
   end
 
-  def update
-    authorize @technology
-    if @technology.update(technology_params)
-      render 'show'
-    else
-      flash[:update_error] = 'cannot update the technology'
-      render 'new'
-    end
-  end
-
   def destroy
     authorize @technology
     render json: { deleted: @technology.destroy }
