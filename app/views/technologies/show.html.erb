@@ -1,38 +1,4 @@
 <div class="container">
-  <div class="tech-title">
-    <% if @technology.icon.attached? %>
-      <%= image_tag @technology.icon, class: 'tech-icon' %>
-    <% else %>
-      <%= image_tag 'no-photo.jpg', class: 'tech-icon' %>
-    <% end %>
-    <h2 class="tech-name"><%= @technology.title %></h2>
-  </div>
+  <%= react_component('technology/Technology', { technology: @technology_attributes, isAdmin: current_user.admin? }) %>
   <%= render 'rating' %>
-  <p class="technology-description"><%= @technology.discription %></p>
-  <h1>ALL THEMES</h1>
-  <div class="tech-themes">
-    <% @technology.tests.each_with_index do |test, index| %>
-      <div class="theme-block">
-        <div class="theme">
-          <%= index + 1 %>.
-          <%= link_to test.title, technology_test_path(@technology, test) %>
-          <% if passed?(test) %>
-          <i style="color: green; font-family: Lora-italic;">passed</i>
-          <% end %>
-        </div>
-        <% if current_user.admin? %>
-          <%= link_to 'delete',
-                      technology_test_path(@technology, test),
-                      method: :delete,
-                      class: 'delete-test-link',
-                      data: {confirm: 'Are you sure?'} %>
-        <% end %>
-      </div>
-    <% end %>
-    <% if current_user.admin? %>
-      <%= link_to 'add new test',
-                  new_technology_test_path(@technology),
-                  class: 'create-test-link' %>
-    <% end %>
-  </div>
 </div>

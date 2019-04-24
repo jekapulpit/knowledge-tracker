@@ -1,8 +1,4 @@
-<div class="tests-container">
-  <%= render @test.questions if @test.questions.any? %>
-  <%= link_to 'Finish',
-              test_finish_path,
-              remote: true,
-              id: 'finish-test',
-              method: :post %>
-</div>
+<%= react_component('test/TestOperation', {
+    technology_id: @test.technology.id,
+    test: @test
+}) %>

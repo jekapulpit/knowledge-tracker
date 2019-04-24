@@ -1,0 +1,71 @@
+2019-03-18 18:45:55.687 +03 [10132] LOG:  listening on IPv6 address "::1", port 5432
+2019-03-18 18:45:55.687 +03 [10132] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-03-18 18:45:55.688 +03 [10132] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-03-18 18:45:55.714 +03 [10133] LOG:  database system was shut down at 2019-03-14 17:35:43 +03
+2019-03-18 18:45:55.723 +03 [10132] LOG:  database system is ready to accept connections
+2019-03-19 17:21:21.801 +03 [2956] LOG:  listening on IPv6 address "::1", port 5432
+2019-03-19 17:21:21.801 +03 [2956] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-03-19 17:21:21.801 +03 [2956] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-03-19 17:21:21.817 +03 [2957] LOG:  database system was interrupted; last known up at 2019-03-19 15:41:04 +03
+2019-03-19 17:21:21.932 +03 [2957] LOG:  database system was not properly shut down; automatic recovery in progress
+2019-03-19 17:21:21.935 +03 [2957] LOG:  redo starts at 0/1B5E5E8
+2019-03-19 17:21:21.935 +03 [2957] LOG:  invalid record length at 0/1B5E6C8: wanted 24, got 0
+2019-03-19 17:21:21.935 +03 [2957] LOG:  redo done at 0/1B5E690
+2019-03-19 17:21:21.946 +03 [2956] LOG:  database system is ready to accept connections
+2019-03-25 19:39:29.170 +03 [2956] LOG:  received smart shutdown request
+2019-03-25 19:39:29.172 +03 [2956] LOG:  background worker "logical replication launcher" (PID 2963) exited with exit code 1
+2019-03-25 19:39:29.172 +03 [2958] LOG:  shutting down
+2019-03-25 19:39:29.181 +03 [2956] LOG:  database system is shut down
+2019-03-27 14:09:06.107 +03 [21955] LOG:  listening on IPv6 address "::1", port 5432
+2019-03-27 14:09:06.107 +03 [21955] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-03-27 14:09:06.107 +03 [21955] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-03-27 14:09:06.128 +03 [21956] LOG:  database system was shut down at 2019-03-25 19:39:29 +03
+2019-03-27 14:09:06.133 +03 [21955] LOG:  database system is ready to accept connections
+2019-04-01 16:44:08.419 +03 [4824] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-01 16:44:08.419 +03 [4824] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-01 16:44:08.420 +03 [4824] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-01 16:44:08.438 +03 [4825] LOG:  database system was interrupted; last known up at 2019-03-28 15:21:50 +03
+2019-04-01 16:44:08.610 +03 [4825] LOG:  database system was not properly shut down; automatic recovery in progress
+2019-04-01 16:44:08.613 +03 [4825] LOG:  redo starts at 0/1C5F108
+2019-04-01 16:44:08.613 +03 [4825] LOG:  invalid record length at 0/1C5F1E8: wanted 24, got 0
+2019-04-01 16:44:08.613 +03 [4825] LOG:  redo done at 0/1C5F1B0
+2019-04-01 16:44:08.622 +03 [4824] LOG:  database system is ready to accept connections
+2019-04-02 16:38:39.815 +03 [6937] ERROR:  column "questions" does not exist at character 45
+2019-04-02 16:38:39.815 +03 [6937] STATEMENT:  SELECT  "tests".* FROM "tests" WHERE (count(questions) = 3) LIMIT $1
+2019-04-05 15:20:48.089 +03 [61763] FATAL:  database "chat_dev" does not exist
+2019-04-05 18:33:31.490 +03 [66771] ERROR:  column messages.user_id does not exist at character 43
+2019-04-05 18:33:31.490 +03 [66771] STATEMENT:  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN ($1, $2)
+2019-04-05 18:36:17.788 +03 [66820] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
+2019-04-05 18:36:17.788 +03 [66820] DETAIL:  Key (id)=(11) is still referenced from table "room_relations".
+2019-04-05 18:36:17.788 +03 [66820] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
+2019-04-05 18:36:30.257 +03 [66820] ERROR:  update or delete on table "rooms" violates foreign key constraint "fk_rails_b4b3fa6f0f" on table "room_relations"
+2019-04-05 18:36:30.257 +03 [66820] DETAIL:  Key (id)=(4) is still referenced from table "room_relations".
+2019-04-05 18:36:30.257 +03 [66820] STATEMENT:  DELETE FROM "rooms" WHERE "rooms"."id" = $1
+2019-04-05 18:36:34.526 +03 [66820] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
+2019-04-05 18:36:34.526 +03 [66820] DETAIL:  Key (id)=(11) is still referenced from table "room_relations".
+2019-04-05 18:36:34.526 +03 [66820] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
+2019-04-05 18:39:00.502 +03 [66881] ERROR:  column messages.room_id does not exist at character 43
+2019-04-05 18:39:00.502 +03 [66881] STATEMENT:  SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1
+2019-04-05 18:40:50.581 +03 [66881] ERROR:  column messages.recipient_type does not exist at character 43
+2019-04-05 18:40:50.581 +03 [66881] STATEMENT:  SELECT "messages".* FROM "messages" WHERE "messages"."recipient_type" = $1 AND "messages"."recipient_id" = $2
+2019-04-09 17:33:40.258 +03 [71671] ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_699ebe7de3" on table "room_relations"
+2019-04-09 17:33:40.258 +03 [71671] DETAIL:  Key (id)=(14) is still referenced from table "room_relations".
+2019-04-09 17:33:40.258 +03 [71671] STATEMENT:  DELETE FROM "users" WHERE "users"."id" = $1
+2019-04-23 14:40:27.964 +03 [6484] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-23 14:40:27.964 +03 [6484] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-23 14:40:27.965 +03 [6484] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-23 14:40:27.986 +03 [6485] LOG:  database system was interrupted; last known up at 2019-04-19 16:02:19 +03
+2019-04-23 14:40:28.192 +03 [6485] LOG:  database system was not properly shut down; automatic recovery in progress
+2019-04-23 14:40:28.196 +03 [6485] LOG:  redo starts at 0/1EB8BB0
+2019-04-23 14:40:28.196 +03 [6485] LOG:  invalid record length at 0/1EB8C90: wanted 24, got 0
+2019-04-23 14:40:28.196 +03 [6485] LOG:  redo done at 0/1EB8C58
+2019-04-23 14:40:28.209 +03 [6484] LOG:  database system is ready to accept connections
+2019-04-23 19:09:10.333 +03 [6484] LOG:  received smart shutdown request
+2019-04-23 19:09:10.334 +03 [6484] LOG:  background worker "logical replication launcher" (PID 6491) exited with exit code 1
+2019-04-23 19:09:10.334 +03 [6486] LOG:  shutting down
+2019-04-23 19:09:10.340 +03 [6484] LOG:  database system is shut down
+2019-04-24 14:33:25.892 +03 [7410] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-24 14:33:25.892 +03 [7410] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-24 14:33:25.893 +03 [7410] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-24 14:33:25.922 +03 [7411] LOG:  database system was shut down at 2019-04-23 19:09:10 +03
+2019-04-24 14:33:25.930 +03 [7410] LOG:  database system is ready to accept connections

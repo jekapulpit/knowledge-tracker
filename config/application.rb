@@ -14,6 +14,7 @@ module KnowledgeTracker
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.generators.javascript_engine = :js
+    config.active_job.queue_adapter = :sidekiq
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

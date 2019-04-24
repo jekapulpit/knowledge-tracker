@@ -1,19 +1,12 @@
 class TechnologiesController < ApplicationController
-  before_action :set_technology, only: %i[edit show update destroy]
+  before_action :set_technology, only: %i[edit update destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
     @categories = [
       ['all', nil],
       *Category.pluck(:title, :id)
     ]
-    @technologies = if params[:category].present?
-                      Category.find(params[:category]).technologies
-                    else
-                      Technology.all
-                    end
-
-    @technologies = TechnologiesSorter.new(params[:sort_by]).apply_on(@technologies)
-    @technologies = @technologies.paginate(page: params[:page])
   end
 
   def edit
@@ -21,8 +14,10 @@ class TechnologiesController < ApplicationController
   end
 
   def show
-    @user_mark = @technology.marks.find_by(user: current_user)
+    @technology = Technology.find(params[:id])
     IncrementViewsJob.perform_later @technology
+    @user_rate = Rating::GetOperation.new(@technology, current_user).user_rate
+    @technology_attributes = Technology.find(params[:id]).all_attributes
   end
 
   def new
@@ -38,20 +33,9 @@ class TechnologiesController < ApplicationController
     end
   end
 
-  def update
-    authorize @technology
-    if @technology.update(technology_params)
-      render 'show'
-    else
-      flash[:update_error] = 'cannot update the technology'
-      render 'new'
-    end
-  end
-
   def destroy
-    @technology.destroy
-
-    redirect_to root_path
+    authorize @technology
+    render json: { deleted: @technology.destroy }
   end
 
   private
