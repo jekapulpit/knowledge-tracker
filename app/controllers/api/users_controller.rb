@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   def profile
     user = current_user.with_all_attributes
-    progress = current_user.technologies_users.includes(:technology)
+    progress = current_user.progress
     render json: { trackingTechnologies: progress, user: user }
   end
 

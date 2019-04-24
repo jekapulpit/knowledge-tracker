@@ -33,6 +33,10 @@ class User < ApplicationRecord
     end
   end
 
+  def progress
+    TechnologiesUser.joins(:technology).select('technologies_users.*, technologies.*').where(user: self)
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

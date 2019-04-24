@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import TechnologyProgress from "./TechnologyProgress";
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,9 @@ class ProfilePage extends React.Component {
   }
 
   render(){
+     let technologies = this.state.trackingTechnologies.map((technology) => {
+         return (<TechnologyProgress technology={technology}/>)
+     });
     return (
         <div className="container">
           <div className="main-info">
@@ -38,7 +42,7 @@ class ProfilePage extends React.Component {
           <div className="other-info">
             <h1>Your technologies</h1>
             <div className="tech-container child">
-
+                {technologies}
             </div>
           </div>
         </div>
