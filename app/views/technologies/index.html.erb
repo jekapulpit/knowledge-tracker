@@ -1,24 +1,8 @@
 <div class="container">
-  <div class="filters">
-    <%= form_with method: 'get', local: true do %>
-      <div class="input-block">
-        <p>category filter: </p>
-        <%= select_tag(:category, options_for_select(@categories,
-                                                     params[:category])) %>
-      </div>
-      <div class="input-block">
-        <p>sort by: </p>
-        <%= select_tag(:sort_by, options_for_select(technologies_sort_options,
-                                                    params[:sort_by])) %>
-      </div>
-      <%= submit_tag('Apply') %>
-      <% if current_user.admin? %>
-      <%= link_to 'create technology', new_technology_path %>
-      <% end %>
-  <% end %>
-  </div>
-  <div class="tech-container">
-    <%= render @technologies if @technologies.any? %>
-  </div>
-  <%= will_paginate @technologies %>
+  <%= react_component('MainPage/TechList', { viewsImage: views_image,
+                                    ratingImage: rating_image,
+                                    emptyPhoto: no_photo,
+                                    isAdmin: current_user.admin?,
+                                    categories: @categories,
+                                    sortOptions: technologies_sort_options }) %>
 </div>

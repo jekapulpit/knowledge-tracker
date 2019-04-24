@@ -29,7 +29,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -40,24 +40,26 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  config.action_mailer.delivery_method = :smtp
   # Suppress logger output for asset requests.
   config.assets.quiet = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.mail.ru',
-    port: 465,
-    domain: 'localhost',
-    authentication: :plain,
-    user_name: ENV['email_sender'],
-    password: ENV['password_sender']
-  }
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+    # config.action_mailer.smtp_settings = {
+  #  address: 'smtp.gmail.com',
+  #  port: 587,
+  #  domain: 'gmail.com',
+  #  user_name: ENV['email_sender'],
+  #  password: ENV['password_sender'],
+  #  authentication: 'plain',
+  #  enable_starttls_auto: true
+  # }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_112625) do
+ActiveRecord::Schema.define(version: 2019_03_28_100522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,20 +44,30 @@ ActiveRecord::Schema.define(version: 2019_01_09_112625) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "average_caches", force: :cascade do |t|
+    t.bigint "rater_id"
+    t.string "rateable_type"
+    t.bigint "rateable_id"
+    t.float "avg", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
+    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "marks", force: :cascade do |t|
+  create_table "overall_averages", force: :cascade do |t|
+    t.string "rateable_type"
+    t.bigint "rateable_id"
+    t.float "overall_avg", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.integer "value"
-    t.bigint "technology_id"
-    t.index ["technology_id"], name: "index_marks_on_technology_id"
-    t.index ["user_id"], name: "index_marks_on_user_id"
+    t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -67,8 +77,33 @@ ActiveRecord::Schema.define(version: 2019_01_09_112625) do
     t.bigint "answers_id"
     t.bigint "test_id"
     t.integer "right_answer"
+    t.integer "type"
     t.index ["answers_id"], name: "index_questions_on_answers_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "rates", force: :cascade do |t|
+    t.bigint "rater_id"
+    t.string "rateable_type"
+    t.bigint "rateable_id"
+    t.float "stars", null: false
+    t.string "dimension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rateable_type", "rateable_id"], name: "index_rates_on_rateable_type_and_rateable_id"
+    t.index ["rater_id"], name: "index_rates_on_rater_id"
+  end
+
+  create_table "rating_caches", force: :cascade do |t|
+    t.string "cacheable_type"
+    t.bigint "cacheable_id"
+    t.float "avg", null: false
+    t.integer "qty", null: false
+    t.string "dimension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
+    t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -107,6 +142,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_112625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "technology_id"
+    t.integer "status", default: 0
     t.index ["technology_id"], name: "index_tests_on_technology_id"
     t.index ["users_id"], name: "index_tests_on_users_id"
   end
@@ -134,8 +170,6 @@ ActiveRecord::Schema.define(version: 2019_01_09_112625) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "marks", "technologies"
-  add_foreign_key "marks", "users"
   add_foreign_key "questions", "answers", column: "answers_id"
   add_foreign_key "questions", "tests"
   add_foreign_key "technologies", "categories"

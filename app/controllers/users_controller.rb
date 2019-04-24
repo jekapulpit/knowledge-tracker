@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  def profile
-    @progress = current_user.technologies_users.includes(:technology)
-    @passed_tests = current_user.test_results.where(result: 10).pluck(:test_id).uniq.count
-  end
+  def profile; end
 
   def create; end
 
@@ -11,6 +8,7 @@ class UsersController < ApplicationController
   def delete; end
 
   def change_avatar
+    puts params[:new_avatar]
     current_user.avatar.attach(params[:new_avatar])
 
     respond_to do |format|
