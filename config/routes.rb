@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   namespace :api do
     post '/test/finish', to: 'tests#finish',
          as: 'test_finish'
+    post '/profile/change_avatar', to: 'users#change_avatar', as: 'change_avatar'
     get '/profile', to: 'users#profile'
     post '/answer/', to: 'answers#answer'
     resources :technologies, only: [:index, :update] do

@@ -22,7 +22,7 @@ class TechList extends React.Component {
     }
 
     handleDelete = (technologyId) => {
-        fetch(`http://localhost:3000/technologies/${technologyId}`,
+        fetch(`/technologies/${technologyId}`,
             {
                 method: 'DELETE',
                 headers: {

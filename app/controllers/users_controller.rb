@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def delete; end
 
   def change_avatar
+    puts params[:new_avatar]
     current_user.avatar.attach(params[:new_avatar])
 
     respond_to do |format|

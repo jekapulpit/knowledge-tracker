@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def profile
     user = current_user.with_all_attributes
     progress = current_user.progress
@@ -13,10 +15,7 @@ class Api::UsersController < ApplicationController
 
   def change_avatar
     current_user.avatar.attach(params[:new_avatar])
-
-    respond_to do |format|
-      format.json { render json: { avatar: url_for(current_user.avatar) } }
-    end
+    render json: {avatar: url_for(current_user.avatar)}
   end
 
   private
